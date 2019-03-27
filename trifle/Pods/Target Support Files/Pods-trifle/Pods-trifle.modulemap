@@ -1,0 +1,6 @@
+framework module Pods_trifle {
+  umbrella header "Pods-trifle-umbrella.h"
+
+  export *
+  module * { export * }
+}

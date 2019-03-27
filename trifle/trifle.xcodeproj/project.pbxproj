@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0BDFE705430EACB35BBA7E98 /* Pods_trifle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD2F59BB967DC6161BB08E5 /* Pods_trifle.framework */; };
 		EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */; };
 		EEBC4FDD224B76420058B4E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDC224B76420058B4E5 /* ViewController.swift */; };
 		EEBC4FE2224B76450058B4E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEBC4FE1224B76450058B4E5 /* Assets.xcassets */; };
@@ -33,6 +34,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1DD2F59BB967DC6161BB08E5 /* Pods_trifle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trifle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		24F878CE69EC4654A40E1849 /* Pods-trifle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trifle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trifle/Pods-trifle.debug.xcconfig"; sourceTree = "<group>"; };
+		C78711366A7DD71286E73C2A /* Pods-trifle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trifle.release.xcconfig"; path = "Pods/Target Support Files/Pods-trifle/Pods-trifle.release.xcconfig"; sourceTree = "<group>"; };
 		EEBC4FD7224B76420058B4E5 /* trifle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trifle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEBC4FDC224B76420058B4E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -65,17 +69,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0BDFE705430EACB35BBA7E98 /* Pods_trifle.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08946536183C30BF0EE1D203 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				24F878CE69EC4654A40E1849 /* Pods-trifle.debug.xcconfig */,
+				C78711366A7DD71286E73C2A /* Pods-trifle.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		481633CD63B19DBB61889EA6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1DD2F59BB967DC6161BB08E5 /* Pods_trifle.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		EEBC4FCE224B76420058B4E5 = {
 			isa = PBXGroup;
 			children = (
 				EEBC4FD9224B76420058B4E5 /* trifle */,
 				EEBC4FD8224B76420058B4E5 /* Products */,
+				08946536183C30BF0EE1D203 /* Pods */,
+				481633CD63B19DBB61889EA6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -237,9 +261,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EEBC4FE9224B76460058B4E5 /* Build configuration list for PBXNativeTarget "trifle" */;
 			buildPhases = (
+				7DCB6573B116402AFAE34E0A /* [CP] Check Pods Manifest.lock */,
 				EEBC4FD3224B76420058B4E5 /* Sources */,
 				EEBC4FD4224B76420058B4E5 /* Frameworks */,
 				EEBC4FD5224B76420058B4E5 /* Resources */,
+				4535F09D6D72836FC37A9237 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -300,6 +326,59 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4535F09D6D72836FC37A9237 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-trifle/Pods-trifle-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
+				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-trifle/Pods-trifle-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7DCB6573B116402AFAE34E0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-trifle-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EEBC4FD3224B76420058B4E5 /* Sources */ = {
@@ -464,6 +543,7 @@
 		};
 		EEBC4FEA224B76460058B4E5 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 24F878CE69EC4654A40E1849 /* Pods-trifle.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -483,6 +563,7 @@
 		};
 		EEBC4FEB224B76460058B4E5 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C78711366A7DD71286E73C2A /* Pods-trifle.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
