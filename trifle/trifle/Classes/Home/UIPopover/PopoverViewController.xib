@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopoverViewController" customModule="trifle" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="262" height="496"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="popover_background" translatesAutoresizingMaskIntoConstraints="NO" id="gL3-9q-aeN">
+                    <rect key="frame" x="0.0" y="0.0" width="262" height="496"/>
+                </imageView>
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UeU-EJ-ImH">
+                    <rect key="frame" x="2" y="10" width="258" height="484"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </tableView>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UeU-EJ-ImH" secondAttribute="bottom" constant="2" id="Dle-zQ-5Sa"/>
+                <constraint firstItem="UeU-EJ-ImH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="J5Z-Af-8wD"/>
+                <constraint firstItem="gL3-9q-aeN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dQx-bb-KQf"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UeU-EJ-ImH" secondAttribute="trailing" constant="2" id="hSa-S5-rCT"/>
+                <constraint firstItem="gL3-9q-aeN" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="mma-mI-Tuu"/>
+                <constraint firstItem="UeU-EJ-ImH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="2" id="sgF-9G-L5t"/>
+                <constraint firstItem="gL3-9q-aeN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ybb-zW-rja"/>
+                <constraint firstItem="gL3-9q-aeN" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="zlA-FF-iNA"/>
+            </constraints>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-549" y="83"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="popover_background" width="27" height="42"/>
+    </resources>
+</document>

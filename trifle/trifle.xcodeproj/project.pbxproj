@@ -9,19 +9,55 @@
 /* Begin PBXBuildFile section */
 		EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */; };
 		EEBC4FDD224B76420058B4E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDC224B76420058B4E5 /* ViewController.swift */; };
-		EEBC4FE0224B76420058B4E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC4FDE224B76420058B4E5 /* Main.storyboard */; };
 		EEBC4FE2224B76450058B4E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEBC4FE1224B76450058B4E5 /* Assets.xcassets */; };
 		EEBC4FE5224B76460058B4E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC4FE3224B76460058B4E5 /* LaunchScreen.storyboard */; };
+		EEBC500D224B76FC0058B4E5 /* CloseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FEF224B76FC0058B4E5 /* CloseViewController.swift */; };
+		EEBC500E224B76FC0058B4E5 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FF0224B76FC0058B4E5 /* HomeViewController.swift */; };
+		EEBC500F224B76FC0058B4E5 /* HotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FF1224B76FC0058B4E5 /* HotViewController.swift */; };
+		EEBC5010224B76FC0058B4E5 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC4FF3224B76FC0058B4E5 /* Home.storyboard */; };
+		EEBC5011224B76FC0058B4E5 /* PopoverAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FF7224B76FC0058B4E5 /* PopoverAnimator.swift */; };
+		EEBC5012224B76FC0058B4E5 /* PopoverViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FF8224B76FC0058B4E5 /* PopoverViewController.swift */; };
+		EEBC5013224B76FC0058B4E5 /* PopoverViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEBC4FF9224B76FC0058B4E5 /* PopoverViewController.xib */; };
+		EEBC5014224B76FC0058B4E5 /* TFEPresenttationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FFA224B76FC0058B4E5 /* TFEPresenttationController.swift */; };
+		EEBC5015224B76FC0058B4E5 /* TitleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FFC224B76FC0058B4E5 /* TitleBtn.swift */; };
+		EEBC5016224B76FC0058B4E5 /* titleScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FFD224B76FC0058B4E5 /* titleScrollView.swift */; };
+		EEBC5017224B76FC0058B4E5 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FFF224B76FC0058B4E5 /* MainViewController.swift */; };
+		EEBC5018224B76FC0058B4E5 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC5001224B76FC0058B4E5 /* BaseViewController.swift */; };
+		EEBC5019224B76FC0058B4E5 /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC5002224B76FC0058B4E5 /* VisitorView.swift */; };
+		EEBC501A224B76FC0058B4E5 /* VisitorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEBC5003224B76FC0058B4E5 /* VisitorView.xib */; };
+		EEBC501B224B76FC0058B4E5 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC5005224B76FC0058B4E5 /* Profile.storyboard */; };
+		EEBC501C224B76FC0058B4E5 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC5006224B76FC0058B4E5 /* ProfileViewController.swift */; };
+		EEBC501D224B76FC0058B4E5 /* Null.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC5008224B76FC0058B4E5 /* Null.storyboard */; };
+		EEBC501E224B76FC0058B4E5 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC500C224B76FC0058B4E5 /* UIButton+Extension.swift */; };
+		EEBC5020224B774F0058B4E5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEBC501F224B774F0058B4E5 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		EEBC4FD7224B76420058B4E5 /* trifle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trifle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEBC4FDC224B76420058B4E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		EEBC4FDF224B76420058B4E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		EEBC4FE1224B76450058B4E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EEBC4FE4224B76460058B4E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EEBC4FE6224B76460058B4E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EEBC4FEF224B76FC0058B4E5 /* CloseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CloseViewController.swift; sourceTree = "<group>"; };
+		EEBC4FF0224B76FC0058B4E5 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EEBC4FF1224B76FC0058B4E5 /* HotViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HotViewController.swift; sourceTree = "<group>"; };
+		EEBC4FF4224B76FC0058B4E5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
+		EEBC4FF7224B76FC0058B4E5 /* PopoverAnimator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverAnimator.swift; sourceTree = "<group>"; };
+		EEBC4FF8224B76FC0058B4E5 /* PopoverViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopoverViewController.swift; sourceTree = "<group>"; };
+		EEBC4FF9224B76FC0058B4E5 /* PopoverViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopoverViewController.xib; sourceTree = "<group>"; };
+		EEBC4FFA224B76FC0058B4E5 /* TFEPresenttationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TFEPresenttationController.swift; sourceTree = "<group>"; };
+		EEBC4FFC224B76FC0058B4E5 /* TitleBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBtn.swift; sourceTree = "<group>"; };
+		EEBC4FFD224B76FC0058B4E5 /* titleScrollView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = titleScrollView.swift; sourceTree = "<group>"; };
+		EEBC4FFF224B76FC0058B4E5 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		EEBC5001224B76FC0058B4E5 /* BaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		EEBC5002224B76FC0058B4E5 /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
+		EEBC5003224B76FC0058B4E5 /* VisitorView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VisitorView.xib; sourceTree = "<group>"; };
+		EEBC5005224B76FC0058B4E5 /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		EEBC5006224B76FC0058B4E5 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		EEBC5008224B76FC0058B4E5 /* Null.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Null.storyboard; sourceTree = "<group>"; };
+		EEBC500C224B76FC0058B4E5 /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		EEBC501F224B774F0058B4E5 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,14 +90,144 @@
 		EEBC4FD9224B76420058B4E5 /* trifle */ = {
 			isa = PBXGroup;
 			children = (
+				EEBC4FEC224B76FC0058B4E5 /* Classes */,
 				EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */,
 				EEBC4FDC224B76420058B4E5 /* ViewController.swift */,
-				EEBC4FDE224B76420058B4E5 /* Main.storyboard */,
+				EEBC501F224B774F0058B4E5 /* Main.storyboard */,
 				EEBC4FE1224B76450058B4E5 /* Assets.xcassets */,
 				EEBC4FE3224B76460058B4E5 /* LaunchScreen.storyboard */,
 				EEBC4FE6224B76460058B4E5 /* Info.plist */,
 			);
 			path = trifle;
+			sourceTree = "<group>";
+		};
+		EEBC4FEC224B76FC0058B4E5 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC4FED224B76FC0058B4E5 /* Home */,
+				EEBC4FFE224B76FC0058B4E5 /* Main */,
+				EEBC5004224B76FC0058B4E5 /* me */,
+				EEBC5007224B76FC0058B4E5 /* Publish */,
+				EEBC500A224B76FC0058B4E5 /* Tool */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EEBC4FED224B76FC0058B4E5 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC4FEE224B76FC0058B4E5 /* Controller */,
+				EEBC4FF5224B76FC0058B4E5 /* trifle */,
+				EEBC4FF6224B76FC0058B4E5 /* UIPopover */,
+				EEBC4FFB224B76FC0058B4E5 /* View */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EEBC4FEE224B76FC0058B4E5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC4FEF224B76FC0058B4E5 /* CloseViewController.swift */,
+				EEBC4FF0224B76FC0058B4E5 /* HomeViewController.swift */,
+				EEBC4FF1224B76FC0058B4E5 /* HotViewController.swift */,
+				EEBC4FF2224B76FC0058B4E5 /* trifle */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EEBC4FF2224B76FC0058B4E5 /* trifle */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC4FF3224B76FC0058B4E5 /* Home.storyboard */,
+			);
+			path = trifle;
+			sourceTree = "<group>";
+		};
+		EEBC4FF5224B76FC0058B4E5 /* trifle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = trifle;
+			sourceTree = "<group>";
+		};
+		EEBC4FF6224B76FC0058B4E5 /* UIPopover */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC4FF7224B76FC0058B4E5 /* PopoverAnimator.swift */,
+				EEBC4FF8224B76FC0058B4E5 /* PopoverViewController.swift */,
+				EEBC4FF9224B76FC0058B4E5 /* PopoverViewController.xib */,
+				EEBC4FFA224B76FC0058B4E5 /* TFEPresenttationController.swift */,
+			);
+			path = UIPopover;
+			sourceTree = "<group>";
+		};
+		EEBC4FFB224B76FC0058B4E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC4FFC224B76FC0058B4E5 /* TitleBtn.swift */,
+				EEBC4FFD224B76FC0058B4E5 /* titleScrollView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EEBC4FFE224B76FC0058B4E5 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC4FFF224B76FC0058B4E5 /* MainViewController.swift */,
+				EEBC5000224B76FC0058B4E5 /* Visitor */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		EEBC5000224B76FC0058B4E5 /* Visitor */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC5001224B76FC0058B4E5 /* BaseViewController.swift */,
+				EEBC5002224B76FC0058B4E5 /* VisitorView.swift */,
+				EEBC5003224B76FC0058B4E5 /* VisitorView.xib */,
+			);
+			path = Visitor;
+			sourceTree = "<group>";
+		};
+		EEBC5004224B76FC0058B4E5 /* me */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC5005224B76FC0058B4E5 /* Profile.storyboard */,
+				EEBC5006224B76FC0058B4E5 /* ProfileViewController.swift */,
+			);
+			path = me;
+			sourceTree = "<group>";
+		};
+		EEBC5007224B76FC0058B4E5 /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC5008224B76FC0058B4E5 /* Null.storyboard */,
+				EEBC5009224B76FC0058B4E5 /* trifle */,
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
+		EEBC5009224B76FC0058B4E5 /* trifle */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = trifle;
+			sourceTree = "<group>";
+		};
+		EEBC500A224B76FC0058B4E5 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC500B224B76FC0058B4E5 /* Category */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		EEBC500B224B76FC0058B4E5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				EEBC500C224B76FC0058B4E5 /* UIButton+Extension.swift */,
+			);
+			path = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,8 +289,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEBC4FE5224B76460058B4E5 /* LaunchScreen.storyboard in Resources */,
+				EEBC501D224B76FC0058B4E5 /* Null.storyboard in Resources */,
 				EEBC4FE2224B76450058B4E5 /* Assets.xcassets in Resources */,
-				EEBC4FE0224B76420058B4E5 /* Main.storyboard in Resources */,
+				EEBC5020224B774F0058B4E5 /* Main.storyboard in Resources */,
+				EEBC5010224B76FC0058B4E5 /* Home.storyboard in Resources */,
+				EEBC5013224B76FC0058B4E5 /* PopoverViewController.xib in Resources */,
+				EEBC501B224B76FC0058B4E5 /* Profile.storyboard in Resources */,
+				EEBC501A224B76FC0058B4E5 /* VisitorView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -135,28 +306,41 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EEBC5015224B76FC0058B4E5 /* TitleBtn.swift in Sources */,
+				EEBC5017224B76FC0058B4E5 /* MainViewController.swift in Sources */,
+				EEBC500F224B76FC0058B4E5 /* HotViewController.swift in Sources */,
+				EEBC5016224B76FC0058B4E5 /* titleScrollView.swift in Sources */,
+				EEBC501C224B76FC0058B4E5 /* ProfileViewController.swift in Sources */,
 				EEBC4FDD224B76420058B4E5 /* ViewController.swift in Sources */,
+				EEBC5018224B76FC0058B4E5 /* BaseViewController.swift in Sources */,
+				EEBC5012224B76FC0058B4E5 /* PopoverViewController.swift in Sources */,
+				EEBC501E224B76FC0058B4E5 /* UIButton+Extension.swift in Sources */,
+				EEBC5019224B76FC0058B4E5 /* VisitorView.swift in Sources */,
+				EEBC500D224B76FC0058B4E5 /* CloseViewController.swift in Sources */,
+				EEBC5014224B76FC0058B4E5 /* TFEPresenttationController.swift in Sources */,
 				EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */,
+				EEBC5011224B76FC0058B4E5 /* PopoverAnimator.swift in Sources */,
+				EEBC500E224B76FC0058B4E5 /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		EEBC4FDE224B76420058B4E5 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EEBC4FDF224B76420058B4E5 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		EEBC4FE3224B76460058B4E5 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				EEBC4FE4224B76460058B4E5 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		EEBC4FF3224B76FC0058B4E5 /* Home.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EEBC4FF4224B76FC0058B4E5 /* Base */,
+			);
+			name = Home.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -285,6 +469,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FNVBY2ZPD2;
 				INFOPLIST_FILE = trifle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +488,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FNVBY2ZPD2;
 				INFOPLIST_FILE = trifle/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
