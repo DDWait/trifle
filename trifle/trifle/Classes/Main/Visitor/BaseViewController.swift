@@ -45,17 +45,14 @@ extension BaseViewController
     private func setUpVisitorView(){
         view = visitorView
         //设置监听
-        visitorView.registerBtn.addTarget(self, action: #selector(registerBtnDidClicked), for: UIControl.Event.touchUpInside)
-        visitorView.loginBtn.addTarget(self, action: #selector(LoginBtnDidClicked), for: UIControl.Event.touchUpInside)
+        visitorView.registerLoginBtn.addTarget(self, action: #selector(regisLoginterBtnDidClicked), for: UIControl.Event.touchUpInside)
     }
     
     //按钮的监听
-    //注册按钮
-    @objc private func registerBtnDidClicked(){
-        print("registerBtnDidClicked")
-    }
     //登录按钮
-    @objc private func LoginBtnDidClicked(){
-        print("LoginBtnDidClicked")
+    @objc private func regisLoginterBtnDidClicked(){
+        let registerLoginVc : RegisterLoginViewController = RegisterLoginViewController()
+        present(registerLoginVc, animated: true, completion: nil)
     }
+
 }

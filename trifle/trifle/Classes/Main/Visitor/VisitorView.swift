@@ -18,8 +18,7 @@ class VisitorView: UIView {
     @IBOutlet weak var ratationView: UIImageView!
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var tipLabel: UILabel!
-    @IBOutlet weak var registerBtn: UIButton!
-    @IBOutlet weak var loginBtn: UIButton!
+    @IBOutlet weak var registerLoginBtn: UIButton!
     
     
     func setUpVisitorViewInfo(iconName : String, title : String) {

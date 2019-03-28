@@ -46,23 +46,13 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ejd-bj-PCX">
-                    <rect key="frame" x="68" y="428" width="92" height="32"/>
+                    <rect key="frame" x="89.5" y="420" width="200" height="30"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="32" id="23h-pd-TyK"/>
-                        <constraint firstAttribute="width" constant="92" id="oKt-nP-Dpp"/>
+                        <constraint firstAttribute="width" constant="200" id="Wb2-PH-HMq"/>
+                        <constraint firstAttribute="height" constant="30" id="YDA-hr-yGC"/>
                     </constraints>
-                    <state key="normal" title="注册" backgroundImage="common_button_white_disable">
+                    <state key="normal" title="立即登录注册" backgroundImage="common_button_white_disable">
                         <color key="titleColor" red="1" green="0.60075882810000003" blue="0.1602791948" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hbm-1U-0vX">
-                    <rect key="frame" x="219" y="428" width="92" height="32"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="92" id="5wp-aH-Qz0"/>
-                        <constraint firstAttribute="height" constant="32" id="scv-gE-pDs"/>
-                    </constraints>
-                    <state key="normal" title="登录" backgroundImage="common_button_white_disable">
-                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
             </subviews>
@@ -71,28 +61,25 @@
                 <constraint firstItem="umq-E3-2tW" firstAttribute="top" secondItem="gci-jd-OsP" secondAttribute="bottom" constant="30" id="4QR-DU-h4U"/>
                 <constraint firstItem="gci-jd-OsP" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-80" id="4wL-IZ-tkC"/>
                 <constraint firstItem="m9v-4o-8Va" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="RSP-J0-qQS"/>
-                <constraint firstItem="hbm-1U-0vX" firstAttribute="trailing" secondItem="umq-E3-2tW" secondAttribute="trailing" id="RZi-kG-qGS"/>
                 <constraint firstItem="UeW-o0-9IC" firstAttribute="centerX" secondItem="gci-jd-OsP" secondAttribute="centerX" id="TJv-Fk-tV3"/>
-                <constraint firstItem="ejd-bj-PCX" firstAttribute="leading" secondItem="umq-E3-2tW" secondAttribute="leading" id="ZKr-7X-N1Q"/>
                 <constraint firstItem="umq-E3-2tW" firstAttribute="centerX" secondItem="gci-jd-OsP" secondAttribute="centerX" id="diX-4I-dL2"/>
+                <constraint firstItem="ejd-bj-PCX" firstAttribute="top" secondItem="gci-jd-OsP" secondAttribute="bottom" constant="102" id="drT-jw-P76"/>
                 <constraint firstItem="gci-jd-OsP" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="eEv-dR-MgX"/>
-                <constraint firstItem="ejd-bj-PCX" firstAttribute="top" secondItem="gci-jd-OsP" secondAttribute="bottom" constant="110" id="ejK-eE-HPz"/>
                 <constraint firstItem="m9v-4o-8Va" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="iZC-RZ-oE9"/>
                 <constraint firstItem="UeW-o0-9IC" firstAttribute="centerY" secondItem="gci-jd-OsP" secondAttribute="centerY" constant="30" id="pbw-3V-XjB"/>
+                <constraint firstItem="ejd-bj-PCX" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="rGB-DI-Ss7"/>
                 <constraint firstItem="m9v-4o-8Va" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="s0Z-2Y-eeW"/>
-                <constraint firstItem="hbm-1U-0vX" firstAttribute="top" secondItem="ejd-bj-PCX" secondAttribute="top" id="sJV-GJ-VqR"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <connections>
                 <outlet property="iconView" destination="UeW-o0-9IC" id="mXX-Lt-J1I"/>
-                <outlet property="loginBtn" destination="hbm-1U-0vX" id="S4J-XX-nsu"/>
                 <outlet property="ratationView" destination="gci-jd-OsP" id="4vs-tA-GWq"/>
-                <outlet property="registerBtn" destination="ejd-bj-PCX" id="4Jl-cI-Kd1"/>
+                <outlet property="registerLoginBtn" destination="ejd-bj-PCX" id="4X9-wk-nAs"/>
                 <outlet property="tipLabel" destination="umq-E3-2tW" id="P3q-6Z-6tH"/>
             </connections>
-            <point key="canvasLocation" x="-687" y="98"/>
+            <point key="canvasLocation" x="-926" y="-139"/>
         </view>
     </objects>
     <resources>
