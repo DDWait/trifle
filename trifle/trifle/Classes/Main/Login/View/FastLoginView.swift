@@ -9,7 +9,7 @@
 import UIKit
 
 class FastLoginView: UIView {
-
+    @IBOutlet weak var sinaBtn: FastButton!
     class func FastLoginView()->FastLoginView{
         return Bundle.main.loadNibNamed("FastLoginView", owner: nil, options: nil)?.last as! FastLoginView
     }

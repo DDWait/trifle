@@ -8,6 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0BDFE705430EACB35BBA7E98 /* Pods_trifle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD2F59BB967DC6161BB08E5 /* Pods_trifle.framework */; };
+		EE473BB3224F601E004C05E0 /* NetWorkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE473BB2224F601D004C05E0 /* NetWorkTool.swift */; };
+		EE473BC6224F6114004C05E0 /* libSocialQQ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BB9224F6114004C05E0 /* libSocialQQ.a */; };
+		EE473BC7224F6114004C05E0 /* libSocialSina.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BBC224F6114004C05E0 /* libSocialSina.a */; };
+		EE473BC8224F6114004C05E0 /* libSocialWeChat.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BBF224F6114004C05E0 /* libSocialWeChat.a */; };
+		EE473BC9224F6114004C05E0 /* UMCommon.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BC1224F6114004C05E0 /* UMCommon.framework */; };
+		EE473BCA224F6114004C05E0 /* UMShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BC2224F6114004C05E0 /* UMShare.framework */; };
+		EE473BCB224F6114004C05E0 /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = EE473BC4224F6114004C05E0 /* UMSocialSDKResources.bundle */; };
+		EE473BCC224F6114004C05E0 /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BC5224F6114004C05E0 /* UShareUI.framework */; };
+		EE473BCE224F61C0004C05E0 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BCD224F61C0004C05E0 /* Photos.framework */; };
+		EE473BD0224F61CB004C05E0 /* ImageIO.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BCF224F61CB004C05E0 /* ImageIO.framework */; };
+		EE473BD2224F61D8004C05E0 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BD1224F61D8004C05E0 /* libz.tbd */; };
+		EE473BD4224F61E3004C05E0 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BD3224F61E3004C05E0 /* libc++.tbd */; };
+		EE473BD6224F61F2004C05E0 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BD5224F61F1004C05E0 /* CoreTelephony.framework */; };
+		EE473BD8224F61FC004C05E0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BD7224F61FC004C05E0 /* SystemConfiguration.framework */; };
+		EE473BDA224F6209004C05E0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BD9224F6208004C05E0 /* CoreGraphics.framework */; };
+		EE473BDC224F621A004C05E0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BDB224F621A004C05E0 /* libsqlite3.tbd */; };
 		EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */; };
 		EEBC4FDD224B76420058B4E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDC224B76420058B4E5 /* ViewController.swift */; };
 		EEBC4FE2224B76450058B4E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEBC4FE1224B76450058B4E5 /* Assets.xcassets */; };
@@ -44,6 +60,26 @@
 		1DD2F59BB967DC6161BB08E5 /* Pods_trifle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trifle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F878CE69EC4654A40E1849 /* Pods-trifle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trifle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trifle/Pods-trifle.debug.xcconfig"; sourceTree = "<group>"; };
 		C78711366A7DD71286E73C2A /* Pods-trifle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trifle.release.xcconfig"; path = "Pods/Target Support Files/Pods-trifle/Pods-trifle.release.xcconfig"; sourceTree = "<group>"; };
+		EE473BB2224F601D004C05E0 /* NetWorkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkTool.swift; sourceTree = "<group>"; };
+		EE473BB9224F6114004C05E0 /* libSocialQQ.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialQQ.a; sourceTree = "<group>"; };
+		EE473BBA224F6114004C05E0 /* UMSocialQQHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialQQHandler.h; sourceTree = "<group>"; };
+		EE473BBC224F6114004C05E0 /* libSocialSina.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialSina.a; sourceTree = "<group>"; };
+		EE473BBD224F6114004C05E0 /* UMSocialSinaHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialSinaHandler.h; sourceTree = "<group>"; };
+		EE473BBF224F6114004C05E0 /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
+		EE473BC0224F6114004C05E0 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
+		EE473BC1224F6114004C05E0 /* UMCommon.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMCommon.framework; sourceTree = "<group>"; };
+		EE473BC2224F6114004C05E0 /* UMShare.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMShare.framework; sourceTree = "<group>"; };
+		EE473BC4224F6114004C05E0 /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
+		EE473BC5224F6114004C05E0 /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
+		EE473BCD224F61C0004C05E0 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		EE473BCF224F61CB004C05E0 /* ImageIO.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ImageIO.framework; path = System/Library/Frameworks/ImageIO.framework; sourceTree = SDKROOT; };
+		EE473BD1224F61D8004C05E0 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		EE473BD3224F61E3004C05E0 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
+		EE473BD5224F61F1004C05E0 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		EE473BD7224F61FC004C05E0 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		EE473BD9224F6208004C05E0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		EE473BDB224F621A004C05E0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		EE473BDD224F6317004C05E0 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
 		EEBC4FD7224B76420058B4E5 /* trifle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trifle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEBC4FDC224B76420058B4E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,7 +119,21 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE473BDC224F621A004C05E0 /* libsqlite3.tbd in Frameworks */,
+				EE473BDA224F6209004C05E0 /* CoreGraphics.framework in Frameworks */,
+				EE473BD8224F61FC004C05E0 /* SystemConfiguration.framework in Frameworks */,
+				EE473BD6224F61F2004C05E0 /* CoreTelephony.framework in Frameworks */,
+				EE473BD4224F61E3004C05E0 /* libc++.tbd in Frameworks */,
+				EE473BD2224F61D8004C05E0 /* libz.tbd in Frameworks */,
+				EE473BD0224F61CB004C05E0 /* ImageIO.framework in Frameworks */,
+				EE473BCE224F61C0004C05E0 /* Photos.framework in Frameworks */,
+				EE473BC9224F6114004C05E0 /* UMCommon.framework in Frameworks */,
+				EE473BC6224F6114004C05E0 /* libSocialQQ.a in Frameworks */,
 				0BDFE705430EACB35BBA7E98 /* Pods_trifle.framework in Frameworks */,
+				EE473BCC224F6114004C05E0 /* UShareUI.framework in Frameworks */,
+				EE473BC8224F6114004C05E0 /* libSocialWeChat.a in Frameworks */,
+				EE473BCA224F6114004C05E0 /* UMShare.framework in Frameworks */,
+				EE473BC7224F6114004C05E0 /* libSocialSina.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -102,9 +152,91 @@
 		481633CD63B19DBB61889EA6 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				EE473BDB224F621A004C05E0 /* libsqlite3.tbd */,
+				EE473BD9224F6208004C05E0 /* CoreGraphics.framework */,
+				EE473BD7224F61FC004C05E0 /* SystemConfiguration.framework */,
+				EE473BD5224F61F1004C05E0 /* CoreTelephony.framework */,
+				EE473BD3224F61E3004C05E0 /* libc++.tbd */,
+				EE473BD1224F61D8004C05E0 /* libz.tbd */,
+				EE473BCF224F61CB004C05E0 /* ImageIO.framework */,
+				EE473BCD224F61C0004C05E0 /* Photos.framework */,
 				1DD2F59BB967DC6161BB08E5 /* Pods_trifle.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EE473BB4224F60EF004C05E0 /* FastLogin(友盟) */ = {
+			isa = PBXGroup;
+			children = (
+				EE473BB5224F6114004C05E0 /* share */,
+			);
+			name = "FastLogin(友盟)";
+			path = "trifle/Classes/Main/FastLogin(友盟)";
+			sourceTree = SOURCE_ROOT;
+		};
+		EE473BB5224F6114004C05E0 /* share */ = {
+			isa = PBXGroup;
+			children = (
+				EE473BB6224F6114004C05E0 /* share_ios_6.9.5 */,
+			);
+			path = share;
+			sourceTree = "<group>";
+		};
+		EE473BB6224F6114004C05E0 /* share_ios_6.9.5 */ = {
+			isa = PBXGroup;
+			children = (
+				EE473BB7224F6114004C05E0 /* SocialLibraries */,
+				EE473BC1224F6114004C05E0 /* UMCommon.framework */,
+				EE473BC2224F6114004C05E0 /* UMShare.framework */,
+				EE473BC3224F6114004C05E0 /* UMSocialUI */,
+			);
+			path = share_ios_6.9.5;
+			sourceTree = "<group>";
+		};
+		EE473BB7224F6114004C05E0 /* SocialLibraries */ = {
+			isa = PBXGroup;
+			children = (
+				EE473BB8224F6114004C05E0 /* QQ */,
+				EE473BBB224F6114004C05E0 /* Sina */,
+				EE473BBE224F6114004C05E0 /* WeChat */,
+			);
+			path = SocialLibraries;
+			sourceTree = "<group>";
+		};
+		EE473BB8224F6114004C05E0 /* QQ */ = {
+			isa = PBXGroup;
+			children = (
+				EE473BB9224F6114004C05E0 /* libSocialQQ.a */,
+				EE473BBA224F6114004C05E0 /* UMSocialQQHandler.h */,
+			);
+			path = QQ;
+			sourceTree = "<group>";
+		};
+		EE473BBB224F6114004C05E0 /* Sina */ = {
+			isa = PBXGroup;
+			children = (
+				EE473BBC224F6114004C05E0 /* libSocialSina.a */,
+				EE473BBD224F6114004C05E0 /* UMSocialSinaHandler.h */,
+			);
+			path = Sina;
+			sourceTree = "<group>";
+		};
+		EE473BBE224F6114004C05E0 /* WeChat */ = {
+			isa = PBXGroup;
+			children = (
+				EE473BBF224F6114004C05E0 /* libSocialWeChat.a */,
+				EE473BC0224F6114004C05E0 /* UMSocialWechatHandler.h */,
+			);
+			path = WeChat;
+			sourceTree = "<group>";
+		};
+		EE473BC3224F6114004C05E0 /* UMSocialUI */ = {
+			isa = PBXGroup;
+			children = (
+				EE473BC4224F6114004C05E0 /* UMSocialSDKResources.bundle */,
+				EE473BC5224F6114004C05E0 /* UShareUI.framework */,
+			);
+			path = UMSocialUI;
 			sourceTree = "<group>";
 		};
 		EEBC4FCE224B76420058B4E5 = {
@@ -135,6 +267,7 @@
 				EEBC4FE1224B76450058B4E5 /* Assets.xcassets */,
 				EEBC4FE3224B76460058B4E5 /* LaunchScreen.storyboard */,
 				EEBC4FE6224B76460058B4E5 /* Info.plist */,
+				EE473BDD224F6317004C05E0 /* bridge.h */,
 			);
 			path = trifle;
 			sourceTree = "<group>";
@@ -204,6 +337,7 @@
 			isa = PBXGroup;
 			children = (
 				EEBC4FFF224B76FC0058B4E5 /* MainViewController.swift */,
+				EE473BB4224F60EF004C05E0 /* FastLogin(友盟) */,
 				EEBC5000224B76FC0058B4E5 /* Visitor */,
 				EEC7AB40224D10B40048A022 /* Login */,
 			);
@@ -249,6 +383,7 @@
 			isa = PBXGroup;
 			children = (
 				EEBC500B224B76FC0058B4E5 /* Category */,
+				EE473BB2224F601D004C05E0 /* NetWorkTool.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -358,6 +493,7 @@
 				EEC7AB44224D10DE0048A022 /* RegisterLoginViewController.xib in Resources */,
 				EEC7AB4E224D24BE0048A022 /* FastLoginView.xib in Resources */,
 				EEBC4FE2224B76450058B4E5 /* Assets.xcassets in Resources */,
+				EE473BCB224F6114004C05E0 /* UMSocialSDKResources.bundle in Resources */,
 				EEBC5020224B774F0058B4E5 /* Main.storyboard in Resources */,
 				EEBC5010224B76FC0058B4E5 /* Home.storyboard in Resources */,
 				EEBC5013224B76FC0058B4E5 /* PopoverViewController.xib in Resources */,
@@ -427,6 +563,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE473BB3224F601E004C05E0 /* NetWorkTool.swift in Sources */,
 				EEBC5015224B76FC0058B4E5 /* TitleBtn.swift in Sources */,
 				EEBC5017224B76FC0058B4E5 /* MainViewController.swift in Sources */,
 				EEBC500F224B76FC0058B4E5 /* HotViewController.swift in Sources */,
@@ -594,14 +731,38 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FNVBY2ZPD2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/trifle/Classes/Main/FastLogin(友盟)/share/share_ios_6.9.5",
+					"$(PROJECT_DIR)/trifle/Classes/Main/FastLogin(友盟)/share/share_ios_6.9.5/UMSocialUI",
+				);
 				INFOPLIST_FILE = trifle/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/trifle/Classes/Main/FastLogin(友盟)/share/share_ios_6.9.5/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/trifle/Classes/Main/FastLogin(友盟)/share/share_ios_6.9.5/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/trifle/Classes/Main/FastLogin(友盟)/share/share_ios_6.9.5/SocialLibraries/WeChat",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tone.trifle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = trifle/bridge.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -614,14 +775,38 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FNVBY2ZPD2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/trifle/Classes/Main/FastLogin(友盟)/share/share_ios_6.9.5",
+					"$(PROJECT_DIR)/trifle/Classes/Main/FastLogin(友盟)/share/share_ios_6.9.5/UMSocialUI",
+				);
 				INFOPLIST_FILE = trifle/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/trifle/Classes/Main/FastLogin(友盟)/share/share_ios_6.9.5/SocialLibraries/QQ",
+					"$(PROJECT_DIR)/trifle/Classes/Main/FastLogin(友盟)/share/share_ios_6.9.5/SocialLibraries/Sina",
+					"$(PROJECT_DIR)/trifle/Classes/Main/FastLogin(友盟)/share/share_ios_6.9.5/SocialLibraries/WeChat",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					"\"AFNetworking\"",
+					"-framework",
+					"\"SDWebImage\"",
+					"-framework",
+					"\"SVProgressHUD\"",
+					"-framework",
+					"\"SnapKit\"",
+					"-ObjC",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = tone.trifle;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = trifle/bridge.h;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

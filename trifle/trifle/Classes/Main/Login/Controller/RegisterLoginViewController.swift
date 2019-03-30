@@ -50,6 +50,7 @@ class RegisterLoginViewController: UIViewController {
         
         //快速登录
         let fastLoginView : FastLoginView = self.buttomView.subviews.first as! FastLoginView
+        fastLoginView.sinaBtn.addTarget(self, action: #selector(getUserInfoForPlatform), for: UIControl.Event.touchUpInside)
         fastLoginView.frame = self.buttomView.bounds
     }
     
@@ -66,6 +67,19 @@ class RegisterLoginViewController: UIViewController {
             self.view.layoutIfNeeded()
         }
     }
-    
-    
+}
+
+extension RegisterLoginViewController
+{
+    @objc private func getUserInfoForPlatform() {
+        UMSocialManager.default()?.getUserInfo(with: UMSocialPlatformType.sina, currentViewController: self, completion: { (result : Any?, error : Error?) in
+            let resp : UMSocialUserInfoResponse = result as! UMSocialUserInfoResponse
+            print(resp.uid)
+            print(resp.accessToken)
+            if error != nil{
+                print("************Share fail with error \(error ?? "" as! Error)*********")
+                return
+            }
+        })
+    }
 }

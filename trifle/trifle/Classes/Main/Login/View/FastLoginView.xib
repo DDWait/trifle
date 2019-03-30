@@ -74,7 +74,10 @@
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
-            <point key="canvasLocation" x="53.600000000000001" y="48.575712143928037"/>
+            <connections>
+                <outlet property="sinaBtn" destination="PtL-eL-b48" id="f4R-bG-Qa3"/>
+            </connections>
+            <point key="canvasLocation" x="-119" y="58"/>
         </view>
     </objects>
     <resources>
