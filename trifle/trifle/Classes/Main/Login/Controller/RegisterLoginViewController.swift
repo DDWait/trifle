@@ -73,13 +73,55 @@ extension RegisterLoginViewController
 {
     @objc private func getUserInfoForPlatform() {
         UMSocialManager.default()?.getUserInfo(with: UMSocialPlatformType.sina, currentViewController: self, completion: { (result : Any?, error : Error?) in
-            let resp : UMSocialUserInfoResponse = result as! UMSocialUserInfoResponse
-            print(resp.uid)
-            print(resp.accessToken)
             if error != nil{
                 print("************Share fail with error \(error ?? "" as! Error)*********")
                 return
             }
+            let resp : UMSocialUserInfoResponse = result as! UMSocialUserInfoResponse
+            let account  = UserAccount()
+            account.access_token = resp.accessToken
+            account.expires_in = resp.expiration
+            account.uid = resp.uid
+            
+            
+            //请求用户信息
+            self.loadUserInfo(account: account)
         })
+    }
+    
+    
+    private func loadUserInfo(account : UserAccount){
+        guard let access_token = account.access_token else {
+            return
+        }
+        
+        guard let uid = account.uid else {
+            return
+        }
+        
+        //发送网络请求
+        NetWorkTool.shareInstance.loadUserInfo(access_token: access_token, uid: uid) { (result : [String : AnyObject]?,error : Error?) in
+            if error != nil{
+                print("请求用户数据错误")
+                return
+            }
+            
+            guard let userInfoDict = result else{
+                print("用户数据错误")
+                return
+            }
+            account.screen_name = userInfoDict["screen_name"] as? String
+            account.avatar_large = userInfoDict["avatar_large"] as? String
+            
+            
+            //归档保存account
+            NSKeyedArchiver.archiveRootObject(account, toFile: UserAccountTool.shareInstance.accountPath)
+            
+            //退出当前界面
+            UserAccountTool.shareInstance.account = account
+            self.dismiss(animated: false, completion: {
+                UIApplication.shared.keyWindow?.rootViewController = WelComeViewController()
+            })
+        }
     }
 }

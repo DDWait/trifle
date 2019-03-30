@@ -12,9 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var defaultVc : UIViewController? {
+        let isLogin = UserAccountTool.shareInstance.isLogin
+        return isLogin ? WelComeViewController() : UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = defaultVc
+        window?.makeKeyAndVisible()
         // 设置全局颜色
         UITabBar.appearance().tintColor = UIColor.orange
         

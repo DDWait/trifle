@@ -46,22 +46,22 @@ extension NetWorkTool
     }
 }
 
-//// MARK:-获取用户的信息
-//extension NetWorkTool
-//{
-//    func loadUserInfo(access_token : String, uid : String, finished : @escaping (_ relust : [String : AnyObject]?,_ error : Error?)->()){
-//        //1.获取请求的URLstring
-//        let urlString = "https://api.weibo.com/2/users/show.json"
-//        
-//        //2.获取请求的参数
-//        let paramenters = ["access_token" : access_token,"uid":uid]
-//        
-//        //3.发送请求
-//        request(methodType: .Get, urlString: urlString, parameters: paramenters as [String : AnyObject]) { (relust, error) in
-//            finished(relust as? [String : AnyObject],error)
-//        }
-//    }
-//}
+// MARK:-获取用户的信息
+extension NetWorkTool
+{
+    func loadUserInfo(access_token : String, uid : String, finished : @escaping (_ relust : [String : AnyObject]?,_ error : Error?)->()){
+        //1.获取请求的URLstring
+        let urlString = "https://api.weibo.com/2/users/show.json"
+        
+        //2.获取请求的参数
+        let paramenters = ["access_token" : access_token,"uid":uid]
+        
+        //3.发送请求
+        request(methodType: .Get, urlString: urlString, parameters: paramenters as [String : AnyObject]) { (relust, error) in
+            finished(relust as? [String : AnyObject],error)
+        }
+    }
+}
 
 // MARK:-请求主页数据
 //extension NetWorkTool

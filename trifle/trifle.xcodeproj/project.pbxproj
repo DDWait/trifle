@@ -24,6 +24,10 @@
 		EE473BD8224F61FC004C05E0 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BD7224F61FC004C05E0 /* SystemConfiguration.framework */; };
 		EE473BDA224F6209004C05E0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BD9224F6208004C05E0 /* CoreGraphics.framework */; };
 		EE473BDC224F621A004C05E0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = EE473BDB224F621A004C05E0 /* libsqlite3.tbd */; };
+		EE473BE0224F6D04004C05E0 /* UserAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE473BDF224F6D04004C05E0 /* UserAccount.swift */; };
+		EE473BE2224F7F7B004C05E0 /* UserAccountTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE473BE1224F7F7B004C05E0 /* UserAccountTool.swift */; };
+		EE473BE6224F8270004C05E0 /* WelComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE473BE4224F8270004C05E0 /* WelComeViewController.swift */; };
+		EE473BE7224F8270004C05E0 /* WelComeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE473BE5224F8270004C05E0 /* WelComeViewController.xib */; };
 		EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */; };
 		EEBC4FDD224B76420058B4E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDC224B76420058B4E5 /* ViewController.swift */; };
 		EEBC4FE2224B76450058B4E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEBC4FE1224B76450058B4E5 /* Assets.xcassets */; };
@@ -80,6 +84,10 @@
 		EE473BD9224F6208004C05E0 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		EE473BDB224F621A004C05E0 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		EE473BDD224F6317004C05E0 /* bridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bridge.h; sourceTree = "<group>"; };
+		EE473BDF224F6D04004C05E0 /* UserAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccount.swift; sourceTree = "<group>"; };
+		EE473BE1224F7F7B004C05E0 /* UserAccountTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountTool.swift; sourceTree = "<group>"; };
+		EE473BE4224F8270004C05E0 /* WelComeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelComeViewController.swift; sourceTree = "<group>"; };
+		EE473BE5224F8270004C05E0 /* WelComeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelComeViewController.xib; sourceTree = "<group>"; };
 		EEBC4FD7224B76420058B4E5 /* trifle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trifle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEBC4FDC224B76420058B4E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -239,6 +247,25 @@
 			path = UMSocialUI;
 			sourceTree = "<group>";
 		};
+		EE473BDE224F6CDB004C05E0 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				EE473BDF224F6D04004C05E0 /* UserAccount.swift */,
+				EE473BE1224F7F7B004C05E0 /* UserAccountTool.swift */,
+			);
+			name = Account;
+			path = trifle/Classes/Main/Login/Account;
+			sourceTree = SOURCE_ROOT;
+		};
+		EE473BE3224F8270004C05E0 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				EE473BE4224F8270004C05E0 /* WelComeViewController.swift */,
+				EE473BE5224F8270004C05E0 /* WelComeViewController.xib */,
+			);
+			path = Welcome;
+			sourceTree = "<group>";
+		};
 		EEBC4FCE224B76420058B4E5 = {
 			isa = PBXGroup;
 			children = (
@@ -338,6 +365,7 @@
 			children = (
 				EEBC4FFF224B76FC0058B4E5 /* MainViewController.swift */,
 				EE473BB4224F60EF004C05E0 /* FastLogin(友盟) */,
+				EE473BE3224F8270004C05E0 /* Welcome */,
 				EEBC5000224B76FC0058B4E5 /* Visitor */,
 				EEC7AB40224D10B40048A022 /* Login */,
 			);
@@ -401,6 +429,7 @@
 			children = (
 				EEC7AB45224D10F50048A022 /* Controller */,
 				EEC7AB46224D18A20048A022 /* View */,
+				EE473BDE224F6CDB004C05E0 /* Account */,
 			);
 			name = Login;
 			path = trifle/Classes/Main/Login;
@@ -496,6 +525,7 @@
 				EE473BCB224F6114004C05E0 /* UMSocialSDKResources.bundle in Resources */,
 				EEBC5020224B774F0058B4E5 /* Main.storyboard in Resources */,
 				EEBC5010224B76FC0058B4E5 /* Home.storyboard in Resources */,
+				EE473BE7224F8270004C05E0 /* WelComeViewController.xib in Resources */,
 				EEBC5013224B76FC0058B4E5 /* PopoverViewController.xib in Resources */,
 				EEBC501B224B76FC0058B4E5 /* Profile.storyboard in Resources */,
 				EEC7AB4A224D19070048A022 /* LoginView.xib in Resources */,
@@ -565,6 +595,7 @@
 			files = (
 				EE473BB3224F601E004C05E0 /* NetWorkTool.swift in Sources */,
 				EEBC5015224B76FC0058B4E5 /* TitleBtn.swift in Sources */,
+				EE473BE2224F7F7B004C05E0 /* UserAccountTool.swift in Sources */,
 				EEBC5017224B76FC0058B4E5 /* MainViewController.swift in Sources */,
 				EEBC500F224B76FC0058B4E5 /* HotViewController.swift in Sources */,
 				EEBC5016224B76FC0058B4E5 /* titleScrollView.swift in Sources */,
@@ -578,11 +609,13 @@
 				EEC7AB48224D18FE0048A022 /* LoginView.swift in Sources */,
 				EEBC500D224B76FC0058B4E5 /* CloseViewController.swift in Sources */,
 				EEC7AB43224D10DE0048A022 /* RegisterLoginViewController.swift in Sources */,
+				EE473BE6224F8270004C05E0 /* WelComeViewController.swift in Sources */,
 				EEBC5014224B76FC0058B4E5 /* TFEPresenttationController.swift in Sources */,
 				EEC7AB4C224D24B50048A022 /* FastLoginView.swift in Sources */,
 				EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */,
 				EEBC5011224B76FC0058B4E5 /* PopoverAnimator.swift in Sources */,
 				EEBC500E224B76FC0058B4E5 /* HomeViewController.swift in Sources */,
+				EE473BE0224F6D04004C05E0 /* UserAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
