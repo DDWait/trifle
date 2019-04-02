@@ -11,7 +11,7 @@ import UIKit
 class HomeViewController: UIViewController {
     //属性
     var scrollView : UIScrollView = UIScrollView()
-    var firstVc : HotViewController = HotViewController()
+    var firstVc : HotViewController = UIStoryboard(name: "HotViewController", bundle: nil).instantiateInitialViewController() as! HotViewController
     var secondVc : CloseViewController = CloseViewController()
     private var titleView : titleScrollView = titleScrollView(frame: CGRect(x: 0, y: 0, width: 120, height: 30))
     private lazy var popoverAnimator : PopoverAnimator = PopoverAnimator()

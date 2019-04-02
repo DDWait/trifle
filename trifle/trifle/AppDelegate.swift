@@ -24,10 +24,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // 设置全局颜色
         UITabBar.appearance().tintColor = UIColor.orange
         
-        //友盟初始化
+        //友盟初始化     需要在友盟上注册app才能获得key
         UMConfigure.initWithAppkey("5c9e1ad061f5643baf001628", channel: "App Store")
         confitUShareSettings()
         configUSharePlatforms()
+        
+        //2.003pRJ9H2l_z3E97e20d6e8b3WISBE
+        //https://api.weibo.com/2/statuses/home_timeline.json?access_token=2.003pRJ9H2l_z3E97e20d6e8b3WISBE
         return true
     }
     //回调函数
