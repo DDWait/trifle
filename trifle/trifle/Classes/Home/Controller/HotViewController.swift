@@ -8,6 +8,7 @@
 
 import UIKit
 import SDWebImage
+import MJRefresh
 
 class HotViewController: UITableViewController {
 
@@ -16,21 +17,58 @@ class HotViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        loadStatus()
         
         //自动计算cell的高度
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
+        
+        setUpHeaderView()
+        setUpFootView()
     }
     
     
 }
 
+extension HotViewController
+{
+    private func setUpHeaderView(){
+        let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewDate))
+        header?.setTitle("下拉刷新", for: .idle)
+        header?.setTitle("释放更新", for: .pulling)
+        header?.setTitle("加载中", for: .refreshing)
+        tableView.mj_header = header
+        
+        //进入刷新状态
+        tableView.mj_header.beginRefreshing()
+        
+    }
+    
+    @objc private func loadNewDate(){
+        loadStatus(isNewDate: true)
+    }
+    
+    private func setUpFootView(){
+        tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreStatuses))
+    }
+    @objc private func loadMoreStatuses(){
+        loadStatus(isNewDate: false)
+    }
+}
+
 //请求数据
 extension HotViewController
 {
-    private func loadStatus(){
-        NetWorkTool.shareInstance.loadStatuses2 { (result, error) in
+    private func loadStatus(isNewDate : Bool){
+        //获取since_id
+        var since_id = 0
+        var max_id = 0
+        if isNewDate {
+            since_id = StatusViews.first?.status?.mid ?? 0
+        }else{
+            max_id = StatusViews.last?.status?.mid ?? 0
+            max_id = max_id == 0 ? 0 : (max_id - 1)
+        }
+        NetWorkTool.shareInstance.loadStatuses(since_id: since_id, max_id: max_id) { (result, error) in
             if error != nil{
                 print("error--loadStatus")
                 return
@@ -39,13 +77,19 @@ extension HotViewController
             guard let resultArray = result else{
                 return
             }
-            
+            var tempStatusViews : [StatusViewTool] = [StatusViewTool]()
             for statusDict in resultArray{
                 let status = Status(dict: statusDict)
                 let StatusView = StatusViewTool(status: status)
-                self.StatusViews.append(StatusView)
+                tempStatusViews.append(StatusView)
             }
-            self.cacheImages(StatusViews: self.StatusViews)
+            if isNewDate{
+                self.StatusViews = tempStatusViews + self.StatusViews
+            }else{
+                self.StatusViews += tempStatusViews
+            }
+            
+            self.cacheImages(StatusViews: tempStatusViews)
         }
     }
     
@@ -66,6 +110,8 @@ extension HotViewController
         group.notify(queue: DispatchQueue.main) {
             self.tableView.reloadData()
             print("刷新")
+            self.tableView.mj_header.endRefreshing()
+            self.tableView.mj_footer.endRefreshing()
         }
         
     }

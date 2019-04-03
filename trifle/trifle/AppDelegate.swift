@@ -12,6 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    //初始界面的选择
     var defaultVc : UIViewController? {
         let isLogin = UserAccountTool.shareInstance.isLogin
         return isLogin ? WelComeViewController() : UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()

@@ -85,24 +85,6 @@ extension NetWorkTool
             finished(resultDict["statuses"] as? [[String : AnyObject]],nil)
         }
     }
-    
-    func loadStatuses2(finished : @escaping (_ result : [[String : AnyObject]]?,_ error : Error?)->()){
-        //1.请求数据的URL
-        let urlString = "https://api.weibo.com/2/statuses/home_timeline.json"
-        //2.请求参数
-        let access_token = UserAccountTool.shareInstance.account?.access_token
-        let parameters = ["access_token":access_token]
-        //发送请求
-        request(methodType: .Get, urlString: urlString, parameters: parameters as [String : AnyObject]) { (result, error) in
-            //1.获取字典数据
-            guard let resultDict = result as? [String : AnyObject] else{
-                finished(nil,error)
-                return
-            }
-            //2.将数组回调给外部
-            finished(resultDict["statuses"] as? [[String : AnyObject]],nil)
-        }
-    }
 }
 
 //// MARK:-发送微博无图片
