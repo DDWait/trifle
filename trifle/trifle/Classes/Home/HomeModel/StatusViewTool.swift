@@ -36,7 +36,8 @@ class StatusViewTool: NSObject {
         profileURL = URL(string: profileURLString)
         
         //处理配图
-        if let picURLDicts = status.pic_urls {
+        let picURLDicts = status.pic_urls!.count != 0 ? status.pic_urls : status.retweeted_status?.pic_urls
+        if let picURLDicts = picURLDicts {
             for picURLDict in picURLDicts{
                 guard let picURLString = picURLDict["thumbnail_pic"] else{
                     continue

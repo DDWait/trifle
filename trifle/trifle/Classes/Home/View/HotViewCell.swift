@@ -18,6 +18,8 @@ class HotViewCell: UITableViewCell {
     @IBOutlet weak var contentLabelWCons: NSLayoutConstraint!
     @IBOutlet weak var picViewHcons: NSLayoutConstraint!
     @IBOutlet weak var picViewWcons: NSLayoutConstraint!
+    @IBOutlet weak var picViewBottomCons: NSLayoutConstraint!
+    @IBOutlet weak var retweetedLabelTopCons: NSLayoutConstraint!
     
     @IBOutlet weak var iconView: UIImageView!
     @IBOutlet weak var screenNameLabel: UILabel!
@@ -25,6 +27,8 @@ class HotViewCell: UITableViewCell {
     @IBOutlet weak var sourceLabel: UILabel!
     @IBOutlet weak var contentLabel: UILabel!
     @IBOutlet weak var picView: PictrueCollectionView!
+    @IBOutlet weak var retweetContentLabel: UILabel!
+    @IBOutlet weak var retweetBg: UIView!
     
     //模型属性
     var viewModel : StatusViewTool? {
@@ -51,6 +55,20 @@ class HotViewCell: UITableViewCell {
             
             //设置picview数据
             picView.picURLs = viewModel.picURLs
+            
+            //设置转发文字
+            if viewModel.status?.retweeted_status != nil{
+                if let screenName = viewModel.status?.retweeted_status?.user?.screen_name,let retweetText = viewModel.status?.retweeted_status?.text{
+                    retweetContentLabel.text = "@" + "\(screenName): " + retweetText
+                    
+                    retweetedLabelTopCons.constant = 15
+                }
+                retweetBg.isHidden = false
+            }else{
+                retweetContentLabel.text = nil
+                retweetBg.isHidden = true
+                retweetedLabelTopCons.constant = 0
+            }
         }
     }
     
@@ -72,8 +90,11 @@ extension HotViewCell
     private func calculatePicViewSize(count : Int) -> CGSize {
         //没有配图
         if count == 0 {
+            picViewBottomCons.constant = 0
             return CGSize.zero
         }
+        
+        picViewBottomCons.constant = 10
         //设置PicView
         let layout = picView.collectionViewLayout as! UICollectionViewFlowLayout
 
