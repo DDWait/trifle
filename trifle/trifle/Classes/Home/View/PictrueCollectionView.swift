@@ -50,7 +50,13 @@ class PictrueCollectionCell : UICollectionViewCell
             guard let picURL = picURL else {
                 return
             }
-            iconImage.sd_setImage(with: picURL, placeholderImage: UIImage(named: "empty_picture"))
+            let URLString = picURL.absoluteString
+            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: URLString)
+            if image != nil {
+                iconImage.image = image
+            }else{
+                iconImage.sd_setImage(with: picURL, placeholderImage: UIImage(named: "avatar_default_small"))
+            }
         }
     }
 }

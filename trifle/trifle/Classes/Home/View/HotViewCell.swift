@@ -59,11 +59,6 @@ class HotViewCell: UITableViewCell {
         super.awakeFromNib()
         //设置正文的宽度约束
         contentLabelWCons.constant = UIScreen.main.bounds.width - (2 * edgeMargin)
-        //设置PicView
-        let layout = picView.collectionViewLayout as! UICollectionViewFlowLayout
-        //计算image的宽高
-        let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
-        layout.itemSize = CGSize(width: imageViewWH, height: imageViewWH)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -79,13 +74,20 @@ extension HotViewCell
         if count == 0 {
             return CGSize.zero
         }
-        
+        //设置PicView
+        let layout = picView.collectionViewLayout as! UICollectionViewFlowLayout
+
         //单张图片展示
-        
+        if count == 1 {
+            let URLString = viewModel?.picURLs.first?.absoluteString
+            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: URLString)
+            layout.itemSize = CGSize(width: image!.size.width * 2, height: image!.size.height * 2)
+            return CGSize(width: image!.size.width * 2, height: image!.size.height * 2)
+        }
         
         //计算image的宽高
         let imageViewWH = (UIScreen.main.bounds.width - 2 * edgeMargin - 2 * itemMargin) / 3
-        
+        layout.itemSize = CGSize(width: imageViewWH, height: imageViewWH)
         //四张配图
         if count == 4 {
             let picViewWH = imageViewWH * 2 + 2 * itemMargin

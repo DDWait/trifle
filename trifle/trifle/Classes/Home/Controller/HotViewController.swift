@@ -49,10 +49,13 @@ extension HotViewController
         }
     }
     
+    //缓存图片
     private func cacheImages(StatusViews : [StatusViewTool]){
         let group = DispatchGroup()
         for StatusView in StatusViews{
-            for picURL in StatusView.picURLs{
+            //单张配图下载
+            if StatusView.picURLs.count == 1{
+                let picURL = StatusView.picURLs.first
                 group.enter()
                 SDWebImageManager.shared().loadImage(with: picURL, options: [], progress: nil) { (_, _, _, _, _, _) in
                     print("下载了一张图片")
