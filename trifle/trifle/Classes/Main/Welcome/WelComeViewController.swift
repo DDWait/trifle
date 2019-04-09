@@ -27,7 +27,9 @@ class WelComeViewController: UIViewController {
         UIView.animate(withDuration: 1.5, delay: 0.0, usingSpringWithDamping: 0.7, initialSpringVelocity: 5.0, options: [], animations: {
             self.view.layoutIfNeeded()
         }) { (_) in
-            UIApplication.shared.keyWindow?.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+            let mainVc = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+            UIApplication.shared.keyWindow?.rootViewController = mainVc
+            
         }
     }
 

@@ -12,8 +12,12 @@ import MJRefresh
 
 class HotViewController: UITableViewController {
 
+    //是否登录属性
+    var isLogin : Bool = UserAccountTool.shareInstance.isLogin
     //保存数据
     private lazy var StatusViews : [StatusViewTool] = [StatusViewTool]()
+    //提示label
+    private lazy var tipLabel : UILabel = UILabel()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -21,12 +25,10 @@ class HotViewController: UITableViewController {
         //自动计算cell的高度
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
-        
         setUpHeaderView()
         setUpFootView()
+        setUpTipLabel()
     }
-    
-    
 }
 
 extension HotViewController
@@ -39,8 +41,9 @@ extension HotViewController
         tableView.mj_header = header
         
         //进入刷新状态
-        tableView.mj_header.beginRefreshing()
-        
+        if isLogin {
+            tableView.mj_header.beginRefreshing()
+        }
     }
     
     @objc private func loadNewDate(){
@@ -52,6 +55,19 @@ extension HotViewController
     }
     @objc private func loadMoreStatuses(){
         loadStatus(isNewDate: false)
+    }
+    //tiplabel
+    private func setUpTipLabel(){
+        
+        navigationController?.navigationBar.insertSubview((tipLabel), at: 0)
+        
+        tipLabel.frame = CGRect(x: UIScreen.main.bounds.width * 0.375, y: 10, width: UIScreen.main.bounds.width * 0.25, height: 32)
+    
+        tipLabel.backgroundColor = UIColor.orange
+        tipLabel.textColor = UIColor.white
+        tipLabel.font = UIFont.systemFont(ofSize: 14)
+        tipLabel.textAlignment = .center
+        tipLabel.isHidden = true
     }
 }
 
@@ -89,19 +105,21 @@ extension HotViewController
                 self.StatusViews += tempStatusViews
             }
             
-            self.cacheImages(StatusViews: tempStatusViews)
+            self.cacheImages(StatusViews: tempStatusViews,isNewDate: isNewDate)
         }
     }
     
     //缓存图片
-    private func cacheImages(StatusViews : [StatusViewTool]){
+    private func cacheImages(StatusViews : [StatusViewTool],isNewDate : Bool){
         let group = DispatchGroup()
         for StatusView in StatusViews{
             //单张配图下载
             if StatusView.picURLs.count == 1{
                 let picURL = StatusView.picURLs.first
+                let URLString = picURL!.absoluteString
+                let BigString = (URLString as NSString).replacingOccurrences(of: "thumbnail", with: "bmiddle")
                 group.enter()
-                SDWebImageManager.shared().loadImage(with: picURL, options: [], progress: nil) { (_, _, _, _, _, _) in
+                SDWebImageManager.shared().loadImage(with: URL(string: BigString), options: [], progress: nil) { (image, _, _, _, _, _) in
                     print("下载了一张图片")
                     group.leave()
                 }
@@ -112,8 +130,41 @@ extension HotViewController
             print("刷新")
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
-        }
         
+            //显示提示label
+            if isNewDate{
+                self.showTiplabel(count: StatusViews.count)
+            }
+        }
+    }
+    
+    
+    //tiplabel
+    private func showTiplabel(count : Int){
+        tipLabel.isHidden = false
+        
+
+        //
+        //执行动画
+        UIView.animate(withDuration: 1.0, animations: {
+            self.tipLabel.frame.origin.y = 44
+            self.tableView.frame.origin.y = 32
+            
+            for i in (0...2).reversed() {
+                self.tipLabel.frame.origin.x = UIScreen.main.bounds.width * 0.125 * CGFloat(i)
+                self.tipLabel.frame.size.width = (UIScreen.main.bounds.width * 0.5 - self.tipLabel.frame.origin.x) * 2
+            }
+        }) { (_) in
+            UIView.animate(withDuration: 1.0, delay: 0.5, options: [], animations: {
+                self.tipLabel.text = count == 0 ? "没有最新数据" : "更新了\(count)数据"
+                self.tipLabel.frame.origin.y = 10
+                self.tableView.frame.origin.y = 0
+            }, completion: { (_) in
+                self.tipLabel.isHidden = true
+                self.tipLabel.text = nil
+                self.tipLabel.frame = CGRect(x: UIScreen.main.bounds.width * 0.375, y: 10, width: UIScreen.main.bounds.width * 0.25, height: 32)
+            })
+        }
     }
 }
 

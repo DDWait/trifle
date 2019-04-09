@@ -105,10 +105,16 @@ extension HotViewCell
 
         //单张图片展示
         if count == 1 {
-            let URLString = viewModel?.picURLs.first?.absoluteString
-            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: URLString)
-            layout.itemSize = CGSize(width: image!.size.width * 2, height: image!.size.height * 2)
-            return CGSize(width: image!.size.width * 2, height: image!.size.height * 2)
+            let URLString = viewModel!.picURLs.first!.absoluteString
+            let BigString = (URLString as NSString).replacingOccurrences(of: "thumbnail", with: "bmiddle")
+            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: BigString)
+            if image!.size.height < 500 {
+                layout.itemSize = CGSize(width: image!.size.width * 0.5, height: image!.size.height * 0.5)
+                return CGSize(width: image!.size.width * 0.5, height: image!.size.height * 0.5)
+            }else{
+                layout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.5, height: 200)
+                return CGSize(width: UIScreen.main.bounds.width * 0.5, height: 200)
+            }
         }
         
         //计算image的宽高

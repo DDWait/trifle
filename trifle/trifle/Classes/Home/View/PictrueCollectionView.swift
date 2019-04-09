@@ -30,7 +30,7 @@ extension PictrueCollectionView : UICollectionViewDataSource
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PicCell", for: indexPath) as! PictrueCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "PicCell", for: indexPath) as! PictrueViewCell
         
         cell.picURL = picURLs[indexPath.item]
         
@@ -40,23 +40,51 @@ extension PictrueCollectionView : UICollectionViewDataSource
     
 }
 
-
-class PictrueCollectionCell : UICollectionViewCell
-{
-    @IBOutlet weak var iconImage: UIImageView!
-    
+class PictrueViewCell: UICollectionViewCell {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var labelView: UILabel!
     var picURL : URL? {
         didSet{
             guard let picURL = picURL else {
                 return
             }
             let URLString = picURL.absoluteString
-            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: URLString)
+            let BigString = (URLString as NSString).replacingOccurrences(of: "thumbnail", with: "bmiddle")
+            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: BigString)
+            labelView.isHidden = true
+            imageView.contentMode = .scaleAspectFill
             if image != nil {
-                iconImage.image = image
+                imageView.image = image
+                print(image!.size)
+                if image!.size.height > 500{
+                    labelView.text = "长图"
+                    labelView.isHidden = false
+                    imageView.contentMode = .top
+                    fitImage(image: image!)
+                }
             }else{
-                iconImage.sd_setImage(with: picURL, placeholderImage: UIImage(named: "avatar_default_small"))
+                imageView.sd_setImage(with: picURL, placeholderImage: UIImage(named: "empty_picture"))
+            }
+            if (URLString as NSString).lowercased.hasSuffix("gif"){
+                labelView.text = "动图"
+                labelView.isHidden = false
             }
         }
     }
 }
+
+extension PictrueViewCell
+{
+    ///长图处理
+    private func fitImage(image : UIImage){
+        let imageW : CGFloat = UIScreen.main.bounds.width * 0.5
+        let imageH : CGFloat = imageW * image.size.height / image.size.width
+        UIGraphicsBeginImageContext(CGSize(width: imageW, height: imageH))
+        imageView.image!.draw(in: CGRect(x: 0, y: 0, width: imageW, height: imageH))
+        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+    }
+    //下载一张图片
+}
+
+

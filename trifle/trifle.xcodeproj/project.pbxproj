@@ -36,6 +36,10 @@
 		EE6971D2225312D4005871F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971D1225312D4005871F6 /* User.swift */; };
 		EE6971D4225315B1005871F6 /* StatusViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971D3225315B1005871F6 /* StatusViewTool.swift */; };
 		EE6971D622533CCC005871F6 /* HotViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971D522533CCC005871F6 /* HotViewCell.swift */; };
+		EE904A55225B7DB30098EF39 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904A53225B7DB30098EF39 /* PublishViewController.swift */; };
+		EE904A56225B7DB30098EF39 /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE904A54225B7DB30098EF39 /* PublishViewController.xib */; };
+		EE904A58225B80810098EF39 /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904A57225B80810098EF39 /* ComposeTitleView.swift */; };
+		EE904A5A225B844C0098EF39 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904A59225B844C0098EF39 /* ComposeTextView.swift */; };
 		EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */; };
 		EEBC4FDD224B76420058B4E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDC224B76420058B4E5 /* ViewController.swift */; };
 		EEBC4FE2224B76450058B4E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEBC4FE1224B76450058B4E5 /* Assets.xcassets */; };
@@ -103,6 +107,10 @@
 		EE6971D1225312D4005871F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EE6971D3225315B1005871F6 /* StatusViewTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewTool.swift; sourceTree = "<group>"; };
 		EE6971D522533CCC005871F6 /* HotViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotViewCell.swift; sourceTree = "<group>"; };
+		EE904A53225B7DB30098EF39 /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
+		EE904A54225B7DB30098EF39 /* PublishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishViewController.xib; sourceTree = "<group>"; };
+		EE904A57225B80810098EF39 /* ComposeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
+		EE904A59225B844C0098EF39 /* ComposeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
 		EEBC4FD7224B76420058B4E5 /* trifle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trifle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEBC4FDC224B76420058B4E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -290,6 +298,17 @@
 			path = HomeModel;
 			sourceTree = "<group>";
 		};
+		EE904A52225B7D8F0098EF39 /* Publish */ = {
+			isa = PBXGroup;
+			children = (
+				EE904A53225B7DB30098EF39 /* PublishViewController.swift */,
+				EE904A54225B7DB30098EF39 /* PublishViewController.xib */,
+				EE904A57225B80810098EF39 /* ComposeTitleView.swift */,
+				EE904A59225B844C0098EF39 /* ComposeTextView.swift */,
+			);
+			path = Publish;
+			sourceTree = "<group>";
+		};
 		EEBC4FCE224B76420058B4E5 = {
 			isa = PBXGroup;
 			children = (
@@ -392,6 +411,7 @@
 			isa = PBXGroup;
 			children = (
 				EEBC4FFF224B76FC0058B4E5 /* MainViewController.swift */,
+				EE904A52225B7D8F0098EF39 /* Publish */,
 				EE473BB4224F60EF004C05E0 /* FastLogin(友盟) */,
 				EE473BE3224F8270004C05E0 /* Welcome */,
 				EEBC5000224B76FC0058B4E5 /* Visitor */,
@@ -549,6 +569,7 @@
 				EEBC4FE5224B76460058B4E5 /* LaunchScreen.storyboard in Resources */,
 				EEBC501D224B76FC0058B4E5 /* Null.storyboard in Resources */,
 				EEC7AB44224D10DE0048A022 /* RegisterLoginViewController.xib in Resources */,
+				EE904A56225B7DB30098EF39 /* PublishViewController.xib in Resources */,
 				EEC7AB4E224D24BE0048A022 /* FastLoginView.xib in Resources */,
 				EEBC4FE2224B76450058B4E5 /* Assets.xcassets in Resources */,
 				EE473BCB224F6114004C05E0 /* UMSocialSDKResources.bundle in Resources */,
@@ -631,6 +652,7 @@
 				EE473BE2224F7F7B004C05E0 /* UserAccountTool.swift in Sources */,
 				EEBC5017224B76FC0058B4E5 /* MainViewController.swift in Sources */,
 				EEBC500F224B76FC0058B4E5 /* HotViewController.swift in Sources */,
+				EE904A5A225B844C0098EF39 /* ComposeTextView.swift in Sources */,
 				EE6971D4225315B1005871F6 /* StatusViewTool.swift in Sources */,
 				EEBC5016224B76FC0058B4E5 /* titleScrollView.swift in Sources */,
 				EEC7AB50224D29830048A022 /* FastButton.swift in Sources */,
@@ -645,6 +667,7 @@
 				EEC7AB48224D18FE0048A022 /* LoginView.swift in Sources */,
 				EE6971D622533CCC005871F6 /* HotViewCell.swift in Sources */,
 				EEBC500D224B76FC0058B4E5 /* CloseViewController.swift in Sources */,
+				EE904A55225B7DB30098EF39 /* PublishViewController.swift in Sources */,
 				EEC7AB43224D10DE0048A022 /* RegisterLoginViewController.swift in Sources */,
 				EE473BE6224F8270004C05E0 /* WelComeViewController.swift in Sources */,
 				EEBC5014224B76FC0058B4E5 /* TFEPresenttationController.swift in Sources */,
@@ -653,6 +676,7 @@
 				EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */,
 				EEBC5011224B76FC0058B4E5 /* PopoverAnimator.swift in Sources */,
 				EEBC500E224B76FC0058B4E5 /* HomeViewController.swift in Sources */,
+				EE904A58225B80810098EF39 /* ComposeTitleView.swift in Sources */,
 				EE473BE0224F6D04004C05E0 /* UserAccount.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

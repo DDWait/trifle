@@ -15,6 +15,7 @@ class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        ///设置发布按钮
         setUpComposeBtn()
     }
 }
@@ -35,8 +36,13 @@ extension MainViewController
 //事件监听
 extension MainViewController
 {
-    //发布按钮的监听
+    ///发布按钮的监听
     @objc private func composeBtnDidClicked(){
-        print("composeBtnDidClicked")
+        //弹出发布控制器
+        let pubVc = PublishViewController()
+        
+        let nav : UINavigationController = UINavigationController(rootViewController: pubVc)
+        
+        present(nav, animated: true, completion: nil)
     }
 }

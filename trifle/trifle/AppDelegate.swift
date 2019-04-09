@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         // 设置全局颜色
         UITabBar.appearance().tintColor = UIColor.orange
-        
+        UINavigationBar.appearance().tintColor = UIColor.orange
         //友盟初始化     需要在友盟上注册app才能获得key
         UMConfigure.initWithAppkey("5c9e1ad061f5643baf001628", channel: "App Store")
         confitUShareSettings()

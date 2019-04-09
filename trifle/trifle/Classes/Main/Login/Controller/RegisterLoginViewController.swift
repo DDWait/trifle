@@ -11,11 +11,10 @@ import UIKit
 class RegisterLoginViewController: UIViewController {
     //中间view控件
     @IBOutlet weak var middleView: UIView!
-    
+    //底部控件
     @IBOutlet weak var buttomView: UIView!
     //middle 的左边约束
     @IBOutlet weak var leadCons: NSLayoutConstraint!
-    
     /*
      为了屏幕适配：xib的frame在外部在设置一次,不然会出现位置错误
      在viewDidLayoutSubviews设置xib的frame
