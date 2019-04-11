@@ -12,6 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PopoverViewController" customModule="trifle" customModuleProvider="target">
             <connections>
+                <outlet property="backImage" destination="gL3-9q-aeN" id="p0J-FV-dA2"/>
+                <outlet property="tablePickerView" destination="UeU-EJ-ImH" id="V8d-Wj-sYr"/>
+                <outlet property="tableViewTopCons" destination="tiM-jX-OlU" id="Fx4-EZ-deF"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -24,25 +27,25 @@
                     <rect key="frame" x="0.0" y="0.0" width="262" height="496"/>
                 </imageView>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="UeU-EJ-ImH">
-                    <rect key="frame" x="2" y="10" width="258" height="484"/>
+                    <rect key="frame" x="0.0" y="10" width="262" height="486"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UeU-EJ-ImH" secondAttribute="bottom" constant="2" id="Dle-zQ-5Sa"/>
-                <constraint firstItem="UeU-EJ-ImH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="J5Z-Af-8wD"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="UeU-EJ-ImH" secondAttribute="bottom" id="4H0-pB-oOV"/>
+                <constraint firstItem="UeU-EJ-ImH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="KXM-KY-N81"/>
                 <constraint firstItem="gL3-9q-aeN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="dQx-bb-KQf"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UeU-EJ-ImH" secondAttribute="trailing" constant="2" id="hSa-S5-rCT"/>
                 <constraint firstItem="gL3-9q-aeN" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="mma-mI-Tuu"/>
-                <constraint firstItem="UeU-EJ-ImH" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="2" id="sgF-9G-L5t"/>
+                <constraint firstItem="UeU-EJ-ImH" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="10" id="tiM-jX-OlU"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="UeU-EJ-ImH" secondAttribute="trailing" id="xVV-sE-bzu"/>
                 <constraint firstItem="gL3-9q-aeN" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ybb-zW-rja"/>
                 <constraint firstItem="gL3-9q-aeN" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="zlA-FF-iNA"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="-549" y="83"/>
+            <point key="canvasLocation" x="-498" y="63"/>
         </view>
     </objects>
     <resources>

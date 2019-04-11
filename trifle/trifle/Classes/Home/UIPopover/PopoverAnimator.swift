@@ -13,6 +13,19 @@ class PopoverAnimator: NSObject {
     private var isPresented : Bool = false
     //提供对外的设置frame的属性
     var presentedViewFrame : CGRect = CGRect.zero
+    
+    
+    var callBack : ((_ present : Bool)->())?
+    
+    
+    init(callBack : @escaping (_ present : Bool)->()) {
+        self.callBack = callBack
+    }
+    
+    override init() {
+        super.init()
+    }
+    
 }
 extension PopoverAnimator : UIViewControllerTransitioningDelegate
 {
@@ -27,11 +40,17 @@ extension PopoverAnimator : UIViewControllerTransitioningDelegate
     func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning?{
         //UIViewControllerAnimatedTransitioning是一个协议，需要返回一个d遵循这个协议的对象
         isPresented = true
+        if callBack != nil {
+            self.callBack!(isPresented)
+        }
         return self
     }
     ///自定义消失动画
     func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         isPresented = false
+        if callBack != nil {
+            self.callBack!(isPresented)
+        }
         return self
     }
 }

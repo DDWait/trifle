@@ -9,11 +9,12 @@
 import UIKit
 
 class PopoverViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //下拉菜单的内容在这里设置
+    @IBOutlet weak var backImage: UIImageView!
+    @IBOutlet weak var tablePickerView: UITableView!
+    @IBOutlet weak var tableViewTopCons: NSLayoutConstraint!
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
     }
+
 }

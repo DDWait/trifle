@@ -41,7 +41,7 @@ extension TFEPresenttationController
 extension TFEPresenttationController
 {
     //朦板
-    @objc private func coverViewDidClicked(){
+    @objc func coverViewDidClicked(){
         presentedViewController.dismiss(animated: true, completion: nil)
     }
 }

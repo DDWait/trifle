@@ -55,7 +55,6 @@ class PictrueViewCell: UICollectionViewCell {
             imageView.contentMode = .scaleAspectFill
             if image != nil {
                 imageView.image = image
-                print(image!.size)
                 if image!.size.height > 500{
                     labelView.text = "长图"
                     labelView.isHidden = false
@@ -84,7 +83,6 @@ extension PictrueViewCell
         imageView.image = UIGraphicsGetImageFromCurrentImageContext()
         UIGraphicsEndImageContext()
     }
-    //下载一张图片
 }
 
 

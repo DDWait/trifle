@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="EFo-St-gpW">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="VOY-6b-xvS">
+            <objects>
+                <navigationController id="EFo-St-gpW" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jVS-tp-cFO">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="0tp-Bl-jNW" kind="relationship" relationship="rootViewController" id="11C-gy-3nc"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ar7-Sz-oGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1425" y="156"/>
+        </scene>
+        <!--Photo Picker View Controller-->
+        <scene sceneID="C7B-UF-KCC">
+            <objects>
+                <viewController id="0tp-Bl-jNW" customClass="PhotoPickerViewController" customModule="trifle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UD8-ww-sZD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cAV-Lj-cqa">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iOX-9R-6xd">
+                                        <rect key="frame" x="20" y="4.5" width="39" height="35"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="35" id="IOp-4U-kcU"/>
+                                            <constraint firstAttribute="width" constant="39" id="pSK-Eb-h3U"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <state key="normal" title="预览">
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        </state>
+                                        <state key="disabled">
+                                            <color key="titleColor" red="0.80252617390000003" green="0.80252617390000003" blue="0.80252617390000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="preView:" destination="0tp-Bl-jNW" eventType="touchUpInside" id="XQv-BQ-IHQ"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jsV-ss-zYP">
+                                        <rect key="frame" x="69" y="7" width="75" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="75" id="CUB-cv-v9S"/>
+                                            <constraint firstAttribute="height" constant="30" id="aYg-dn-Egd"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <inset key="titleEdgeInsets" minX="5" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="5" maxY="0.0"/>
+                                        <state key="normal" title="原图" image="circle">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OringinBtn:" destination="0tp-Bl-jNW" eventType="touchUpInside" id="mxo-YW-geM"/>
+                                        </connections>
+                                    </button>
+                                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="yes" translatesAutoresizingMaskIntoConstraints="NO" id="9pa-hw-itI">
+                                        <rect key="frame" x="75" y="12" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="jsV-ss-zYP" firstAttribute="leading" secondItem="iOX-9R-6xd" secondAttribute="trailing" constant="10" id="EK0-64-1VU"/>
+                                    <constraint firstItem="iOX-9R-6xd" firstAttribute="centerY" secondItem="cAV-Lj-cqa" secondAttribute="centerY" id="KBr-px-F3b"/>
+                                    <constraint firstItem="iOX-9R-6xd" firstAttribute="centerY" secondItem="cAV-Lj-cqa" secondAttribute="centerY" id="WAd-Dj-7XR"/>
+                                    <constraint firstAttribute="height" constant="44" id="Zxm-kO-T4n"/>
+                                    <constraint firstItem="iOX-9R-6xd" firstAttribute="leading" secondItem="cAV-Lj-cqa" secondAttribute="leading" constant="20" id="ceG-nd-jRi"/>
+                                    <constraint firstItem="jsV-ss-zYP" firstAttribute="centerY" secondItem="cAV-Lj-cqa" secondAttribute="centerY" id="v2F-4H-eMg"/>
+                                </constraints>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="naw-rg-tDP">
+                                <rect key="frame" x="0.0" y="64" width="375" height="559"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pgj-qh-Ka2">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionCell" id="kgn-Es-fQr" customClass="photoPicpickerCollectionViewCell" customModule="trifle" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="1rN-up-Pz1" firstAttribute="trailing" secondItem="naw-rg-tDP" secondAttribute="trailing" id="2W6-ca-6WX"/>
+                            <constraint firstItem="naw-rg-tDP" firstAttribute="leading" secondItem="1rN-up-Pz1" secondAttribute="leading" id="CNo-OR-Hdm"/>
+                            <constraint firstItem="cAV-Lj-cqa" firstAttribute="top" secondItem="naw-rg-tDP" secondAttribute="bottom" id="G6E-kX-XW0"/>
+                            <constraint firstItem="cAV-Lj-cqa" firstAttribute="bottom" secondItem="1rN-up-Pz1" secondAttribute="bottom" id="hIy-Sq-zC5"/>
+                            <constraint firstItem="naw-rg-tDP" firstAttribute="top" secondItem="1rN-up-Pz1" secondAttribute="top" id="hiy-Il-QD9"/>
+                            <constraint firstItem="1rN-up-Pz1" firstAttribute="trailing" secondItem="cAV-Lj-cqa" secondAttribute="trailing" id="iw0-vx-yTD"/>
+                            <constraint firstItem="cAV-Lj-cqa" firstAttribute="leading" secondItem="1rN-up-Pz1" secondAttribute="leading" id="w3T-GC-89D"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1rN-up-Pz1"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Ycv-Fb-qoz"/>
+                    <connections>
+                        <outlet property="OriginImage" destination="9pa-hw-itI" id="cFa-3C-crc"/>
+                        <outlet property="picCollectionView" destination="naw-rg-tDP" id="9Ny-ff-ciW"/>
+                        <outlet property="preViewBtn" destination="iOX-9R-6xd" id="pFF-48-xXc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0sA-zm-ou0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-759.20000000000005" y="155.17241379310346"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="circle" width="30" height="30"/>
+        <image name="yes" width="20" height="20"/>
+    </resources>
+</document>

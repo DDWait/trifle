@@ -94,7 +94,7 @@ extension NetWorkTool
 //        //获取请求的URLstring
 //        let urlString = "https://api.weibo.com/2/statuses/share.json"
 //        //拼接安全域名
-//        let statusNew = statusText + "http://www.mob.com"
+//        let statusNew = statusText + "sns.whalecloud.com"
 //        //拼接请求参数
 //        let parameters = ["access_token" : (UserAccountViewModel.shareInstance.account?.access_token)!, "status" : statusNew]
 //        //发送请求

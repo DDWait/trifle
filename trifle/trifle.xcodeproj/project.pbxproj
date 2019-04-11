@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0BDFE705430EACB35BBA7E98 /* Pods_trifle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1DD2F59BB967DC6161BB08E5 /* Pods_trifle.framework */; };
+		EE02381C225F6CD8003235E9 /* PhotoBrowserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02381B225F6CD8003235E9 /* PhotoBrowserViewController.swift */; };
+		EE02381E225F7220003235E9 /* PhotoBrowserPushlishViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE02381D225F7220003235E9 /* PhotoBrowserPushlishViewCell.swift */; };
 		EE2DD58E2253AF8B003EA4C2 /* PictrueCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2DD58D2253AF8B003EA4C2 /* PictrueCollectionView.swift */; };
 		EE2DD59E2253B243003EA4C2 /* TitleBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE2DD59A2253B242003EA4C2 /* TitleBtn.swift */; };
 		EE473BB3224F601E004C05E0 /* NetWorkTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE473BB2224F601D004C05E0 /* NetWorkTool.swift */; };
@@ -30,6 +32,8 @@
 		EE473BE2224F7F7B004C05E0 /* UserAccountTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE473BE1224F7F7B004C05E0 /* UserAccountTool.swift */; };
 		EE473BE6224F8270004C05E0 /* WelComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE473BE4224F8270004C05E0 /* WelComeViewController.swift */; };
 		EE473BE7224F8270004C05E0 /* WelComeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE473BE5224F8270004C05E0 /* WelComeViewController.xib */; };
+		EE5F5702225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5700225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.swift */; };
+		EE5F5703225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5F5701225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.xib */; };
 		EE6971CC225306E9005871F6 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971CB225306E9005871F6 /* Status.swift */; };
 		EE6971CE22530B2C005871F6 /* HotViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE6971CD22530B2C005871F6 /* HotViewController.storyboard */; };
 		EE6971D022531150005871F6 /* NSDate-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971CF22531150005871F6 /* NSDate-Extension.swift */; };
@@ -40,6 +44,12 @@
 		EE904A56225B7DB30098EF39 /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE904A54225B7DB30098EF39 /* PublishViewController.xib */; };
 		EE904A58225B80810098EF39 /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904A57225B80810098EF39 /* ComposeTitleView.swift */; };
 		EE904A5A225B844C0098EF39 /* ComposeTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904A59225B844C0098EF39 /* ComposeTextView.swift */; };
+		EE9B25A2225C749800EB3049 /* PhotoPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9B25A1225C749800EB3049 /* PhotoPickerViewController.swift */; };
+		EE9B25A4225C74A300EB3049 /* PhotoPickerViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE9B25A3225C74A300EB3049 /* PhotoPickerViewController.storyboard */; };
+		EE9B25A8225C80D300EB3049 /* TitleViewBtn.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9B25A7225C80D300EB3049 /* TitleViewBtn.swift */; };
+		EE9CD40E225E3E6A00041EC7 /* TitleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9CD40C225E3E6A00041EC7 /* TitleViewCell.swift */; };
+		EE9CD40F225E3E6A00041EC7 /* TitleViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE9CD40D225E3E6A00041EC7 /* TitleViewCell.xib */; };
+		EE9CD411225E474C00041EC7 /* photoMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE9CD410225E474C00041EC7 /* photoMessage.swift */; };
 		EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */; };
 		EEBC4FDD224B76420058B4E5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEBC4FDC224B76420058B4E5 /* ViewController.swift */; };
 		EEBC4FE2224B76450058B4E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EEBC4FE1224B76450058B4E5 /* Assets.xcassets */; };
@@ -69,12 +79,17 @@
 		EEC7AB4C224D24B50048A022 /* FastLoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC7AB4B224D24B50048A022 /* FastLoginView.swift */; };
 		EEC7AB4E224D24BE0048A022 /* FastLoginView.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEC7AB4D224D24BE0048A022 /* FastLoginView.xib */; };
 		EEC7AB50224D29830048A022 /* FastButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC7AB4F224D29830048A022 /* FastButton.swift */; };
+		EEF32E1A225C289700FA1E24 /* PicpickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF32E19225C289700FA1E24 /* PicpickerCollectionView.swift */; };
+		EEF32E1D225C2D6C00FA1E24 /* PicpickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF32E1B225C2D6C00FA1E24 /* PicpickerCollectionViewCell.swift */; };
+		EEF32E1E225C2D6C00FA1E24 /* PicpickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF32E1C225C2D6C00FA1E24 /* PicpickerCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		1DD2F59BB967DC6161BB08E5 /* Pods_trifle.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_trifle.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24F878CE69EC4654A40E1849 /* Pods-trifle.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trifle.debug.xcconfig"; path = "Pods/Target Support Files/Pods-trifle/Pods-trifle.debug.xcconfig"; sourceTree = "<group>"; };
 		C78711366A7DD71286E73C2A /* Pods-trifle.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-trifle.release.xcconfig"; path = "Pods/Target Support Files/Pods-trifle/Pods-trifle.release.xcconfig"; sourceTree = "<group>"; };
+		EE02381B225F6CD8003235E9 /* PhotoBrowserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserViewController.swift; sourceTree = "<group>"; };
+		EE02381D225F7220003235E9 /* PhotoBrowserPushlishViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserPushlishViewCell.swift; sourceTree = "<group>"; };
 		EE2DD58D2253AF8B003EA4C2 /* PictrueCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictrueCollectionView.swift; sourceTree = "<group>"; };
 		EE2DD59A2253B242003EA4C2 /* TitleBtn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleBtn.swift; sourceTree = "<group>"; };
 		EE473BB2224F601D004C05E0 /* NetWorkTool.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetWorkTool.swift; sourceTree = "<group>"; };
@@ -101,6 +116,8 @@
 		EE473BE1224F7F7B004C05E0 /* UserAccountTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountTool.swift; sourceTree = "<group>"; };
 		EE473BE4224F8270004C05E0 /* WelComeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelComeViewController.swift; sourceTree = "<group>"; };
 		EE473BE5224F8270004C05E0 /* WelComeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelComeViewController.xib; sourceTree = "<group>"; };
+		EE5F5700225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoPicpickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		EE5F5701225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = photoPicpickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		EE6971CB225306E9005871F6 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
 		EE6971CD22530B2C005871F6 /* HotViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HotViewController.storyboard; sourceTree = "<group>"; };
 		EE6971CF22531150005871F6 /* NSDate-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate-Extension.swift"; sourceTree = "<group>"; };
@@ -111,6 +128,12 @@
 		EE904A54225B7DB30098EF39 /* PublishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishViewController.xib; sourceTree = "<group>"; };
 		EE904A57225B80810098EF39 /* ComposeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
 		EE904A59225B844C0098EF39 /* ComposeTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTextView.swift; sourceTree = "<group>"; };
+		EE9B25A1225C749800EB3049 /* PhotoPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoPickerViewController.swift; sourceTree = "<group>"; };
+		EE9B25A3225C74A300EB3049 /* PhotoPickerViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PhotoPickerViewController.storyboard; sourceTree = "<group>"; };
+		EE9B25A7225C80D300EB3049 /* TitleViewBtn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewBtn.swift; sourceTree = "<group>"; };
+		EE9CD40C225E3E6A00041EC7 /* TitleViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleViewCell.swift; sourceTree = "<group>"; };
+		EE9CD40D225E3E6A00041EC7 /* TitleViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TitleViewCell.xib; sourceTree = "<group>"; };
+		EE9CD410225E474C00041EC7 /* photoMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoMessage.swift; sourceTree = "<group>"; };
 		EEBC4FD7224B76420058B4E5 /* trifle.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = trifle.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EEBC4FDA224B76420058B4E5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EEBC4FDC224B76420058B4E5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -142,6 +165,9 @@
 		EEC7AB4B224D24B50048A022 /* FastLoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastLoginView.swift; sourceTree = "<group>"; };
 		EEC7AB4D224D24BE0048A022 /* FastLoginView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FastLoginView.xib; sourceTree = "<group>"; };
 		EEC7AB4F224D29830048A022 /* FastButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FastButton.swift; sourceTree = "<group>"; };
+		EEF32E19225C289700FA1E24 /* PicpickerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicpickerCollectionView.swift; sourceTree = "<group>"; };
+		EEF32E1B225C2D6C00FA1E24 /* PicpickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicpickerCollectionViewCell.swift; sourceTree = "<group>"; };
+		EEF32E1C225C2D6C00FA1E24 /* PicpickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PicpickerCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,10 +329,22 @@
 			children = (
 				EE904A53225B7DB30098EF39 /* PublishViewController.swift */,
 				EE904A54225B7DB30098EF39 /* PublishViewController.xib */,
-				EE904A57225B80810098EF39 /* ComposeTitleView.swift */,
-				EE904A59225B844C0098EF39 /* ComposeTextView.swift */,
+				EEF32E1F225C321000FA1E24 /* PhotoPicker */,
+				EEF32E18225C27A200FA1E24 /* View */,
 			);
 			path = Publish;
+			sourceTree = "<group>";
+		};
+		EE9CD40B225E3E2B00041EC7 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE9CD40C225E3E6A00041EC7 /* TitleViewCell.swift */,
+				EE9CD40D225E3E6A00041EC7 /* TitleViewCell.xib */,
+				EE9CD410225E474C00041EC7 /* photoMessage.swift */,
+				EE5F5700225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.swift */,
+				EE5F5701225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.xib */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		EEBC4FCE224B76420058B4E5 = {
@@ -348,7 +386,7 @@
 				EEBC4FFE224B76FC0058B4E5 /* Main */,
 				EEBC4FED224B76FC0058B4E5 /* Home */,
 				EEBC5004224B76FC0058B4E5 /* me */,
-				EEBC5007224B76FC0058B4E5 /* Publish */,
+				EE904A52225B7D8F0098EF39 /* Publish */,
 				EEBC500A224B76FC0058B4E5 /* Tool */,
 			);
 			path = Classes;
@@ -411,7 +449,6 @@
 			isa = PBXGroup;
 			children = (
 				EEBC4FFF224B76FC0058B4E5 /* MainViewController.swift */,
-				EE904A52225B7D8F0098EF39 /* Publish */,
 				EE473BB4224F60EF004C05E0 /* FastLogin(友盟) */,
 				EE473BE3224F8270004C05E0 /* Welcome */,
 				EEBC5000224B76FC0058B4E5 /* Visitor */,
@@ -439,22 +476,6 @@
 			path = me;
 			sourceTree = "<group>";
 		};
-		EEBC5007224B76FC0058B4E5 /* Publish */ = {
-			isa = PBXGroup;
-			children = (
-				EEBC5008224B76FC0058B4E5 /* Null.storyboard */,
-				EEBC5009224B76FC0058B4E5 /* trifle */,
-			);
-			path = Publish;
-			sourceTree = "<group>";
-		};
-		EEBC5009224B76FC0058B4E5 /* trifle */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = trifle;
-			sourceTree = "<group>";
-		};
 		EEBC500A224B76FC0058B4E5 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
@@ -467,6 +488,7 @@
 		EEBC500B224B76FC0058B4E5 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				EEBC5008224B76FC0058B4E5 /* Null.storyboard */,
 				EE6971CF22531150005871F6 /* NSDate-Extension.swift */,
 				EEBC500C224B76FC0058B4E5 /* UIButton+Extension.swift */,
 			);
@@ -505,6 +527,31 @@
 			name = View;
 			path = trifle/Classes/Main/Login/View;
 			sourceTree = SOURCE_ROOT;
+		};
+		EEF32E18225C27A200FA1E24 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EE904A59225B844C0098EF39 /* ComposeTextView.swift */,
+				EE904A57225B80810098EF39 /* ComposeTitleView.swift */,
+				EEF32E19225C289700FA1E24 /* PicpickerCollectionView.swift */,
+				EEF32E1B225C2D6C00FA1E24 /* PicpickerCollectionViewCell.swift */,
+				EEF32E1C225C2D6C00FA1E24 /* PicpickerCollectionViewCell.xib */,
+				EE9B25A7225C80D300EB3049 /* TitleViewBtn.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		EEF32E1F225C321000FA1E24 /* PhotoPicker */ = {
+			isa = PBXGroup;
+			children = (
+				EE9B25A1225C749800EB3049 /* PhotoPickerViewController.swift */,
+				EE9B25A3225C74A300EB3049 /* PhotoPickerViewController.storyboard */,
+				EE02381B225F6CD8003235E9 /* PhotoBrowserViewController.swift */,
+				EE02381D225F7220003235E9 /* PhotoBrowserPushlishViewCell.swift */,
+				EE9CD40B225E3E2B00041EC7 /* View */,
+			);
+			path = PhotoPicker;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -567,7 +614,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				EEBC4FE5224B76460058B4E5 /* LaunchScreen.storyboard in Resources */,
+				EEF32E1E225C2D6C00FA1E24 /* PicpickerCollectionViewCell.xib in Resources */,
 				EEBC501D224B76FC0058B4E5 /* Null.storyboard in Resources */,
+				EE9CD40F225E3E6A00041EC7 /* TitleViewCell.xib in Resources */,
 				EEC7AB44224D10DE0048A022 /* RegisterLoginViewController.xib in Resources */,
 				EE904A56225B7DB30098EF39 /* PublishViewController.xib in Resources */,
 				EEC7AB4E224D24BE0048A022 /* FastLoginView.xib in Resources */,
@@ -576,6 +625,8 @@
 				EEBC5020224B774F0058B4E5 /* Main.storyboard in Resources */,
 				EEBC5010224B76FC0058B4E5 /* Home.storyboard in Resources */,
 				EE473BE7224F8270004C05E0 /* WelComeViewController.xib in Resources */,
+				EE9B25A4225C74A300EB3049 /* PhotoPickerViewController.storyboard in Resources */,
+				EE5F5703225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.xib in Resources */,
 				EE6971CE22530B2C005871F6 /* HotViewController.storyboard in Resources */,
 				EEBC5013224B76FC0058B4E5 /* PopoverViewController.xib in Resources */,
 				EEBC501B224B76FC0058B4E5 /* Profile.storyboard in Resources */,
@@ -646,7 +697,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE9B25A2225C749800EB3049 /* PhotoPickerViewController.swift in Sources */,
 				EE6971D2225312D4005871F6 /* User.swift in Sources */,
+				EE9B25A8225C80D300EB3049 /* TitleViewBtn.swift in Sources */,
 				EE6971D022531150005871F6 /* NSDate-Extension.swift in Sources */,
 				EE473BB3224F601E004C05E0 /* NetWorkTool.swift in Sources */,
 				EE473BE2224F7F7B004C05E0 /* UserAccountTool.swift in Sources */,
@@ -656,12 +709,16 @@
 				EE6971D4225315B1005871F6 /* StatusViewTool.swift in Sources */,
 				EEBC5016224B76FC0058B4E5 /* titleScrollView.swift in Sources */,
 				EEC7AB50224D29830048A022 /* FastButton.swift in Sources */,
+				EE02381E225F7220003235E9 /* PhotoBrowserPushlishViewCell.swift in Sources */,
 				EEBC501C224B76FC0058B4E5 /* ProfileViewController.swift in Sources */,
+				EE5F5702225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.swift in Sources */,
 				EEBC4FDD224B76420058B4E5 /* ViewController.swift in Sources */,
 				EEBC5018224B76FC0058B4E5 /* BaseViewController.swift in Sources */,
 				EEBC5012224B76FC0058B4E5 /* PopoverViewController.swift in Sources */,
+				EE02381C225F6CD8003235E9 /* PhotoBrowserViewController.swift in Sources */,
 				EE6971CC225306E9005871F6 /* Status.swift in Sources */,
 				EE2DD59E2253B243003EA4C2 /* TitleBtn.swift in Sources */,
+				EE9CD40E225E3E6A00041EC7 /* TitleViewCell.swift in Sources */,
 				EEBC501E224B76FC0058B4E5 /* UIButton+Extension.swift in Sources */,
 				EEBC5019224B76FC0058B4E5 /* VisitorView.swift in Sources */,
 				EEC7AB48224D18FE0048A022 /* LoginView.swift in Sources */,
@@ -671,10 +728,13 @@
 				EEC7AB43224D10DE0048A022 /* RegisterLoginViewController.swift in Sources */,
 				EE473BE6224F8270004C05E0 /* WelComeViewController.swift in Sources */,
 				EEBC5014224B76FC0058B4E5 /* TFEPresenttationController.swift in Sources */,
+				EEF32E1A225C289700FA1E24 /* PicpickerCollectionView.swift in Sources */,
 				EEC7AB4C224D24B50048A022 /* FastLoginView.swift in Sources */,
+				EEF32E1D225C2D6C00FA1E24 /* PicpickerCollectionViewCell.swift in Sources */,
 				EE2DD58E2253AF8B003EA4C2 /* PictrueCollectionView.swift in Sources */,
 				EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */,
 				EEBC5011224B76FC0058B4E5 /* PopoverAnimator.swift in Sources */,
+				EE9CD411225E474C00041EC7 /* photoMessage.swift in Sources */,
 				EEBC500E224B76FC0058B4E5 /* HomeViewController.swift in Sources */,
 				EE904A58225B80810098EF39 /* ComposeTitleView.swift in Sources */,
 				EE473BE0224F6D04004C05E0 /* UserAccount.swift in Sources */,

@@ -11,16 +11,18 @@ import UIKit
 class PublishViewController: UIViewController {
 
     @IBOutlet weak var textView: ComposeTextView!
-    //title
     private lazy var composeTitleView : ComposeTitleView = ComposeTitleView()
-    @IBOutlet weak var toolBarBottom: NSLayoutConstraint!
     
+    
+    @IBOutlet weak var toolBarBottom: NSLayoutConstraint!
+    @IBOutlet weak var picPickerViewH: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        textView.tintColor = UIColor.white
         setUpNavItem()
-        
+        //监听键盘
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(note:)), name:UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     
@@ -57,6 +59,7 @@ extension PublishViewController
     @objc private func senfItemClick(){
         print("senfItemClick")
     }
+    //键盘
     @objc private func keyboardWillChangeFrame(note : Notification){
         //时间
         let duration = note.userInfo![UIResponder.keyboardAnimationDurationUserInfoKey] as! TimeInterval
@@ -67,6 +70,19 @@ extension PublishViewController
         UIView.animate(withDuration: duration) {
             self.view.layoutIfNeeded()
         }
+    }
+    
+    //相册按钮
+    @IBAction func picPickerBtnClick() {
+        textView.resignFirstResponder()
+        let photoVc = UIStoryboard(name: "PhotoPickerViewController", bundle: nil).instantiateInitialViewController()
+        
+        present(photoVc!, animated: true, completion: nil)
+        
+//        picPickerViewH.constant = UIScreen.main.bounds.height * 0.8
+//        UIView.animate(withDuration: 0.5) {
+//            self.view.layoutIfNeeded()
+//        }
     }
 }
 

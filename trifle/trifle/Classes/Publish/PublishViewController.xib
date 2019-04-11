@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PublishViewController" customModule="trifle" customModuleProvider="target">
             <connections>
+                <outlet property="picPickerViewH" destination="DYd-18-mSJ" id="tzD-3o-9Jl"/>
                 <outlet property="textView" destination="JQA-40-iKR" id="kJN-ML-awx"/>
                 <outlet property="toolBarBottom" destination="9r5-lm-hSC" id="rkp-Zh-On3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -31,6 +32,19 @@
                         <outlet property="delegate" destination="-1" id="RQ3-h6-nJQ"/>
                     </connections>
                 </textView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="GhC-mD-Bne" customClass="PicpickerCollectionView" customModule="trifle" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="647" width="377" height="0.0"/>
+                    <color key="backgroundColor" red="0.96593469379999997" green="0.93584925819999998" blue="0.361570526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="DYd-18-mSJ"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="20r-d5-eat">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
                 <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cQH-Et-5Kc">
                     <rect key="frame" x="0.0" y="603" width="377" height="44"/>
                     <constraints>
@@ -43,6 +57,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="compose_toolbar_picture"/>
                                 <state key="highlighted" image="compose_toolbar_picture_highlighted"/>
+                                <connections>
+                                    <action selector="picPickerBtnClick" destination="-1" eventType="touchUpInside" id="Cbq-v0-S9n"/>
+                                </connections>
                             </button>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="JFc-We-qbT"/>
@@ -90,9 +107,12 @@
                 <constraint firstItem="cQH-Et-5Kc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="NIt-2u-2pq"/>
                 <constraint firstItem="JQA-40-iKR" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Pgu-r5-ETG"/>
                 <constraint firstItem="cQH-Et-5Kc" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="Q7O-Fk-8gc"/>
+                <constraint firstItem="GhC-mD-Bne" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="SDL-XB-8S1"/>
                 <constraint firstItem="JQA-40-iKR" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="iJ2-Nc-HpD"/>
                 <constraint firstItem="JQA-40-iKR" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="lCr-ve-CRh"/>
+                <constraint firstAttribute="trailing" secondItem="GhC-mD-Bne" secondAttribute="trailing" id="u5a-BE-OpX"/>
                 <constraint firstItem="JQA-40-iKR" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="vCR-5s-W9O"/>
+                <constraint firstAttribute="bottom" secondItem="GhC-mD-Bne" secondAttribute="bottom" id="wfh-PC-AlT"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
