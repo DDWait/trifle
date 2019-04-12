@@ -11,34 +11,45 @@ import Photos
 private let picPickerCell = "picPickerCell"
 private let collectionCell = "collectionCell"
 private let itemMargin : CGFloat = 2
-class PhotoPickerViewController: UIViewController {
 
+//代理方法
+@objc protocol PhotoBrowserDelegate : NSObjectProtocol {
+    func callBack(pubshlishImages : [UIImage])
+}
+
+class PhotoPickerViewController: UIViewController {
     private lazy var titltBtn : TitleViewBtn = TitleViewBtn()
     private lazy var popoverAnimator : PopoverAnimator = PopoverAnimator {[weak self] (presented) -> () in
         self?.titltBtn.isSelected = presented
     }
+    //代理对象
+    weak var delegate : PhotoBrowserDelegate?
     //保存相册对象
-    var collectionNames : [PHAssetCollection] = []
+    private lazy var collectionNames : [PHAssetCollection] = []
     //图片对象
-    var images : [UIImage] = []
+    private lazy var images : [UIImage] = []
     //被选择的图片的对象
-    var selectesImages : [UIImage] = []
-    
+    private lazy var selectesImages : [UIImage] = []
     //保存相册信息
-    var photoMessages : [photoMessage] {
+    private  var photoMessages : [photoMessage] {
         var photoMessages : [photoMessage] = []
-        
         photoMessages = checkPhotos()
-        
         return photoMessages
     }
+    //上传给publish的数据
+    private lazy var publishImage : [UIImage] = []
+    //照片对象phasset
+    private lazy var phassets : [PHAsset] = []
+    //被选中的照片对象
+    private lazy var selectedPhassets : [PHAsset] = []
+    //照片对象image
+    private lazy var originImages : [UIImage] = []
     // 1.创建弹出的控制器
-    let popoverVc : PopoverViewController = PopoverViewController()
+    private let popoverVc : PopoverViewController = PopoverViewController()
     //底部View
     @IBOutlet weak var OriginImage: UIImageView!
     @IBOutlet weak var preViewBtn: UIButton!
     @IBOutlet weak var picCollectionView: UICollectionView!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
@@ -54,18 +65,15 @@ class PhotoPickerViewController: UIViewController {
 ///设置UI界面
 extension PhotoPickerViewController
 {
+    //navigation
     private func setUI(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: UIBarButtonItem.Style.plain, target: self, action: #selector(closeBtnClick))
-        
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "确定", style: UIBarButtonItem.Style.plain, target: self, action: #selector(sureBtnclick))
         navigationItem.rightBarButtonItem?.isEnabled = false
         titltBtn.setTitle("所有图片", for: UIControl.State.normal)
         titltBtn.addTarget(self, action: #selector(titleBtnClick(titleBtn:)), for: UIControl.Event.touchUpInside)
         navigationItem.titleView = titltBtn
-        
-        
     }
-    
     //设置collectionView
     private func setCollectionView(){
         picCollectionView.dataSource = self
@@ -82,21 +90,33 @@ extension PhotoPickerViewController
 ///监听事件
 extension PhotoPickerViewController
 {
+    //退出键
     @objc private func closeBtnClick(){
         dismiss(animated: true, completion: nil)
     }
+    //确定键
     @objc private func sureBtnclick(){
-        print("sureBtnclick")
+        publishImage = selectesImages
+        delegate!.callBack(pubshlishImages: publishImage)
+        dismiss(animated: true, completion: nil)
     }
+    //下拉菜单
     @objc private func titleBtnClick(titleBtn : TitleViewBtn) {
         present(popoverVc, animated: true, completion: nil)
     }
+    //预览
     @IBAction func preView(_ sender: UIButton) {
-        let photoBrowser : PhotoBrowserViewController = PhotoBrowserViewController(images: selectesImages, originImage: images)
+        let photoBrowser : PhotoBrowserViewController = PhotoBrowserViewController(images: selectesImages)
         present(photoBrowser, animated: true, completion: nil)
     }
+    //原图
     @IBAction func OringinBtn(_ sender: UIButton) {
         OriginImage.isHidden = !OriginImage.isHidden
+        if OriginImage.isHidden == false {
+            publishImage = self.originImages
+        }else{
+            publishImage = self.selectesImages
+        }
     }
     ///弹出控制器
     private func setPopoViewController(){
@@ -141,6 +161,7 @@ extension PhotoPickerViewController : UITableViewDataSource,UITableViewDelegate
             assetArray.enumerateObjects({ (asset, index, _) in
                 let image = self.PhAssetToImage(asset: asset)
                 self.images.append(image)
+                self.phassets.append(asset)
             })
         }
         self.picCollectionView.reloadData()
@@ -202,7 +223,6 @@ extension PhotoPickerViewController : UICollectionViewDataSource,UICollectionVie
         for image in selectesImages {
             let OData : Data = image.pngData()!
             if data == OData {
-                print("adfadf")
                 cell.pickerImage.isHidden = !cell.pickerImage.isHidden
                 cell.MView.isHidden = !cell.MView.isHidden
                 cell.pickerBtn.isHidden = !cell.pickerBtn.isHidden
@@ -226,13 +246,35 @@ extension PhotoPickerViewController : UICollectionViewDataSource,UICollectionVie
                 return
             }
             selectesImages.append(cell.iconImage.image!)
+            //原图信息
+            for asset in phassets{
+                let image = PhAssetToImage(asset: asset)
+                let imageData : Data = image.pngData()!
+                let cellImageData : Data = cell.iconImage.image!.pngData()!
+                if imageData == cellImageData{
+                    self.selectedPhassets.append(asset)
+                    break
+                }
+            }
         }else{
             let data : Data = cell.iconImage.image!.pngData()!
+            //缩略图
             for image in selectesImages {
                 let OData : Data = image.pngData()!
                 if data == OData {
                     let index = selectesImages.firstIndex(of: image)
                     selectesImages.remove(at: index!)
+                    break
+                }
+            }
+            //原图
+            for asset in selectedPhassets{
+                let image = PhAssetToImage(asset: asset)
+                let imageData : Data = image.pngData()!
+                if imageData == data{
+                    let index = selectedPhassets.firstIndex(of: asset)
+                    selectedPhassets.remove(at: index!)
+                    break
                 }
             }
         }
@@ -245,6 +287,12 @@ extension PhotoPickerViewController : UICollectionViewDataSource,UICollectionVie
         }else{
             navigationItem.rightBarButtonItem?.isEnabled = true
             preViewBtn.isEnabled = true
+        }
+        originImages.removeAll()
+        for asset in selectedPhassets{
+            PHImageManager.default().requestImage(for: asset, targetSize: CGSize(width: asset.pixelWidth, height: asset.pixelHeight), contentMode: .default, options: nil) { (image, _) in
+                self.originImages.append(image!)
+            }
         }
     }
 }

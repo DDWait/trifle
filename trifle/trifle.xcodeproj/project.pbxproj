@@ -40,6 +40,7 @@
 		EE6971D2225312D4005871F6 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971D1225312D4005871F6 /* User.swift */; };
 		EE6971D4225315B1005871F6 /* StatusViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971D3225315B1005871F6 /* StatusViewTool.swift */; };
 		EE6971D622533CCC005871F6 /* HotViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971D522533CCC005871F6 /* HotViewCell.swift */; };
+		EE76EF1E2260D9A600881C98 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76EF1D2260D9A600881C98 /* Common.swift */; };
 		EE904A55225B7DB30098EF39 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904A53225B7DB30098EF39 /* PublishViewController.swift */; };
 		EE904A56225B7DB30098EF39 /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE904A54225B7DB30098EF39 /* PublishViewController.xib */; };
 		EE904A58225B80810098EF39 /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904A57225B80810098EF39 /* ComposeTitleView.swift */; };
@@ -124,6 +125,7 @@
 		EE6971D1225312D4005871F6 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		EE6971D3225315B1005871F6 /* StatusViewTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewTool.swift; sourceTree = "<group>"; };
 		EE6971D522533CCC005871F6 /* HotViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotViewCell.swift; sourceTree = "<group>"; };
+		EE76EF1D2260D9A600881C98 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		EE904A53225B7DB30098EF39 /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		EE904A54225B7DB30098EF39 /* PublishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishViewController.xib; sourceTree = "<group>"; };
 		EE904A57225B80810098EF39 /* ComposeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
@@ -481,6 +483,7 @@
 			children = (
 				EEBC500B224B76FC0058B4E5 /* Category */,
 				EE473BB2224F601D004C05E0 /* NetWorkTool.swift */,
+				EE76EF1D2260D9A600881C98 /* Common.swift */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -731,6 +734,7 @@
 				EEF32E1A225C289700FA1E24 /* PicpickerCollectionView.swift in Sources */,
 				EEC7AB4C224D24B50048A022 /* FastLoginView.swift in Sources */,
 				EEF32E1D225C2D6C00FA1E24 /* PicpickerCollectionViewCell.swift in Sources */,
+				EE76EF1E2260D9A600881C98 /* Common.swift in Sources */,
 				EE2DD58E2253AF8B003EA4C2 /* PictrueCollectionView.swift in Sources */,
 				EEBC4FDB224B76420058B4E5 /* AppDelegate.swift in Sources */,
 				EEBC5011224B76FC0058B4E5 /* PopoverAnimator.swift in Sources */,

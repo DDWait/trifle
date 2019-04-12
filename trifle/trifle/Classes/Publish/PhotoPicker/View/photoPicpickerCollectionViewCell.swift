@@ -17,14 +17,7 @@ class photoPicpickerCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-    }
-
-    @IBAction func pickerPhoto(_ sender: UIButton) {
-//      pickerImage.isHidden = !pickerImage.isHidden
-//      MView.isHidden = !MView.isHidden
-//      pickerBtn.isHidden = !pickerBtn.isHidden
-    }
-    
+    }    
     func setDafault(){
         pickerImage.isHidden = true
         MView.isHidden = true

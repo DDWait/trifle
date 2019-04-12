@@ -42,7 +42,7 @@ extension HotViewController
         
         //进入刷新状态
         if isLogin {
-//            tableView.mj_header.beginRefreshing()
+            tableView.mj_header.beginRefreshing()
         }
     }
     

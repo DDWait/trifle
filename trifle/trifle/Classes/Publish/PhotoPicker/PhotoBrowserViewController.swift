@@ -12,7 +12,6 @@ import SnapKit
 private let photoBrowserCell = "photoBrowserCell"
 class PhotoBrowserViewController: UIViewController {
     var images : [UIImage]
-    var originImage : [UIImage]
     private lazy var collectionView : UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: PhotoBrowserPushlishViewLayout())
     private lazy var tipLabel : UILabel = UILabel()
     private lazy var colseBtn : UIButton = UIButton()
@@ -22,9 +21,8 @@ class PhotoBrowserViewController: UIViewController {
         view.bounds.size.width += 20
     }
     
-    init(images : [UIImage],originImage : [UIImage]) {
+    init(images : [UIImage]) {
         self.images = images
-        self.originImage = originImage
         super.init(nibName: nil, bundle: nil)
         
     }

@@ -14,6 +14,9 @@ private let margin : CGFloat = 15
 
 
 class PicpickerCollectionView: UICollectionView {
+    
+    var images : [UIImage] = []
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         let layout  = collectionViewLayout as! UICollectionViewFlowLayout
@@ -31,12 +34,21 @@ class PicpickerCollectionView: UICollectionView {
 extension PicpickerCollectionView : UICollectionViewDataSource
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        if images.count == 9 {
+            return images.count
+        }else{
+            return images.count + 1
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = dequeueReusableCell(withReuseIdentifier: picPickerCell, for: indexPath)
-//        cell.backgroundColor = UIColor.black
+        let cell = dequeueReusableCell(withReuseIdentifier: picPickerCell, for: indexPath) as! PicpickerCollectionViewCell
+        if images.count == 9 {
+            cell.image = images[indexPath.item]
+        }else{
+            cell.image = indexPath.item <= images.count - 1 ? images[indexPath.item] : nil
+        }
+        
         return cell
     }
 }

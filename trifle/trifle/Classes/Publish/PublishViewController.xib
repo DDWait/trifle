@@ -12,6 +12,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PublishViewController" customModule="trifle" customModuleProvider="target">
             <connections>
+                <outlet property="collectionView" destination="GhC-mD-Bne" id="gEP-he-CBu"/>
                 <outlet property="picPickerViewH" destination="DYd-18-mSJ" id="tzD-3o-9Jl"/>
                 <outlet property="textView" destination="JQA-40-iKR" id="kJN-ML-awx"/>
                 <outlet property="toolBarBottom" destination="9r5-lm-hSC" id="rkp-Zh-On3"/>
@@ -34,7 +35,7 @@
                 </textView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="GhC-mD-Bne" customClass="PicpickerCollectionView" customModule="trifle" customModuleProvider="target">
                     <rect key="frame" x="0.0" y="647" width="377" height="0.0"/>
-                    <color key="backgroundColor" red="0.96593469379999997" green="0.93584925819999998" blue="0.361570526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" id="DYd-18-mSJ"/>
                     </constraints>

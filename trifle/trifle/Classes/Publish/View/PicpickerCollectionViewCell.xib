@@ -19,7 +19,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="161" height="146"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxF-WF-gi2">
+                    <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VxF-WF-gi2">
                         <rect key="frame" x="0.0" y="0.0" width="161" height="146"/>
                         <state key="normal" backgroundImage="compose_pic_add"/>
                         <state key="highlighted" backgroundImage="compose_pic_add_highlighted"/>
@@ -27,6 +27,9 @@
                             <action selector="addPhotoClick" destination="gTV-IL-0wX" eventType="touchUpInside" id="PlX-x6-yFi"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="U3z-Wz-2rG">
+                        <rect key="frame" x="0.0" y="0.0" width="161" height="146"/>
+                    </imageView>
                     <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cMh-NZ-y2U">
                         <rect key="frame" x="137" y="0.0" width="24" height="24"/>
                         <constraints>
@@ -34,20 +37,32 @@
                             <constraint firstAttribute="height" constant="24" id="DtN-vp-uqb"/>
                         </constraints>
                         <state key="normal" image="compose_photo_close"/>
+                        <connections>
+                            <action selector="removePhotoClick" destination="gTV-IL-0wX" eventType="touchUpInside" id="oPl-Os-dBa"/>
+                        </connections>
                     </button>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstAttribute="trailing" secondItem="U3z-Wz-2rG" secondAttribute="trailing" id="6b7-Q6-oKV"/>
                 <constraint firstAttribute="bottom" secondItem="VxF-WF-gi2" secondAttribute="bottom" id="ACF-1u-4Ux"/>
                 <constraint firstItem="cMh-NZ-y2U" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="TwY-kI-QNf"/>
+                <constraint firstItem="U3z-Wz-2rG" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Yct-nO-qol"/>
+                <constraint firstAttribute="bottom" secondItem="U3z-Wz-2rG" secondAttribute="bottom" id="ekJ-yw-Olj"/>
                 <constraint firstAttribute="trailing" secondItem="VxF-WF-gi2" secondAttribute="trailing" id="gq4-le-3e6"/>
                 <constraint firstItem="VxF-WF-gi2" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jht-5i-9aR"/>
                 <constraint firstItem="VxF-WF-gi2" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="shZ-hG-k3m"/>
+                <constraint firstItem="U3z-Wz-2rG" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="vqd-FC-bd9"/>
                 <constraint firstAttribute="trailing" secondItem="cMh-NZ-y2U" secondAttribute="trailing" id="wxN-Dh-Xln"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <size key="customSize" width="161" height="146"/>
-            <point key="canvasLocation" x="-79" y="100"/>
+            <connections>
+                <outlet property="addPhotoBtn" destination="VxF-WF-gi2" id="Evq-Pz-AbJ"/>
+                <outlet property="iconView" destination="U3z-Wz-2rG" id="Xdj-nd-GQJ"/>
+                <outlet property="removeBtn" destination="cMh-NZ-y2U" id="Ooz-th-BEp"/>
+            </connections>
+            <point key="canvasLocation" x="-79.200000000000003" y="99.850074962518747"/>
         </collectionViewCell>
     </objects>
     <resources>
