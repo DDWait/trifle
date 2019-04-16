@@ -8,6 +8,11 @@
 
 import UIKit
 import SDWebImage
+
+protocol PhotoBrowserCollectionViewCellDelegate : NSObjectProtocol {
+    func imageViewClick()
+}
+
 class PhotoBrowserCollectionViewCell: UICollectionViewCell {
     var picURL : URL?{
         didSet{
@@ -19,9 +24,7 @@ class PhotoBrowserCollectionViewCell: UICollectionViewCell {
             let height : CGFloat = (width  * image.size.height) / image.size.width
             print(height)
             var y : CGFloat = 0
-            if height > UIScreen.main.bounds.height{
-                print("长图")
-                print(image)
+            if height > UIScreen.main.bounds.height{ 
                 y = 0
             }else{
                 y = (UIScreen.main.bounds.height - height) * 0.5
@@ -38,8 +41,10 @@ class PhotoBrowserCollectionViewCell: UICollectionViewCell {
         }
     }
     private lazy var scrollView : UIScrollView = UIScrollView()
-    private lazy var imageView : UIImageView = UIImageView()
+    var imageView : UIImageView = UIImageView()
     private lazy var progressView : ProgressView = ProgressView()
+    var delegate : PhotoBrowserCollectionViewCellDelegate?
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUI()
@@ -56,14 +61,21 @@ extension PhotoBrowserCollectionViewCell
         contentView.addSubview(progressView)
         scrollView.addSubview(imageView)
         scrollView.frame = contentView.bounds
-//        scrollView.frame.size.width -= 20
+        scrollView.frame.size.width -= 20
         
         progressView.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
         progressView.center = CGPoint(x: UIScreen.main.bounds.width * 0.5, y: UIScreen.main.bounds.height * 0.5)
         progressView.backgroundColor = UIColor.clear
         progressView.isHidden = true
+        
+        let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageViewClick))
+        imageView.addGestureRecognizer(tap)
+        imageView.isUserInteractionEnabled = true
     }
     
+    @objc private func imageViewClick(){
+        delegate?.imageViewClick()
+    }
     
     private func getLarghImage(picURL : URL) -> URL{
         let URLString = picURL.absoluteString
