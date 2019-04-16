@@ -51,7 +51,7 @@ class HotViewCell: UITableViewCell {
             }
             
             //设置正文
-            contentLabel.text = viewModel.status?.text
+            contentLabel.attributedText = FineEmoticon.shareInstance.fineAttrituString(statusText: viewModel.status?.text, font: contentLabel.font)
             
             //计算picView的宽高
             let picViewSize : CGSize = calculatePicViewSize(count: viewModel.picURLs.count)
@@ -64,8 +64,8 @@ class HotViewCell: UITableViewCell {
             //设置转发文字
             if viewModel.status?.retweeted_status != nil{
                 if let screenName = viewModel.status?.retweeted_status?.user?.screen_name,let retweetText = viewModel.status?.retweeted_status?.text{
-                    retweetContentLabel.text = "@" + "\(screenName): " + retweetText
-                    
+                    let text  = "@" + "\(screenName): " + retweetText
+                    retweetContentLabel.attributedText = FineEmoticon.shareInstance.fineAttrituString(statusText: text, font: retweetContentLabel.font)
                     retweetedLabelTopCons.constant = 15
                 }
                 retweetBg.isHidden = false
@@ -106,15 +106,9 @@ extension HotViewCell
         //单张图片展示
         if count == 1 {
             let URLString = viewModel!.picURLs.first!.absoluteString
-            let BigString = (URLString as NSString).replacingOccurrences(of: "thumbnail", with: "bmiddle")
-            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: BigString)
-            if image!.size.height < 500 {
-                layout.itemSize = CGSize(width: image!.size.width * 0.5, height: image!.size.height * 0.5)
-                return CGSize(width: image!.size.width * 0.5, height: image!.size.height * 0.5)
-            }else{
-                layout.itemSize = CGSize(width: UIScreen.main.bounds.width * 0.5, height: 200)
-                return CGSize(width: UIScreen.main.bounds.width * 0.5, height: 200)
-            }
+            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: URLString)
+            layout.itemSize = CGSize(width: image!.size.width * 2, height: image!.size.height * 2)
+            return CGSize(width: image!.size.width * 2, height: image!.size.height * 2)
         }
         
         //计算image的宽高

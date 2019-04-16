@@ -20,10 +20,11 @@ class PictrueCollectionView: UICollectionView {
     override func awakeFromNib() {
         super.awakeFromNib()
         dataSource = self
+        delegate = self
     }
 }
 
-extension PictrueCollectionView : UICollectionViewDataSource
+extension PictrueCollectionView : UICollectionViewDataSource,UICollectionViewDelegate
 {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return picURLs.count
@@ -37,6 +38,11 @@ extension PictrueCollectionView : UICollectionViewDataSource
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let userInfo = ["indexPath" : indexPath,"picURLs" : picURLs] as [String : Any]
+        NotificationCenter.default.post(name: NSNotification.Name(showPhotoBrowserNote), object: nil, userInfo: userInfo)
+    }
+    
     
 }
 
@@ -48,22 +54,9 @@ class PictrueViewCell: UICollectionViewCell {
             guard let picURL = picURL else {
                 return
             }
-            let URLString = picURL.absoluteString
-            let BigString = (URLString as NSString).replacingOccurrences(of: "thumbnail", with: "bmiddle")
-            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: BigString)
             labelView.isHidden = true
-            imageView.contentMode = .scaleAspectFill
-            if image != nil {
-                imageView.image = image
-                if image!.size.height > 500{
-                    labelView.text = "长图"
-                    labelView.isHidden = false
-                    imageView.contentMode = .top
-                    fitImage(image: image!)
-                }
-            }else{
-                imageView.sd_setImage(with: picURL, placeholderImage: UIImage(named: "empty_picture"))
-            }
+            let URLString = picURL.absoluteString
+            imageView.sd_setImage(with: picURL, placeholderImage: UIImage(named: "empty_picture"))
             if (URLString as NSString).lowercased.hasSuffix("gif"){
                 labelView.text = "动图"
                 labelView.isHidden = false
@@ -72,17 +65,17 @@ class PictrueViewCell: UICollectionViewCell {
     }
 }
 
-extension PictrueViewCell
-{
-    ///长图处理
-    private func fitImage(image : UIImage){
-        let imageW : CGFloat = UIScreen.main.bounds.width * 0.5
-        let imageH : CGFloat = imageW * image.size.height / image.size.width
-        UIGraphicsBeginImageContext(CGSize(width: imageW, height: imageH))
-        imageView.image!.draw(in: CGRect(x: 0, y: 0, width: imageW, height: imageH))
-        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-    }
-}
+//extension PictrueViewCell
+//{
+//    ///长图处理
+//    private func fitImage(image : UIImage){
+//        let imageW : CGFloat = UIScreen.main.bounds.width * 0.5
+//        let imageH : CGFloat = imageW * image.size.height / image.size.width
+//        UIGraphicsBeginImageContext(CGSize(width: imageW, height: imageH))
+//        imageView.image!.draw(in: CGRect(x: 0, y: 0, width: imageW, height: imageH))
+//        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
+//        UIGraphicsEndImageContext()
+//    }
+//}
 
 

@@ -87,50 +87,55 @@ extension NetWorkTool
     }
 }
 
-//// MARK:-发送微博无图片
-//extension NetWorkTool
-//{
-//    func sendStatus(statusText : String, isSuccess : @escaping (_ isSuccess : Bool)->()) {
-//        //获取请求的URLstring
-//        let urlString = "https://api.weibo.com/2/statuses/share.json"
-//        //拼接安全域名
-//        let statusNew = statusText + "sns.whalecloud.com"
-//        //拼接请求参数
-//        let parameters = ["access_token" : (UserAccountViewModel.shareInstance.account?.access_token)!, "status" : statusNew]
-//        //发送请求
-//        request(methodType: .POST, urlString: urlString, parameters: parameters as [String : AnyObject]) { (result, error) in
-//            if result != nil{
-//                isSuccess(true)
-//            }else{
-//                isSuccess(false)
-//            }
-//        }
-//    }
-//}
+// MARK:-发送微博无图片
+extension NetWorkTool
+{
+    func sendStatus(statusText : String, isSuccess : @escaping (_ isSuccess : Bool)->()) {
+        //获取请求的URLstring
+        let urlString = "https://api.weibo.com/2/statuses/share.json"
+        //拼接安全域名
+        let statusNew = statusText + "http://sns.whalecloud.com"
+        //拼接请求参数
+        let access_token = UserAccountTool.shareInstance.account?.access_token
+        let parameters = ["access_token" : access_token, "status" : statusNew]
+        //发送请求
+        request(methodType: .POST, urlString: urlString, parameters: parameters as [String : AnyObject]) { (result, error) in
+            if result != nil{
+                isSuccess(true)
+            }else{
+                isSuccess(false)
+            }
+        }
+    }
+}
 
-//// MARK:-发送微博陪图片
-//extension NetWorkTool
-//{
-//    func sendStatus(statusText : String, image : UIImage,isSuccess : @escaping (_ isSuccess : Bool)->()) {
-//        //获取请求的URLstring
-//        let urlString = "https://api.weibo.com/2/statuses/share.json"
-//        //拼接安全域名
-//        let statusNew = statusText + "http://www.mob.com"
-//        //拼接请求参数
-//        let parameters = ["access_token" : (UserAccountViewModel.shareInstance.account?.access_token)!, "status" : statusNew]
-//        requestSerializer.setValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
-//        //使用能上传图片的POST请求
-//        post(urlString, parameters: parameters, constructingBodyWith: { (formDate) in
-//            if let imageData = image.pngData() {
-//                formDate.appendPart(withFileData: imageData, name: "pic", fileName: "123.png", mimeType: "multipart/form-data")
-//            }
-//        }, progress: nil, success: { (_, _) in
-//            isSuccess(true)
-//        }) { (_, error) in
-//            print(error)
-//            isSuccess(false)
-//        }
-//    }
-//
-//}
+// MARK:-发送微博陪图片
+extension NetWorkTool
+{
+    func sendStatus(statusText : String, images : [UIImage],isSuccess : @escaping (_ isSuccess : Bool)->()) {
+        //获取请求的URLstring
+        let urlString = "https://api.weibo.com/2/statuses/share.json"
+        //拼接安全域名
+        let statusNew = statusText + "http://sns.whalecloud.com"
+        //拼接请求参数
+        let parameters = ["access_token" : (UserAccountTool.shareInstance.account?.access_token)!, "status" : statusNew]
+        requestSerializer.setValue("multipart/form-data", forHTTPHeaderField: "Content-Type")
+        //使用能上传图片的POST请求
+        post(urlString, parameters: parameters, constructingBodyWith: { (formDate) in
+            var index : Int = 0
+            for image in images{
+                if let imageData = image.pngData() {
+                    formDate.appendPart(withFileData: imageData, name: "pic", fileName: "image\(index).png", mimeType: "multipart/form-data")
+                }
+                index+=1
+            }
+        }, progress: nil, success: { (_, _) in
+            isSuccess(true)
+        }) { (_, error) in
+            print(error)
+            isSuccess(false)
+        }
+    }
+
+}
 

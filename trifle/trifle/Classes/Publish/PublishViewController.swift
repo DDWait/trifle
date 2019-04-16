@@ -7,27 +7,26 @@
 //
 
 import UIKit
-
+import SVProgressHUD
 class PublishViewController: UIViewController {
-
     @IBOutlet weak var textView: ComposeTextView!
     private lazy var composeTitleView : ComposeTitleView = ComposeTitleView()
     @IBOutlet weak var collectionView: PicpickerCollectionView!
-    
-    private var images : [UIImage] = []
     @IBOutlet weak var toolBarBottom: NSLayoutConstraint!
     @IBOutlet weak var picPickerViewH: NSLayoutConstraint!
-    
-    
+    //图片
+    private var images : [UIImage] = []
+    // MARK:-懒加载
+    private lazy var emotiVc = EmoticonController { [weak self](emoticon) in
+        self?.textView.insertEmoticon(emoticon: emoticon)
+        self?.textViewDidChange(self!.textView)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.tintColor = UIColor.white
         setUpNavItem()
         setUpNotification()
-        //监听键盘
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(note:)), name:UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
-    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         if picPickerViewH.constant == 0 {
@@ -44,7 +43,7 @@ extension PublishViewController
 {
     private func setUpNavItem(){
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "取消", style: UIBarButtonItem.Style.plain, target: self, action: #selector(closeItemClick))
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "登录", style: UIBarButtonItem.Style.plain, target: self, action: #selector(senfItemClick))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "发送", style: UIBarButtonItem.Style.plain, target: self, action: #selector(senfItemClick))
         navigationItem.rightBarButtonItem?.isEnabled = false
         composeTitleView.frame = CGRect(x: 0, y: 0, width: 100, height: 40)
         navigationItem.titleView = composeTitleView
@@ -54,6 +53,8 @@ extension PublishViewController
         NotificationCenter.default.addObserver(self, selector: #selector(removeBtnclick(note:)), name: NSNotification.Name(PicPickerRemovePhotoNote), object: nil)
         //PicPickerAddPhotoNote
         NotificationCenter.default.addObserver(self, selector: #selector(picPickerBtnClick), name: NSNotification.Name(PicPickerAddPhotoNote), object: nil)
+        //监听键盘
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillChangeFrame(note:)), name:UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
 }
 
@@ -67,7 +68,21 @@ extension PublishViewController
     }
     //发送
     @objc private func senfItemClick(){
-        print("senfItemClick")
+        textView.resignFirstResponder()
+        let text = textView.getEmoticonString()
+        let finishedCallBack = { (isSuccess : Bool) in
+            if !isSuccess {
+                SVProgressHUD.showError(withStatus: "发送失败")
+                return
+            }
+            SVProgressHUD.showSuccess(withStatus: "发送成功")
+            self.dismiss(animated: true, completion: nil)
+        }
+        if images.count == 0 {
+            NetWorkTool.shareInstance.sendStatus(statusText: text, isSuccess: finishedCallBack)
+        }else{
+            NetWorkTool.shareInstance.sendStatus(statusText: text, images: images, isSuccess: finishedCallBack)
+        }
     }
     @objc private func removeBtnclick(note : Notification){
         guard let image = note.object as? UIImage else {
@@ -92,7 +107,6 @@ extension PublishViewController
             self.view.layoutIfNeeded()
         }
     }
-    
     //相册按钮
     @IBAction func picPickerBtnClick() {
         textView.resignFirstResponder()
@@ -106,6 +120,14 @@ extension PublishViewController
             }
         }
     }
+    //表情按钮
+    @IBAction func emoticonClick() {
+        textView.resignFirstResponder()
+        
+        textView.inputView = textView.inputView != nil ? nil : emotiVc.view
+        
+        textView.becomeFirstResponder()
+    }
 }
 
 extension PublishViewController : UITextViewDelegate
@@ -114,7 +136,6 @@ extension PublishViewController : UITextViewDelegate
         self.textView.placeHolderLabel.isHidden = textView.hasText
         navigationItem.rightBarButtonItem?.isEnabled = textView.hasText
     }
-    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         textView.resignFirstResponder()
     }

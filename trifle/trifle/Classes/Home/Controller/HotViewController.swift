@@ -11,7 +11,6 @@ import SDWebImage
 import MJRefresh
 
 class HotViewController: UITableViewController {
-
     //是否登录属性
     var isLogin : Bool = UserAccountTool.shareInstance.isLogin
     //保存数据
@@ -21,13 +20,16 @@ class HotViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
-        
         //自动计算cell的高度
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
         setUpHeaderView()
         setUpFootView()
         setUpTipLabel()
+        setUpNatifications()
+    }
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
 }
 
@@ -39,17 +41,14 @@ extension HotViewController
         header?.setTitle("释放更新", for: .pulling)
         header?.setTitle("加载中", for: .refreshing)
         tableView.mj_header = header
-        
         //进入刷新状态
         if isLogin {
             tableView.mj_header.beginRefreshing()
         }
     }
-    
     @objc private func loadNewDate(){
         loadStatus(isNewDate: true)
     }
-    
     private func setUpFootView(){
         tableView.mj_footer = MJRefreshAutoFooter(refreshingTarget: self, refreshingAction: #selector(loadMoreStatuses))
     }
@@ -58,11 +57,8 @@ extension HotViewController
     }
     //tiplabel
     private func setUpTipLabel(){
-        
         navigationController?.navigationBar.insertSubview((tipLabel), at: 0)
-        
         tipLabel.frame = CGRect(x: UIScreen.main.bounds.width * 0.375, y: 10, width: UIScreen.main.bounds.width * 0.25, height: 32)
-    
         tipLabel.backgroundColor = UIColor.orange
         tipLabel.textColor = UIColor.white
         tipLabel.font = UIFont.systemFont(ofSize: 14)
@@ -108,18 +104,13 @@ extension HotViewController
             self.cacheImages(StatusViews: tempStatusViews,isNewDate: isNewDate)
         }
     }
-    
     //缓存图片
     private func cacheImages(StatusViews : [StatusViewTool],isNewDate : Bool){
         let group = DispatchGroup()
         for StatusView in StatusViews{
-            //单张配图下载
-            if StatusView.picURLs.count == 1{
-                let picURL = StatusView.picURLs.first
-                let URLString = picURL!.absoluteString
-                let BigString = (URLString as NSString).replacingOccurrences(of: "thumbnail", with: "bmiddle")
+            for picURL in StatusView.picURLs{
                 group.enter()
-                SDWebImageManager.shared().loadImage(with: URL(string: BigString), options: [], progress: nil) { (image, _, _, _, _, _) in
+                SDWebImageManager.shared().loadImage(with: picURL, options: [], progress: nil) { (image, _, _, _, _, _) in
                     print("下载了一张图片")
                     group.leave()
                 }
@@ -130,26 +121,19 @@ extension HotViewController
             print("刷新")
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
-        
             //显示提示label
             if isNewDate{
                 self.showTiplabel(count: StatusViews.count)
             }
         }
     }
-    
-    
     //tiplabel
     private func showTiplabel(count : Int){
         tipLabel.isHidden = false
-        
-
-        //
         //执行动画
         UIView.animate(withDuration: 1.0, animations: {
             self.tipLabel.frame.origin.y = 44
             self.tableView.frame.origin.y = 32
-            
             for i in (0...2).reversed() {
                 self.tipLabel.frame.origin.x = UIScreen.main.bounds.width * 0.125 * CGFloat(i)
                 self.tipLabel.frame.size.width = (UIScreen.main.bounds.width * 0.5 - self.tipLabel.frame.origin.x) * 2
@@ -167,7 +151,6 @@ extension HotViewController
         }
     }
 }
-
 //tableView的数据源方法
 extension HotViewController
 {
@@ -179,5 +162,20 @@ extension HotViewController
         let cell = tableView.dequeueReusableCell(withIdentifier: "HotCell") as! HotViewCell
         cell.viewModel = StatusViews[indexPath.row]
         return cell
+    }
+}
+//注册通知
+extension HotViewController
+{
+    private func setUpNatifications(){
+        NotificationCenter.default.addObserver(self, selector: #selector(showPhotoBrowser(note:)), name: NSNotification.Name(showPhotoBrowserNote), object: nil)
+    }
+    @objc private func showPhotoBrowser(note : Notification){
+        let indexPath : IndexPath = note.userInfo!["indexPath"] as! IndexPath
+        let picURLs : [URL] = note.userInfo!["picURLs"] as! [URL]
+        
+        let photoBrowser : PhotoBrowserController = PhotoBrowserController(indexPath: indexPath, picURLS: picURLs)
+        
+        present(photoBrowser, animated: true, completion: nil)
     }
 }
