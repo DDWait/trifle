@@ -40,7 +40,7 @@ extension PictrueCollectionView : UICollectionViewDataSource,UICollectionViewDel
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let userInfo = ["indexPath" : indexPath,"picURLs" : picURLs] as [String : Any]
-        NotificationCenter.default.post(name: NSNotification.Name(showPhotoBrowserNote), object: nil, userInfo: userInfo)
+        NotificationCenter.default.post(name: NSNotification.Name(showPhotoBrowserNote), object: self, userInfo: userInfo)
     }
     
     
@@ -63,6 +63,45 @@ class PictrueViewCell: UICollectionViewCell {
             }
         }
     }
+}
+
+
+
+extension PictrueCollectionView : AnimatorPhotoBrowserPresentedDelegate
+{
+    func startRect(indexPath: IndexPath) -> CGRect {
+        let cell = self.cellForItem(at: indexPath)!
+        let startFrame = self.convert(cell.frame, to: UIApplication.shared.keyWindow!)
+        return startFrame
+    }
+    
+    func endRect(indexPath: IndexPath) -> CGRect {
+        let picURl = picURLs[indexPath.item]
+        let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: picURl.absoluteString)
+        let width : CGFloat = UIScreen.main.bounds.width
+        let height : CGFloat = (width  * image!.size.height) / image!.size.width
+        print(height)
+        var y : CGFloat = 0
+        if height > UIScreen.main.bounds.height{
+            y = 0
+        }else{
+            y = (UIScreen.main.bounds.height - height) * 0.5
+        }
+        
+        return CGRect(x: 0, y: y, width: width, height: height)
+    }
+    
+    func imageView(indexPath: IndexPath) -> UIImageView {
+        let picURl = picURLs[indexPath.item]
+        let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: picURl.absoluteString)
+        let imageView : UIImageView = UIImageView()
+        imageView.image = image!
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        return imageView
+    }
+    
+    
 }
 
 //extension PictrueViewCell

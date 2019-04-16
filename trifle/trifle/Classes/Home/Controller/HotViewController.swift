@@ -17,6 +17,7 @@ class HotViewController: UITableViewController {
     private lazy var StatusViews : [StatusViewTool] = [StatusViewTool]()
     //提示label
     private lazy var tipLabel : UILabel = UILabel()
+    private lazy var photoBrowserAnimator : PhotoBrowserAnimator = PhotoBrowserAnimator()
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.white
@@ -173,9 +174,13 @@ extension HotViewController
     @objc private func showPhotoBrowser(note : Notification){
         let indexPath : IndexPath = note.userInfo!["indexPath"] as! IndexPath
         let picURLs : [URL] = note.userInfo!["picURLs"] as! [URL]
-        
+        let object = note.object as! PictrueCollectionView
         let photoBrowser : PhotoBrowserController = PhotoBrowserController(indexPath: indexPath, picURLS: picURLs)
-        
+        photoBrowser.modalPresentationStyle = .custom
+        photoBrowser.transitioningDelegate = photoBrowserAnimator
+        photoBrowserAnimator.photoBrowserPresentedDelegate = object
+        photoBrowserAnimator.indexPath = indexPath
+        photoBrowserAnimator.PhotoBrowserDismissDelegate = photoBrowser
         present(photoBrowser, animated: true, completion: nil)
     }
 }

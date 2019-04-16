@@ -41,6 +41,7 @@
 		EE6971D4225315B1005871F6 /* StatusViewTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971D3225315B1005871F6 /* StatusViewTool.swift */; };
 		EE6971D622533CCC005871F6 /* HotViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971D522533CCC005871F6 /* HotViewCell.swift */; };
 		EE76EF1E2260D9A600881C98 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE76EF1D2260D9A600881C98 /* Common.swift */; };
+		EE8EB3892265BE2300A1EB2D /* PhotoBrowserAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE8EB3882265BE2300A1EB2D /* PhotoBrowserAnimator.swift */; };
 		EE904A55225B7DB30098EF39 /* PublishViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904A53225B7DB30098EF39 /* PublishViewController.swift */; };
 		EE904A56225B7DB30098EF39 /* PublishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE904A54225B7DB30098EF39 /* PublishViewController.xib */; };
 		EE904A58225B80810098EF39 /* ComposeTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE904A57225B80810098EF39 /* ComposeTitleView.swift */; };
@@ -139,6 +140,7 @@
 		EE6971D3225315B1005871F6 /* StatusViewTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatusViewTool.swift; sourceTree = "<group>"; };
 		EE6971D522533CCC005871F6 /* HotViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HotViewCell.swift; sourceTree = "<group>"; };
 		EE76EF1D2260D9A600881C98 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		EE8EB3882265BE2300A1EB2D /* PhotoBrowserAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserAnimator.swift; sourceTree = "<group>"; };
 		EE904A53225B7DB30098EF39 /* PublishViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishViewController.swift; sourceTree = "<group>"; };
 		EE904A54225B7DB30098EF39 /* PublishViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PublishViewController.xib; sourceTree = "<group>"; };
 		EE904A57225B80810098EF39 /* ComposeTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComposeTitleView.swift; sourceTree = "<group>"; };
@@ -448,10 +450,10 @@
 		EEBC4FF6224B76FC0058B4E5 /* UIPopover */ = {
 			isa = PBXGroup;
 			children = (
-				EEBC4FF7224B76FC0058B4E5 /* PopoverAnimator.swift */,
 				EEBC4FF8224B76FC0058B4E5 /* PopoverViewController.swift */,
 				EEBC4FF9224B76FC0058B4E5 /* PopoverViewController.xib */,
 				EEBC4FFA224B76FC0058B4E5 /* TFEPresenttationController.swift */,
+				EEBC4FF7224B76FC0058B4E5 /* PopoverAnimator.swift */,
 			);
 			path = UIPopover;
 			sourceTree = "<group>";
@@ -566,6 +568,7 @@
 				EEDC0ACC2264BBBB000DA3B9 /* PhotoBrowserController.swift */,
 				EEDC0ACE2264C61E000DA3B9 /* PhotoBrowserCollectionViewCell.swift */,
 				EEC72F0122655C1F00A51259 /* ProgressView.swift */,
+				EE8EB3882265BE2300A1EB2D /* PhotoBrowserAnimator.swift */,
 			);
 			name = PhotoBrowser;
 			path = Controller/PhotoBrowser;
@@ -787,6 +790,7 @@
 				EEBC4FDD224B76420058B4E5 /* ViewController.swift in Sources */,
 				EEBC5018224B76FC0058B4E5 /* BaseViewController.swift in Sources */,
 				EEBC5012224B76FC0058B4E5 /* PopoverViewController.swift in Sources */,
+				EE8EB3892265BE2300A1EB2D /* PhotoBrowserAnimator.swift in Sources */,
 				EE02381C225F6CD8003235E9 /* PhotoBrowserViewController.swift in Sources */,
 				EEDC0AC62264AD0E000DA3B9 /* HYLabel.swift in Sources */,
 				EE6971CC225306E9005871F6 /* Status.swift in Sources */,

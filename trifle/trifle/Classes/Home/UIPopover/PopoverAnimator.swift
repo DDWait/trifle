@@ -13,11 +13,7 @@ class PopoverAnimator: NSObject {
     private var isPresented : Bool = false
     //提供对外的设置frame的属性
     var presentedViewFrame : CGRect = CGRect.zero
-    
-    
     var callBack : ((_ present : Bool)->())?
-    
-    
     init(callBack : @escaping (_ present : Bool)->()) {
         self.callBack = callBack
     }

@@ -30,7 +30,7 @@ class PhotoBrowserController: UIViewController {
     }
     override func loadView() {
         super.loadView()
-        view.bounds.size.width += 20
+        view.frame.size.width += 20
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -177,4 +177,26 @@ extension PhotoBrowserController
         return PHAssetCollection.fetchAssetCollections(withLocalIdentifiers: [createCollectionID!], options: nil).firstObject!
         
     }
+}
+
+extension PhotoBrowserController : AnimatorPhotoBrowserDismissDelegate
+{
+    func GetIndexPath() -> IndexPath {
+        let cell = self.collectionView.visibleCells.first!
+        return collectionView.indexPath(for: cell)!
+    }
+    
+    func GetImageView() -> UIImageView {
+        let imageView = UIImageView()
+        let cell = self.collectionView.visibleCells.first as! PhotoBrowserCollectionViewCell
+        imageView.frame = cell.imageView.frame
+        imageView.image = cell.imageView.image
+        
+        imageView.contentMode = .scaleAspectFill
+        imageView.clipsToBounds = true
+        
+        return imageView
+    }
+    
+    
 }
