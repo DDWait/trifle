@@ -7,20 +7,22 @@
 //
 
 import UIKit
-
+private let key = "CFBundleVersion"
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
     var window: UIWindow?
-    //初始界面的选择
-    var defaultVc : UIViewController? {
-        let isLogin = UserAccountTool.shareInstance.isLogin
-        return isLogin ? WelComeViewController() : UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
-    }
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow(frame: UIScreen.main.bounds)
-        window?.rootViewController = defaultVc
+        let lastVersion : String? = UserDefaults.standard.object(forKey: key) as? String
+        let currentVersion : String? = Bundle.main.infoDictionary![key] as? String
+        if lastVersion == currentVersion {
+            window?.rootViewController = ADViewController()
+        }else{
+            window?.rootViewController = NewFeatureViewController()
+            UserDefaults.standard.set(currentVersion, forKey: key)
+            UserDefaults.standard.synchronize()
+        }
+        Thread.sleep(forTimeInterval: 1)
         window?.makeKeyAndVisible()
         // 设置全局颜色
         UITabBar.appearance().tintColor = UIColor.orange

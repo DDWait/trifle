@@ -11,20 +11,24 @@ import UIKit
 class titleScrollView: UIView {
     private var underLineView : UIView = UIView()
     private var lastSelectedBtn : TitleBtn = TitleBtn()
+    private var titles : [String]?
     var scrollView : UIScrollView?
-    
     override init(frame: CGRect) {
         super.init(frame:frame)
-        setViewsTitles()
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    func setUpTitles(titles : [String]){
+        self.titles = titles
+        setViewsTitles()
     }
 }
 //titleView
 extension titleScrollView
 {
-    func setViewsTitles(){
+    private func setViewsTitles(){
         backgroundColor = UIColor.clear
         //布置view上的按钮
         setTitlesBtn()
@@ -32,12 +36,12 @@ extension titleScrollView
         setBtnUnderLines()
     }
     //布置view上的按钮
-    func setTitlesBtn(){
-        let array : [String] = ["热门","关注"]
+    private func setTitlesBtn(){
+        let array : [String] = self.titles!
         var x  : CGFloat = 0
-        let W : CGFloat = frame.size.width / 2
+        let W : CGFloat = frame.size.width / CGFloat(array.count)
         let H : CGFloat = frame.size.height
-        for i in 0..<2{
+        for i in 0..<array.count{
             let btn : TitleBtn = TitleBtn()
             btn.tag = i + 10
             x = CGFloat(i) * W
@@ -52,7 +56,7 @@ extension titleScrollView
     }
     
     //布置下划线
-    func setBtnUnderLines() {
+    private func setBtnUnderLines() {
         //获取第一个按钮
         let firstBtn : TitleBtn = subviews.first as! TitleBtn
         underLineView.frame.size.height = 2

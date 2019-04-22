@@ -18,7 +18,7 @@ class NetWorkTool: AFHTTPSessionManager {
     static let shareInstance : NetWorkTool = {
         let tools = NetWorkTool()
         
-        //插入"text/html"
+        //插入"text/html"方式
         tools.responseSerializer.acceptableContentTypes?.insert("text/html")
         
         return tools
@@ -137,5 +137,23 @@ extension NetWorkTool
         }
     }
 
+}
+
+// MARK:-获取用户最近发布的微博
+extension NetWorkTool
+{
+    func UserStatus(isSuccess : @escaping (_ isSuccess : Bool)->()){
+        //获取请求的URLstring
+        let urlString = "https://api.weibo.com/2/statuses/user_timeline.json"
+        //拼接请求参数
+        let parameters = ["access_token" : (UserAccountTool.shareInstance.account?.access_token)!]
+        request(methodType: .Get, urlString: urlString, parameters: parameters as [String : AnyObject]) { (result, error) in
+            if result != nil{
+                isSuccess(true)
+            }else{
+                isSuccess(false)
+            }
+        }
+    }
 }
 

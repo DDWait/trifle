@@ -12,3 +12,11 @@ let PicPickerAddPhotoNote = "PicPickerAddPhotoNote"
 
 //图片浏览器
 let showPhotoBrowserNote = "showPhotoBrowserNote"
+
+//图形解锁
+let showErrorOfGesture = "showErrorOfGesture"
+let showSuccessOfGesture = "showSuccessOfGesture"
+let showPwErrorOfGesture = "showPwErrorOfGesture"
+let changeLabel = "changeLabel"
+let setPassword = "setPassword"
+let setPassWordAgain = "setPassWordAgain"

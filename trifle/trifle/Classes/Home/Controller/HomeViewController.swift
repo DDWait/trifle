@@ -19,8 +19,9 @@ class HomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        titleView.setUpTitles(titles: ["热门","关注"])
         //适应ScrollView
-        self.automaticallyAdjustsScrollViewInsets = false
+        self.scrollView.contentInsetAdjustmentBehavior = .never
         //scrollView 的布置
         view.addSubview(scrollView)
         //大小
@@ -43,7 +44,6 @@ class HomeViewController: UIViewController {
         //设置titleView
         navigationItem.titleView = titleView
         titleView.scrollView = self.scrollView
-        
         setUpNav()
         
     }

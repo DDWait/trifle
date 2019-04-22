@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jOa-Xe-vnv">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Gesture View Controller-->
+        <scene sceneID="te9-hk-Tgm">
+            <objects>
+                <viewController id="jOa-Xe-vnv" customClass="GestureViewController" customModule="trifle" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bfQ-A3-Fqy">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Home_refresh_bg" translatesAutoresizingMaskIntoConstraints="NO" id="d8u-oq-Uat">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nD0-WZ-Usz" customClass="GestureView" customModule="trifle" customModuleProvider="target">
+                                <rect key="frame" x="37.5" y="183.5" width="300" height="300"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="TQw-mt-sEm"/>
+                                    <constraint firstAttribute="height" constant="300" id="i6T-Q1-F4Z"/>
+                                </constraints>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="请设置密码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U37-4b-4SQ">
+                                <rect key="frame" x="136.5" y="109.5" width="102" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="d8u-oq-Uat" firstAttribute="leading" secondItem="UOy-F1-xdy" secondAttribute="leading" id="0Lu-vg-Yfz"/>
+                            <constraint firstItem="nD0-WZ-Usz" firstAttribute="centerY" secondItem="bfQ-A3-Fqy" secondAttribute="centerY" id="3Rb-qi-JGo"/>
+                            <constraint firstItem="U37-4b-4SQ" firstAttribute="centerX" secondItem="bfQ-A3-Fqy" secondAttribute="centerX" id="9dN-ql-M4I"/>
+                            <constraint firstItem="UOy-F1-xdy" firstAttribute="trailing" secondItem="d8u-oq-Uat" secondAttribute="trailing" id="9mt-lg-WrU"/>
+                            <constraint firstItem="UOy-F1-xdy" firstAttribute="bottom" secondItem="d8u-oq-Uat" secondAttribute="bottom" id="DSO-9z-Zl6"/>
+                            <constraint firstItem="nD0-WZ-Usz" firstAttribute="centerX" secondItem="bfQ-A3-Fqy" secondAttribute="centerX" id="W4v-de-tec"/>
+                            <constraint firstItem="nD0-WZ-Usz" firstAttribute="top" secondItem="U37-4b-4SQ" secondAttribute="bottom" constant="50" id="bEi-H0-pHw"/>
+                            <constraint firstItem="d8u-oq-Uat" firstAttribute="top" secondItem="bfQ-A3-Fqy" secondAttribute="top" id="cIO-OI-2pL"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UOy-F1-xdy"/>
+                    </view>
+                    <connections>
+                        <outlet property="tipLabel" destination="U37-4b-4SQ" id="7P4-4T-IT1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nay-Ba-wWO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-225" y="179"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="Home_refresh_bg" width="640" height="1008"/>
+    </resources>
+</document>

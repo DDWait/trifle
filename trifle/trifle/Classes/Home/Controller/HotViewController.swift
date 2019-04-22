@@ -44,7 +44,7 @@ extension HotViewController
         tableView.mj_header = header
         //进入刷新状态
         if isLogin {
-            tableView.mj_header.beginRefreshing()
+//            tableView.mj_header.beginRefreshing()
         }
     }
     @objc private func loadNewDate(){
