@@ -10,11 +10,12 @@ import UIKit
 
 class StatusViewTool: NSObject {
     var status : Status?
-    
     var sourceText : String?                  // 处理后的微博来源
     var createdatText : String?               // 处理后的微博时间
     var profileURL : URL?                     // 头像地址
     var picURLs : [URL] = [URL]()             // 配图地址
+    var comments : Int = 0                  //微博评论数
+    var reposts : Int = 0                   //转发数
     
     init(status : Status) {
         super.init()
@@ -43,6 +44,17 @@ class StatusViewTool: NSObject {
                     continue
                 }
                 picURLs.append(URL(string: picURLString)!)
+            }
+        }
+        
+        //处理数量
+        NetWorkTool.shareInstance.loadNumber(commentID: status.mid) { (result, error) in
+            if error != nil{
+                print(error)
+                return
+            }
+            for arr in result!{
+                print(arr["comments"] ?? "")
             }
         }
     }

@@ -164,6 +164,14 @@ extension HotViewController
         cell.viewModel = StatusViews[indexPath.row]
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let comment : UINavigationController = UIStoryboard(name: "TableViewController", bundle: nil).instantiateInitialViewController() as! UINavigationController
+        let vc : TableViewController = comment.children.first as! TableViewController
+        let viewModel : StatusViewTool = StatusViews[indexPath.row]
+        vc.commentID = (viewModel.status?.mid)!
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }
 //注册通知
 extension HotViewController

@@ -22,7 +22,6 @@ class PhotoBrowserCollectionViewCell: UICollectionViewCell {
             let image : UIImage = SDWebImageManager.shared().imageCache!.imageFromDiskCache(forKey: picURL.absoluteString)!
             let width : CGFloat = UIScreen.main.bounds.width
             let height : CGFloat = (width  * image.size.height) / image.size.width
-            print(height)
             var y : CGFloat = 0
             if height > UIScreen.main.bounds.height{ 
                 y = 0
@@ -35,7 +34,11 @@ class PhotoBrowserCollectionViewCell: UICollectionViewCell {
             progressView.isHidden = false
             imageView.sd_setImage(with: getLarghImage(picURL: picURL), placeholderImage: image, options: [], progress: { (current, total, _) in
                 self.progressView.progress = CGFloat(current) / CGFloat(total)
-            }) { (_, _, _, _) in
+            }) { (image, _, _, _) in
+                if height > UIScreen.main.bounds.height{
+                    self.imageView.frame = CGRect(x: 0, y: y, width: width, height: image!.size.height)
+                    self.scrollView.contentSize = CGSize(width: 0, height: image!.size.height)
+                }
                 self.progressView.isHidden = true
             }
         }

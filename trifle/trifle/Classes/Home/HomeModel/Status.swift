@@ -18,7 +18,6 @@ class Status: NSObject {
     @objc var pic_urls : [[String : String]]?     // 微博的配图
     @objc var retweeted_status : Status?          // 微博对应的转发的微博
     
-    
     //自定义构造函数
     init(dict : [String : AnyObject]) {
         super.init()

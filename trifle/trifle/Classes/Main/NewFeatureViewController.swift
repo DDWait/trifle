@@ -59,7 +59,7 @@ extension NewFeatureViewController
     }
     @objc private func startClick(){
         let window : UIWindow = UIApplication.shared.keyWindow!
-        window.rootViewController = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
+        window.rootViewController = UIStoryboard(name: "GestureViewController", bundle: nil).instantiateInitialViewController()
     }
 }
 

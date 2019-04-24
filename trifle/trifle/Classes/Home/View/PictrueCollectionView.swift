@@ -54,9 +54,11 @@ class PictrueViewCell: UICollectionViewCell {
             guard let picURL = picURL else {
                 return
             }
+            imageView.contentMode = .scaleAspectFill
             labelView.isHidden = true
             let URLString = picURL.absoluteString
-            imageView.sd_setImage(with: picURL, placeholderImage: UIImage(named: "empty_picture"))
+            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: URLString)
+            imageView.image = image
             if (URLString as NSString).lowercased.hasSuffix("gif"){
                 labelView.text = "动图"
                 labelView.isHidden = false
