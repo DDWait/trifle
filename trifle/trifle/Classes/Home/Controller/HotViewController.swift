@@ -15,6 +15,7 @@ class HotViewController: UITableViewController {
     var isLogin : Bool = UserAccountTool.shareInstance.isLogin
     //保存数据
     private lazy var StatusViews : [StatusViewTool] = [StatusViewTool]()
+    private lazy var commetIds : [Int] = []
     //提示label
     private lazy var tipLabel : UILabel = UILabel()
     private lazy var photoBrowserAnimator : PhotoBrowserAnimator = PhotoBrowserAnimator()
@@ -44,7 +45,7 @@ extension HotViewController
         tableView.mj_header = header
         //进入刷新状态
         if isLogin {
-//            tableView.mj_header.beginRefreshing()
+            tableView.mj_header.beginRefreshing()
         }
     }
     @objc private func loadNewDate(){
@@ -91,18 +92,34 @@ extension HotViewController
                 return
             }
             var tempStatusViews : [StatusViewTool] = [StatusViewTool]()
+            var tempCommetnIds : [Int] = []
             for statusDict in resultArray{
                 let status = Status(dict: statusDict)
                 let StatusView = StatusViewTool(status: status)
                 tempStatusViews.append(StatusView)
+                tempCommetnIds.append(status.mid)
             }
             if isNewDate{
                 self.StatusViews = tempStatusViews + self.StatusViews
+                self.commetIds = tempCommetnIds + self.commetIds
             }else{
                 self.StatusViews += tempStatusViews
+                self.commetIds += tempCommetnIds
             }
-            
             self.cacheImages(StatusViews: tempStatusViews,isNewDate: isNewDate)
+            NetWorkTool.shareInstance.loadNumber(commentIDs: self.commetIds, finished: { (result, error) in
+                if error != nil{
+                    print("loadNumber")
+                    return
+                }
+                var i : Int = 0
+                for dict in result!{
+                    let StatusView : StatusViewTool = self.StatusViews[i]
+                    StatusView.comments = dict["comments"] as! Int
+                    StatusView.reposts = dict["reposts"] as! Int
+                    i+=1
+                }
+            })
         }
     }
     //缓存图片
@@ -160,16 +177,15 @@ extension HotViewController
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HotCell") as! HotViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HotCell", for: indexPath) as! HotViewCell
         cell.viewModel = StatusViews[indexPath.row]
         return cell
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let comment : UINavigationController = UIStoryboard(name: "TableViewController", bundle: nil).instantiateInitialViewController() as! UINavigationController
-        let vc : TableViewController = comment.children.first as! TableViewController
+        let vc : NewCommentControllViewController = UIStoryboard(name: "NewCommentControllViewController", bundle: nil).instantiateInitialViewController() as! NewCommentControllViewController
         let viewModel : StatusViewTool = StatusViews[indexPath.row]
-        vc.commentID = (viewModel.status?.mid)!
+        vc.viewModel = viewModel
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

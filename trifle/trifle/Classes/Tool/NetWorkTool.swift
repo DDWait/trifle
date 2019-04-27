@@ -21,7 +21,8 @@ class NetWorkTool: AFHTTPSessionManager {
         //插入"text/html"方式
         tools.responseSerializer.acceptableContentTypes?.insert("text/html")
         //application/json
-        tools.responseSerializer.acceptableContentTypes?.insert("application/json")
+//        tools.responseSerializer.acceptableContentTypes?.insert("application/json")
+//        tools.responseSerializer.acceptableContentTypes
         return tools
     }()
 }
@@ -90,19 +91,26 @@ extension NetWorkTool
 //获取评论转发数量
 extension NetWorkTool
 {
-    func loadNumber(commentID : Int,finished : @escaping (_ result : [[String : AnyObject]]?,_ error : Error?)->()){
+    func loadNumber(commentIDs : [Int],finished : @escaping (_ result : [[String : AnyObject]]? ,_ error : Error?)->()){
         //1.请求数据的URL
         let urlString = "https://api.weibo.com/2/statuses/count.json"
         //2.请求参数
         let access_token = UserAccountTool.shareInstance.account?.access_token
-        let parameters = ["access_token":access_token,"ids" : "\(commentID)"]
+        //3.处理commentIDs
+        var ids : String = String(commentIDs[0])
+        for commentID in commentIDs{
+            if ids != String(commentID){
+                ids = "\(ids),\(String(commentID))"
+            }
+        }
+        let parameters = ["access_token":access_token,"ids" : "\(ids)"]
         request(methodType: .Get, urlString: urlString, parameters: parameters as [String : AnyObject]) { (result, error) in
             //1.获取字典数据
             guard let resultArr = result as? Array<Any> else{
                 finished(nil,error)
                 return
             }
-            finished(resultArr.first as? [[String : AnyObject]],nil)
+            finished(resultArr as? [[String : AnyObject]],nil)
         }
     }
 }
@@ -191,8 +199,38 @@ extension NetWorkTool
             }
             finished(resultDict["comments"] as? [[String : AnyObject]],nil)
         }
-        
+    }
+    func loadCommentLists(since_id: Int, max_id: Int,commentID : Int,finished : @escaping (_ result : [[String : AnyObject]]?,_ error : Error?)->()){
+        //1.请求数据的URL
+        let urlString = "https://api.weibo.com/2/comments/show.json"
+        //2.请求参数
+        let access_token = UserAccountTool.shareInstance.account?.access_token
+        let parameters = ["access_token":access_token,"id":"\(commentID)","since_id" : "\(since_id)","max_id" : "\(max_id)"]
+        request(methodType: .Get, urlString: urlString, parameters: parameters as [String : AnyObject]) { (result, error) in
+            guard let resultDict = result as? [String : AnyObject] else{
+                finished(nil,error)
+                return
+            }
+            finished(resultDict["comments"] as? [[String : AnyObject]],nil)
+        }
     }
 }
+
+//extension NetWorkTool
+//{
+//    func zhuce(name : String,pass : String){
+//        //1.请求数据的URL
+//        let urlString = "http://yong.dev.dxdc.net/trifle/reg.php"
+//        let parameters = ["name":"\(name)","pass":"\(pass)"]
+//        request(methodType: .POST, urlString: urlString, parameters: parameters as [String : AnyObject]) { (result, error) in
+//            print("result====\(result)")
+//            if error != nil{
+//                print(error)
+//                return
+//            }
+//            
+//        }
+//    }
+//}
 
 

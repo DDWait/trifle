@@ -25,6 +25,7 @@ class HomePageViewController: UIViewController {
     private lazy var showingVC : UIViewController = UIViewController()
     private var offsetYDict : [String : CGFloat] = [:]
     private var stausBarColorIsBlack : Bool = false
+    private var iconbtn : UIButton?
     override var preferredStatusBarStyle: UIStatusBarStyle{get { return stausBarColorIsBlack ? .default : .lightContent}}
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,6 +36,7 @@ class HomePageViewController: UIViewController {
             addController()
             addHeaderView()
             segmentedControlChangedValue(sender: segCtrl)
+            NotificationCenter.default.addObserver(self, selector: #selector(iconImageClick), name: NSNotification.Name(changeIconImage), object: nil)
         }
         
     }
@@ -70,6 +72,24 @@ extension HomePageViewController
 }
 extension HomePageViewController
 {
+    //换头像
+    @objc private func iconImageClick(note : Notification){
+        iconbtn = note.object as? UIButton
+        let alterVc = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alterVc.addAction(UIAlertAction(title: "相册", style: .default, handler: { (action) in
+            self.getIconImage()
+        }))
+        alterVc.addAction(UIAlertAction(title: "相机", style: .default, handler: nil))
+        alterVc.addAction(UIAlertAction(title: "取消", style: .cancel, handler: nil))
+        present(alterVc, animated: true, completion: nil)
+    }
+    private func getIconImage(){
+        let PickerImageVc = UIImagePickerController()
+        PickerImageVc.sourceType = .photoLibrary
+        PickerImageVc.allowsEditing = true
+        PickerImageVc.delegate = self
+        present(PickerImageVc, animated: true, completion: nil)
+    }
     private func configNav(){
         navigationController?.navigationBar.tintColor = UIColor.white
         navView.backgroundColor = UIColor.white
@@ -247,9 +267,11 @@ extension HomePageViewController : TableViewScrollingProtocol
     }
 }
 
-extension HomePageViewController
+extension HomePageViewController : UIImagePickerControllerDelegate & UINavigationControllerDelegate
 {
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let iamge : UIImage = info[UIImagePickerController.InfoKey.editedImage] as! UIImage
+        iconbtn?.setBackgroundImage(iamge, for: .normal)
+        self.dismiss(animated: true, completion: nil)
     }
 }

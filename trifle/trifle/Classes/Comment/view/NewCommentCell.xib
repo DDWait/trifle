@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="CommentCell" rowHeight="103" id="pNa-Nr-yN9" customClass="NewCommentCell" customModule="trifle" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="103"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pNa-Nr-yN9" id="LSX-0k-Gqc">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="102.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="n34-Kh-MAU">
+                        <rect key="frame" x="10" y="10" width="40" height="40"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="40" id="3lF-yr-Kjj"/>
+                            <constraint firstAttribute="height" constant="40" id="dKZ-NJ-3F2"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="20"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="名字" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1yf-66-Es2">
+                        <rect key="frame" x="58" y="10" width="35" height="26.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="正文" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iE5-WO-no7" customClass="HYLabel" customModule="trifle" customModuleProvider="target">
+                        <rect key="frame" x="58" y="44.5" width="42" height="17"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="42" id="byc-jY-DGa"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="时间" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lA0-cl-y7B">
+                        <rect key="frame" x="58" y="71.5" width="35" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jLa-pa-VJe">
+                        <rect key="frame" x="331" y="71.5" width="36" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="21" id="JRh-QM-4Na"/>
+                            <constraint firstAttribute="width" constant="36" id="jOd-oH-PHG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <state key="normal" title="(0)" image="Like">
+                            <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <state key="selected" title="(0)" image="Likeclick"/>
+                        <connections>
+                            <action selector="DbtnClick:" destination="pNa-Nr-yN9" eventType="touchUpInside" id="g0m-Ew-cyp"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7dL-IH-uqv">
+                        <rect key="frame" x="337" y="9.5" width="30" height="27"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="A5a-S8-vNb"/>
+                            <constraint firstAttribute="height" constant="27" id="D3y-1e-8Qk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <state key="normal" title="回复">
+                            <color key="titleColor" red="0.1215686275" green="0.12941176469999999" blue="0.14117647059999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </state>
+                        <connections>
+                            <action selector="replyBtnClick" destination="pNa-Nr-yN9" eventType="touchUpInside" id="ESo-ji-Gff"/>
+                        </connections>
+                    </button>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="lA0-cl-y7B" firstAttribute="top" secondItem="iE5-WO-no7" secondAttribute="bottom" constant="10" id="52t-n4-LAL"/>
+                    <constraint firstItem="jLa-pa-VJe" firstAttribute="trailing" secondItem="7dL-IH-uqv" secondAttribute="trailing" id="BTN-Mn-zfj"/>
+                    <constraint firstItem="lA0-cl-y7B" firstAttribute="leading" secondItem="1yf-66-Es2" secondAttribute="leading" id="VTv-xW-CXa"/>
+                    <constraint firstItem="jLa-pa-VJe" firstAttribute="bottom" secondItem="lA0-cl-y7B" secondAttribute="bottom" id="W0a-ed-hX5"/>
+                    <constraint firstItem="iE5-WO-no7" firstAttribute="top" secondItem="1yf-66-Es2" secondAttribute="bottom" constant="8" id="aJT-XT-rrd"/>
+                    <constraint firstItem="1yf-66-Es2" firstAttribute="top" secondItem="n34-Kh-MAU" secondAttribute="top" id="aNb-2n-VFI"/>
+                    <constraint firstItem="iE5-WO-no7" firstAttribute="leading" secondItem="1yf-66-Es2" secondAttribute="leading" id="ab8-jD-JKH"/>
+                    <constraint firstItem="n34-Kh-MAU" firstAttribute="leading" secondItem="LSX-0k-Gqc" secondAttribute="leading" constant="10" id="bUH-Lt-h2w"/>
+                    <constraint firstAttribute="trailing" secondItem="jLa-pa-VJe" secondAttribute="trailing" constant="8" id="bnw-lL-YLJ"/>
+                    <constraint firstItem="7dL-IH-uqv" firstAttribute="bottom" secondItem="1yf-66-Es2" secondAttribute="bottom" id="eYf-EO-I2S"/>
+                    <constraint firstItem="n34-Kh-MAU" firstAttribute="top" secondItem="LSX-0k-Gqc" secondAttribute="top" constant="10" id="ijB-0C-4Ks"/>
+                    <constraint firstAttribute="bottom" secondItem="lA0-cl-y7B" secondAttribute="bottom" constant="10" id="neZ-xQ-41B"/>
+                    <constraint firstItem="1yf-66-Es2" firstAttribute="leading" secondItem="n34-Kh-MAU" secondAttribute="trailing" constant="8" id="qgK-xL-GPu"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="ContentL" destination="iE5-WO-no7" id="sFp-34-pPu"/>
+                <outlet property="Screen_Name" destination="1yf-66-Es2" id="lx3-oJ-OmR"/>
+                <outlet property="contentLConW" destination="byc-jY-DGa" id="dq0-xz-OdB"/>
+                <outlet property="iconImageView" destination="n34-Kh-MAU" id="UgM-te-x7Z"/>
+                <outlet property="timeL" destination="lA0-cl-y7B" id="fS9-DS-ccT"/>
+            </connections>
+            <point key="canvasLocation" x="354" y="-59"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Like" width="13" height="14"/>
+        <image name="Likeclick" width="14" height="14"/>
+    </resources>
+</document>

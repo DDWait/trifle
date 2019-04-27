@@ -62,6 +62,9 @@
                         <constraint firstAttribute="height" constant="30" id="dX7-iB-OdD"/>
                     </constraints>
                     <state key="normal" title="登录" backgroundImage="loginBtnBg"/>
+                    <connections>
+                        <action selector="login" destination="iN0-l3-epB" eventType="touchUpInside" id="Tlc-GY-5EK"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5sX-OB-gMT">
                     <rect key="frame" x="250.5" y="202" width="70" height="30"/>
@@ -86,6 +89,10 @@
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="filetext1" destination="dWo-YY-Agj" id="3Cn-67-sv3"/>
+                <outlet property="filetext2" destination="RWq-Fx-QcK" id="8ES-BW-enU"/>
+            </connections>
             <point key="canvasLocation" x="-70" y="-56"/>
         </view>
         <view contentMode="scaleToFill" id="u5Q-CC-CpI" userLabel="Register View" customClass="LoginView" customModule="trifle" customModuleProvider="target">

@@ -20,3 +20,9 @@ let showPwErrorOfGesture = "showPwErrorOfGesture"
 let changeLabel = "changeLabel"
 let setPassword = "setPassword"
 let setPassWordAgain = "setPassWordAgain"
+
+//头像选择
+let changeIconImage = "changeIconImage"
+
+//回复
+let replyComment = "replyComment"

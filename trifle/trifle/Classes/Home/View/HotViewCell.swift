@@ -29,6 +29,9 @@ class HotViewCell: UITableViewCell {
     @IBOutlet weak var picView: PictrueCollectionView!
     @IBOutlet weak var retweetContentLabel: UILabel!
     @IBOutlet weak var retweetBg: UIView!
+    @IBOutlet weak var bottomBar: UIView!
+    @IBOutlet weak var retweetBtn: UIButton!
+    @IBOutlet weak var commentNum: UIButton!
     
     //模型属性
     var viewModel : StatusViewTool? {
@@ -74,6 +77,10 @@ class HotViewCell: UITableViewCell {
                 retweetBg.isHidden = true
                 retweetedLabelTopCons.constant = 0
             }
+            //设置转发数量
+            retweetBtn.setTitle("转发(\(viewModel.reposts))", for: .normal)
+            //设置评论数量
+            commentNum.setTitle("评论(\(viewModel.comments))", for: .normal)
         }
     }
     

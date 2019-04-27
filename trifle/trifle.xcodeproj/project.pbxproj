@@ -33,6 +33,10 @@
 		EE473BE2224F7F7B004C05E0 /* UserAccountTool.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE473BE1224F7F7B004C05E0 /* UserAccountTool.swift */; };
 		EE473BE6224F8270004C05E0 /* WelComeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE473BE4224F8270004C05E0 /* WelComeViewController.swift */; };
 		EE473BE7224F8270004C05E0 /* WelComeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE473BE5224F8270004C05E0 /* WelComeViewController.xib */; };
+		EE5109972271FD6300076127 /* NewCommentControllViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5109962271FD6300076127 /* NewCommentControllViewController.swift */; };
+		EE5109992271FD8600076127 /* NewCommentControllViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EE5109982271FD8600076127 /* NewCommentControllViewController.storyboard */; };
+		EE51099B227202E600076127 /* NewCommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE51099A227202E600076127 /* NewCommentCell.swift */; };
+		EE51099D2272066800076127 /* NewCommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE51099C2272066800076127 /* NewCommentCell.xib */; };
 		EE5F5702225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE5F5700225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.swift */; };
 		EE5F5703225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EE5F5701225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.xib */; };
 		EE6971CC225306E9005871F6 /* Status.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE6971CB225306E9005871F6 /* Status.swift */; };
@@ -101,11 +105,8 @@
 		EEDC0ACA2264B076000DA3B9 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEDC0AC82264B076000DA3B9 /* Home.storyboard */; };
 		EEDC0ACD2264BBBB000DA3B9 /* PhotoBrowserController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC0ACC2264BBBB000DA3B9 /* PhotoBrowserController.swift */; };
 		EEDC0ACF2264C61E000DA3B9 /* PhotoBrowserCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEDC0ACE2264C61E000DA3B9 /* PhotoBrowserCollectionViewCell.swift */; };
-		EEE346D7226F47D400476D71 /* TableViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EEE346CF226F47D400476D71 /* TableViewController.storyboard */; };
-		EEE346D8226F47D400476D71 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE346D1226F47D400476D71 /* TableViewController.swift */; };
 		EEE346D9226F47D400476D71 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE346D3226F47D400476D71 /* Comment.swift */; };
 		EEE346DA226F47D400476D71 /* CommentUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE346D4226F47D400476D71 /* CommentUser.swift */; };
-		EEE346DB226F47D400476D71 /* CommentTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEE346D6226F47D400476D71 /* CommentTableCell.swift */; };
 		EEF32E1A225C289700FA1E24 /* PicpickerCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF32E19225C289700FA1E24 /* PicpickerCollectionView.swift */; };
 		EEF32E1D225C2D6C00FA1E24 /* PicpickerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEF32E1B225C2D6C00FA1E24 /* PicpickerCollectionViewCell.swift */; };
 		EEF32E1E225C2D6C00FA1E24 /* PicpickerCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EEF32E1C225C2D6C00FA1E24 /* PicpickerCollectionViewCell.xib */; };
@@ -152,6 +153,10 @@
 		EE473BE1224F7F7B004C05E0 /* UserAccountTool.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAccountTool.swift; sourceTree = "<group>"; };
 		EE473BE4224F8270004C05E0 /* WelComeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelComeViewController.swift; sourceTree = "<group>"; };
 		EE473BE5224F8270004C05E0 /* WelComeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WelComeViewController.xib; sourceTree = "<group>"; };
+		EE5109962271FD6300076127 /* NewCommentControllViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentControllViewController.swift; sourceTree = "<group>"; };
+		EE5109982271FD8600076127 /* NewCommentControllViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewCommentControllViewController.storyboard; sourceTree = "<group>"; };
+		EE51099A227202E600076127 /* NewCommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCommentCell.swift; sourceTree = "<group>"; };
+		EE51099C2272066800076127 /* NewCommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NewCommentCell.xib; sourceTree = "<group>"; };
 		EE5F5700225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = photoPicpickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		EE5F5701225EDD9700BC1FC1 /* photoPicpickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = photoPicpickerCollectionViewCell.xib; sourceTree = "<group>"; };
 		EE6971CB225306E9005871F6 /* Status.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Status.swift; sourceTree = "<group>"; };
@@ -224,11 +229,8 @@
 		EEDC0AC92264B076000DA3B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Home.storyboard; sourceTree = "<group>"; };
 		EEDC0ACC2264BBBB000DA3B9 /* PhotoBrowserController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserController.swift; sourceTree = "<group>"; };
 		EEDC0ACE2264C61E000DA3B9 /* PhotoBrowserCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoBrowserCollectionViewCell.swift; sourceTree = "<group>"; };
-		EEE346D0226F47D400476D71 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/TableViewController.storyboard; sourceTree = "<group>"; };
-		EEE346D1226F47D400476D71 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		EEE346D3226F47D400476D71 /* Comment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		EEE346D4226F47D400476D71 /* CommentUser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentUser.swift; sourceTree = "<group>"; };
-		EEE346D6226F47D400476D71 /* CommentTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CommentTableCell.swift; sourceTree = "<group>"; };
 		EEF32E19225C289700FA1E24 /* PicpickerCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicpickerCollectionView.swift; sourceTree = "<group>"; };
 		EEF32E1B225C2D6C00FA1E24 /* PicpickerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PicpickerCollectionViewCell.swift; sourceTree = "<group>"; };
 		EEF32E1C225C2D6C00FA1E24 /* PicpickerCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PicpickerCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -671,8 +673,8 @@
 		EEE346CE226F47D400476D71 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				EEE346CF226F47D400476D71 /* TableViewController.storyboard */,
-				EEE346D1226F47D400476D71 /* TableViewController.swift */,
+				EE5109962271FD6300076127 /* NewCommentControllViewController.swift */,
+				EE5109982271FD8600076127 /* NewCommentControllViewController.storyboard */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -689,7 +691,8 @@
 		EEE346D5226F47D400476D71 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				EEE346D6226F47D400476D71 /* CommentTableCell.swift */,
+				EE51099A227202E600076127 /* NewCommentCell.swift */,
+				EE51099C2272066800076127 /* NewCommentCell.xib */,
 			);
 			path = view;
 			sourceTree = "<group>";
@@ -803,7 +806,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EEE346D7226F47D400476D71 /* TableViewController.storyboard in Resources */,
 				EEBC4FE5224B76460058B4E5 /* LaunchScreen.storyboard in Resources */,
 				EEF32E1E225C2D6C00FA1E24 /* PicpickerCollectionViewCell.xib in Resources */,
 				EEBC501D224B76FC0058B4E5 /* Null.storyboard in Resources */,
@@ -812,8 +814,10 @@
 				EEAD55DF226B1EBF00DF5346 /* CommualHeaderView.xib in Resources */,
 				EE904A56225B7DB30098EF39 /* PublishViewController.xib in Resources */,
 				EEC7AB4E224D24BE0048A022 /* FastLoginView.xib in Resources */,
+				EE51099D2272066800076127 /* NewCommentCell.xib in Resources */,
 				EEBC4FE2224B76450058B4E5 /* Assets.xcassets in Resources */,
 				EE473BCB224F6114004C05E0 /* UMSocialSDKResources.bundle in Resources */,
+				EE5109992271FD8600076127 /* NewCommentControllViewController.storyboard in Resources */,
 				EEFDD5462263223D00C43083 /* Emoticons.bundle in Resources */,
 				EEBC5020224B774F0058B4E5 /* Main.storyboard in Resources */,
 				EEBD6F41226DF1FE001BF5D1 /* GestureViewController.storyboard in Resources */,
@@ -891,6 +895,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EE5109972271FD6300076127 /* NewCommentControllViewController.swift in Sources */,
 				EE9B25A2225C749800EB3049 /* PhotoPickerViewController.swift in Sources */,
 				EEE346D9226F47D400476D71 /* Comment.swift in Sources */,
 				EEBD6F16226DAD1F001BF5D1 /* ADViewController.swift in Sources */,
@@ -898,7 +903,6 @@
 				EE6971D2225312D4005871F6 /* User.swift in Sources */,
 				EE9B25A8225C80D300EB3049 /* TitleViewBtn.swift in Sources */,
 				EE6971D022531150005871F6 /* NSDate-Extension.swift in Sources */,
-				EEE346DB226F47D400476D71 /* CommentTableCell.swift in Sources */,
 				EE473BB3224F601E004C05E0 /* NetWorkTool.swift in Sources */,
 				EE473BE2224F7F7B004C05E0 /* UserAccountTool.swift in Sources */,
 				EEBC5017224B76FC0058B4E5 /* MainViewController.swift in Sources */,
@@ -912,7 +916,6 @@
 				EEFDD5472263223D00C43083 /* EmotiViewCell.swift in Sources */,
 				EEDC0AC422647142000DA3B9 /* FineEmoticon.swift in Sources */,
 				EEC7AB50224D29830048A022 /* FastButton.swift in Sources */,
-				EEE346D8226F47D400476D71 /* TableViewController.swift in Sources */,
 				EE872AB1227040AD00D6044A /* HomeNavigationController.swift in Sources */,
 				EE02381E225F7220003235E9 /* PhotoBrowserPushlishViewCell.swift in Sources */,
 				EEBD6F40226DF1FE001BF5D1 /* GestureView.swift in Sources */,
@@ -960,6 +963,7 @@
 				EEBC500E224B76FC0058B4E5 /* HomeViewController.swift in Sources */,
 				EEFDD54A2263223D00C43083 /* EmoticonPackage.swift in Sources */,
 				EEAD55DE226B1EBF00DF5346 /* CommualHeaderView.swift in Sources */,
+				EE51099B227202E600076127 /* NewCommentCell.swift in Sources */,
 				EE904A58225B80810098EF39 /* ComposeTitleView.swift in Sources */,
 				EEAD55E1226B1EBF00DF5346 /* LeftTableViewController.swift in Sources */,
 				EE473BE0224F6D04004C05E0 /* UserAccount.swift in Sources */,
@@ -983,14 +987,6 @@
 				EEDC0AC92264B076000DA3B9 /* Base */,
 			);
 			name = Home.storyboard;
-			sourceTree = "<group>";
-		};
-		EEE346CF226F47D400476D71 /* TableViewController.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				EEE346D0226F47D400476D71 /* Base */,
-			);
-			name = TableViewController.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

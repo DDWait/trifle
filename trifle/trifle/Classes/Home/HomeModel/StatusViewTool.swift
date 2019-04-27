@@ -46,16 +46,5 @@ class StatusViewTool: NSObject {
                 picURLs.append(URL(string: picURLString)!)
             }
         }
-        
-        //处理数量
-        NetWorkTool.shareInstance.loadNumber(commentID: status.mid) { (result, error) in
-            if error != nil{
-                print(error)
-                return
-            }
-            for arr in result!{
-                print(arr["comments"] ?? "")
-            }
-        }
     }
 }
