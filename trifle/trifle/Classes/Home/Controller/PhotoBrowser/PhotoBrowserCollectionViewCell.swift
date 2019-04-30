@@ -23,28 +23,32 @@ class PhotoBrowserCollectionViewCell: UICollectionViewCell {
             let width : CGFloat = UIScreen.main.bounds.width
             let height : CGFloat = (width  * image.size.height) / image.size.width
             var y : CGFloat = 0
-            if height > UIScreen.main.bounds.height{ 
+            if height > UIScreen.main.bounds.height{
                 y = 0
             }else{
                 y = (UIScreen.main.bounds.height - height) * 0.5
             }
             imageView.frame = CGRect(x: 0, y: y, width: width, height: height)
             scrollView.contentSize = CGSize(width: 0, height: height)
+            
             //大图
             progressView.isHidden = false
             imageView.sd_setImage(with: getLarghImage(picURL: picURL), placeholderImage: image, options: [], progress: { (current, total, _) in
                 self.progressView.progress = CGFloat(current) / CGFloat(total)
-            }) { (image, _, _, _) in
+            }) { (Dimage, _, _, _) in
+                guard let dimage = Dimage else{
+                    return
+                }
                 if height > UIScreen.main.bounds.height{
-                    self.imageView.frame = CGRect(x: 0, y: y, width: width, height: image!.size.height)
-                    self.scrollView.contentSize = CGSize(width: 0, height: image!.size.height)
+                    self.imageView.frame = CGRect(x: 0, y: y, width: width, height: dimage.size.height)
+                    self.scrollView.contentSize = CGSize(width: 0, height: dimage.size.height)
                 }
                 self.progressView.isHidden = true
             }
         }
     }
     private lazy var scrollView : UIScrollView = UIScrollView()
-    var imageView : UIImageView = UIImageView()
+    var imageView : FLAnimatedImageView = FLAnimatedImageView()
     private lazy var progressView : ProgressView = ProgressView()
     var delegate : PhotoBrowserCollectionViewCellDelegate?
     
@@ -72,17 +76,33 @@ extension PhotoBrowserCollectionViewCell
         progressView.isHidden = true
         
         let tap : UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(imageViewClick))
+        tap.delegate = self
         imageView.addGestureRecognizer(tap)
+        let longPress : UIGestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longpressClick))
+        longPress.delegate = self
+        imageView.addGestureRecognizer(longPress)
         imageView.isUserInteractionEnabled = true
+        
+        
     }
     
     @objc private func imageViewClick(){
         delegate?.imageViewClick()
     }
-    
+    @objc private func longpressClick(){
+        NotificationCenter.default.post(name: NSNotification.Name(showchooseBrowse), object: nil)
+    }
     private func getLarghImage(picURL : URL) -> URL{
         let URLString = picURL.absoluteString
         let larghString = URLString.replacingOccurrences(of: "thumbnail", with: "bmiddle")
         return URL(string: larghString)!
     }
 }
+//UIGestureRecognizerDelegate
+extension PhotoBrowserCollectionViewCell : UIGestureRecognizerDelegate
+{
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+}
+

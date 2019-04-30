@@ -26,3 +26,12 @@ let changeIconImage = "changeIconImage"
 
 //回复
 let replyComment = "replyComment"
+
+//保存弹框
+let showchooseBrowse = "showchooseBrowse"
+
+//友盟分享
+let youMengShare = "youMengShare"
+
+//评论按钮
+let commentBtnClick = "commentBtnClick"

@@ -11,4 +11,5 @@ pod 'SDWebImage'
 pod 'SnapKit'
 pod 'SVProgressHUD'
 pod 'MJRefresh'
+pod 'SDWebImage/GIF'
 end

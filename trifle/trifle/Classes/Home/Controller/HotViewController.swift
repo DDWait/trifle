@@ -25,6 +25,7 @@ class HotViewController: UITableViewController {
         //自动计算cell的高度
         tableView.rowHeight = UITableView.automaticDimension
         tableView.estimatedRowHeight = 200
+        NotificationCenter.default.addObserver(self, selector: #selector(retweetStatus(note:)), name: NSNotification.Name(youMengShare), object: nil)
         setUpHeaderView()
         setUpFootView()
         setUpTipLabel()
@@ -129,14 +130,12 @@ extension HotViewController
             for picURL in StatusView.picURLs{
                 group.enter()
                 SDWebImageManager.shared().loadImage(with: picURL, options: [], progress: nil) { (image, _, _, _, _, _) in
-                    print("下载了一张图片")
                     group.leave()
                 }
             }
         }
         group.notify(queue: DispatchQueue.main) {
             self.tableView.reloadData()
-            print("刷新")
             self.tableView.mj_header.endRefreshing()
             self.tableView.mj_footer.endRefreshing()
             //显示提示label
@@ -194,6 +193,13 @@ extension HotViewController
 {
     private func setUpNatifications(){
         NotificationCenter.default.addObserver(self, selector: #selector(showPhotoBrowser(note:)), name: NSNotification.Name(showPhotoBrowserNote), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(goToComment(note:)), name: NSNotification.Name(commentBtnClick), object: nil)
+    }
+    @objc private func goToComment(note : Notification){
+        let viewModel : StatusViewTool = note.object as! StatusViewTool
+        let vc : NewCommentControllViewController = UIStoryboard(name: "NewCommentControllViewController", bundle: nil).instantiateInitialViewController() as! NewCommentControllViewController
+        vc.viewModel = viewModel
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     @objc private func showPhotoBrowser(note : Notification){
         let indexPath : IndexPath = note.userInfo!["indexPath"] as! IndexPath
@@ -207,4 +213,36 @@ extension HotViewController
         photoBrowserAnimator.PhotoBrowserDismissDelegate = photoBrowser
         present(photoBrowser, animated: true, completion: nil)
     }
+    
 }
+//分享
+extension HotViewController
+{
+    @objc private func retweetStatus(note : Notification){
+        let objc : StatusViewTool = note.object as! StatusViewTool
+        shareImageAndTextToPlatformType(platformType: UMSocialPlatformType.sina, viewModel: objc)
+    }
+    
+    func shareImageAndTextToPlatformType(platformType : UMSocialPlatformType,viewModel : StatusViewTool){
+        let messageObject : UMSocialMessageObject = UMSocialMessageObject()
+        messageObject.text = viewModel.status?.text
+        if viewModel.picURLs.count != 0{
+            var images : [UIImage] = []
+            for picURl in viewModel.picURLs{
+                let image : UIImage = SDWebImageManager.shared().imageCache!.imageFromDiskCache(forKey: picURl.absoluteString)!
+                images.append(image)
+            }
+            let shareObject : UMShareImageObject = UMShareImageObject()
+            shareObject.shareImageArray = images
+            messageObject.shareObject = shareObject
+        }
+        UMSocialManager.default()?.share(to: platformType, messageObject: messageObject, currentViewController: self, completion: { (data : Any?, error : Error?) in
+            if error != nil{
+                print("************Share fail with error \(error ?? "" as! Error)*********")
+            }else{
+                print("response data is \(data ?? "")")
+            }
+        })
+    }
+}
+

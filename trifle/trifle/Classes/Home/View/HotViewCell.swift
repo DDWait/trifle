@@ -89,12 +89,20 @@ class HotViewCell: UITableViewCell {
         super.awakeFromNib()
         //设置正文的宽度约束
         contentLabelWCons.constant = UIScreen.main.bounds.width - (2 * edgeMargin)
+        retweetBtn.addTarget(self, action: #selector(retweetStatus), for: .touchUpInside)
+        commentNum.addTarget(self, action: #selector(commentNumClick), for: .touchUpInside)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-
+    
+    @objc private func retweetStatus(){
+        NotificationCenter.default.post(name: NSNotification.Name(youMengShare), object: viewModel)
+    }
+    @objc private func commentNumClick(){
+        NotificationCenter.default.post(name: NSNotification.Name(commentBtnClick), object: viewModel)
+    }
 }
 
 extension HotViewCell

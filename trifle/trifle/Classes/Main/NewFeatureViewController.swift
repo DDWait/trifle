@@ -26,7 +26,8 @@ extension NewFeatureViewController
         let scrollH : CGFloat = scrollView.bounds.height
         for i in 0...3{
             let imageView : UIImageView = UIImageView(frame: CGRect(x: CGFloat(i) * scrollW, y: 0, width: scrollW, height: scrollH))
-            let imageName : String = "guide\(i+1)Background"
+            imageView.contentMode = .scaleAspectFill
+            let imageName : String = "Feature\(i+1)Background"
             imageView.image = UIImage(named: imageName)
             scrollView.addSubview(imageView)
             
@@ -53,7 +54,7 @@ extension NewFeatureViewController
         btn.setBackgroundImage(UIImage(named: "guideStart"), for: .normal)
         btn.frame.size = btn.currentBackgroundImage!.size
         btn.center.x = imageView.frame.size.width * 0.5
-        btn.center.y = imageView.frame.size.height * 0.75
+        btn.center.y = imageView.frame.size.height * 0.85
         btn.addTarget(self, action: #selector(startClick), for: .touchUpInside)
         imageView.addSubview(btn)
     }

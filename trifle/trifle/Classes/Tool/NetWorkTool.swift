@@ -21,8 +21,6 @@ class NetWorkTool: AFHTTPSessionManager {
         //插入"text/html"方式
         tools.responseSerializer.acceptableContentTypes?.insert("text/html")
         //application/json
-//        tools.responseSerializer.acceptableContentTypes?.insert("application/json")
-//        tools.responseSerializer.acceptableContentTypes
         return tools
     }()
 }
@@ -216,21 +214,44 @@ extension NetWorkTool
     }
 }
 
-//extension NetWorkTool
-//{
-//    func zhuce(name : String,pass : String){
-//        //1.请求数据的URL
-//        let urlString = "http://yong.dev.dxdc.net/trifle/reg.php"
-//        let parameters = ["name":"\(name)","pass":"\(pass)"]
-//        request(methodType: .POST, urlString: urlString, parameters: parameters as [String : AnyObject]) { (result, error) in
-//            print("result====\(result)")
-//            if error != nil{
-//                print(error)
-//                return
-//            }
-//            
-//        }
-//    }
-//}
+//发送一条评论
+extension NetWorkTool
+{
+    func sendComment(commentText : String,id : Int,isSuccess : @escaping (_ isSuccess : Bool)->()){
+        //1.请求数据的URL
+        let urlString = "https://api.weibo.com/2/comments/create.json"
+        //2.请求参数
+        let access_token = UserAccountTool.shareInstance.account?.access_token
+//        let comment : String = commentText.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let parameters = ["access_token":access_token,"comment" : commentText,"id" : "\(id)"]
+        request(methodType: .POST, urlString: urlString, parameters: parameters as [String : AnyObject]) { (result, error) in
+            if result != nil{
+                isSuccess(true)
+            }else{
+                isSuccess(false)
+            }
+        }
+    }
+}
+
+//登录注册
+extension NetWorkTool
+{
+    func  zhuce(name : String,pass : String) {
+        //1.请求数据的URL
+        let urlString = "http://yong.dev.dxdc.net/trifle/trifle.php"
+        //2.请求参数
+        let parameters  : [String : AnyObject]  = [:]
+        
+        request(methodType: .POST, urlString: urlString, parameters: parameters) { (result, error) in
+            if error != nil{
+                print(error)
+                return
+            }
+            print(result)
+        }
+    }
+}
+
 
 

@@ -9,16 +9,17 @@
 import UIKit
 import SnapKit
 import Photos
+import SVProgressHUD
 private let photoBrowserCell = "photoBrowserCell"
 //获得APP 的名字
 private let appTitle : String = Bundle.main.infoDictionary![kCFBundleNameKey as String] as! String
 class PhotoBrowserController: UIViewController {
     var indexPath : IndexPath
     var picURLS : [URL]
+    private var isSave : Bool = false
     private lazy var collectionView : UICollectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: PhotoBrowserCollectionViewFlowLayout())
-    private lazy var closeBtn : UIButton = UIButton()
-    private lazy var saveBtn : UIButton = UIButton()
     private var image : UIImage?
+    private var tiplabel : UILabel = UILabel()
     init(indexPath : IndexPath,picURLS : [URL]){
         self.indexPath = indexPath
         self.picURLS = picURLS
@@ -35,6 +36,7 @@ class PhotoBrowserController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setUI()
+        
         collectionView.scrollToItem(at: indexPath, at: UICollectionView.ScrollPosition.left, animated: false)
     }
     
@@ -45,31 +47,20 @@ extension PhotoBrowserController
 {
     private func setUI(){
         view.addSubview(collectionView)
-        view.addSubview(closeBtn)
-        view.addSubview(saveBtn)
-        
-        
+        view.addSubview(tiplabel)
         collectionView.frame = view.bounds
-        closeBtn.snp.makeConstraints { (make) in
-            make.left.equalTo(20)
-            make.bottom.equalTo(-20)
-            make.size.equalTo(CGSize(width: 90, height: 32))
-        }
-        saveBtn.snp.makeConstraints { (make) in
-            make.right.equalTo(-20)
-            make.bottom.equalTo(closeBtn.snp.bottom)
-            make.size.equalTo(closeBtn.snp.size)
-        }
-        closeBtn.backgroundColor = UIColor.darkGray
-        closeBtn.setTitle("关 闭", for: UIControl.State.normal)
-        closeBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        closeBtn.addTarget(self, action: #selector(closeBtnClick), for: .touchUpInside)
-        saveBtn.backgroundColor = UIColor.darkGray
-        saveBtn.setTitle("保 存", for: UIControl.State.normal)
-        saveBtn.titleLabel?.font = UIFont.systemFont(ofSize: 14)
-        saveBtn.addTarget(self, action: #selector(saveBtnClick), for: .touchUpInside)
+        NotificationCenter.default.addObserver(self, selector: #selector(saveBtnClick), name: NSNotification.Name(showchooseBrowse), object: nil)
         collectionView.register(PhotoBrowserCollectionViewCell.self, forCellWithReuseIdentifier: photoBrowserCell)
         collectionView.dataSource = self
+        
+        
+        tiplabel.text = "长按保存"
+        tiplabel.textColor = UIColor.white
+        tiplabel.textAlignment = .center
+        tiplabel.snp.makeConstraints { (make) in
+            make.top.equalTo(0)
+            make.centerX.equalToSuperview()
+        }
     }
 }
 //事件监听
@@ -82,6 +73,9 @@ extension PhotoBrowserController {
         guard let image = cell.imageView.image else {
             return
         }
+        if self.image == image {
+            return
+        }
         self.image = image
         let oldStatus : PHAuthorizationStatus = PHPhotoLibrary.authorizationStatus()
         PHPhotoLibrary.requestAuthorization { (status : PHAuthorizationStatus) in
@@ -89,12 +83,13 @@ extension PhotoBrowserController {
             DispatchQueue.main.async {
                 if status == PHAuthorizationStatus.denied{
                     if oldStatus != PHAuthorizationStatus.notDetermined{
-                        print("提醒用户打开开关")
+                        SVProgressHUD.showError(withStatus: "请打开权限")
                     }
                 }else if status == PHAuthorizationStatus.authorized{
                     self.savePhoto()
+                    SVProgressHUD.showSuccess(withStatus: "保存成功")
                 }else if status == PHAuthorizationStatus.restricted{
-                    print("因为系统原因无法打开相册")
+                    SVProgressHUD.showError(withStatus: "因为系统原因无法打开相册")
                 }
             }
         }
@@ -121,7 +116,6 @@ class PhotoBrowserCollectionViewFlowLayout : UICollectionViewFlowLayout {
         minimumLineSpacing = 0
         minimumInteritemSpacing = 0
         scrollDirection = .horizontal
-        
         collectionView?.isPagingEnabled = true
         collectionView?.showsHorizontalScrollIndicator = false
         collectionView?.showsVerticalScrollIndicator = false

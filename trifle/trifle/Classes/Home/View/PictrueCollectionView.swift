@@ -8,7 +8,7 @@
 
 import UIKit
 import SDWebImage
-
+import FLAnimatedImage
 class PictrueCollectionView: UICollectionView {
     //定义模型数组
     var picURLs : [URL] = [URL](){
@@ -56,13 +56,15 @@ class PictrueViewCell: UICollectionViewCell {
             }
             imageView.contentMode = .scaleAspectFill
             labelView.isHidden = true
+            labelView.text = nil
             let URLString = picURL.absoluteString
-            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: URLString)
-            imageView.image = image
             if (URLString as NSString).lowercased.hasSuffix("gif"){
                 labelView.text = "动图"
                 labelView.isHidden = false
+                
             }
+            let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: URLString)
+            imageView.image = image
         }
     }
 }
@@ -82,10 +84,9 @@ extension PictrueCollectionView : AnimatorPhotoBrowserPresentedDelegate
         let image = SDWebImageManager.shared().imageCache?.imageFromDiskCache(forKey: picURl.absoluteString)
         let width : CGFloat = UIScreen.main.bounds.width
         let height : CGFloat = (width  * image!.size.height) / image!.size.width
-        print(height)
         var y : CGFloat = 0
         if height > UIScreen.main.bounds.height{
-            y = 0
+            y = 20
         }else{
             y = (UIScreen.main.bounds.height - height) * 0.5
         }
@@ -105,18 +106,5 @@ extension PictrueCollectionView : AnimatorPhotoBrowserPresentedDelegate
     
     
 }
-
-//extension PictrueViewCell
-//{
-//    ///长图处理
-//    private func fitImage(image : UIImage){
-//        let imageW : CGFloat = UIScreen.main.bounds.width * 0.5
-//        let imageH : CGFloat = imageW * image.size.height / image.size.width
-//        UIGraphicsBeginImageContext(CGSize(width: imageW, height: imageH))
-//        imageView.image!.draw(in: CGRect(x: 0, y: 0, width: imageW, height: imageH))
-//        imageView.image = UIGraphicsGetImageFromCurrentImageContext()
-//        UIGraphicsEndImageContext()
-//    }
-//}
 
 

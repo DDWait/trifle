@@ -12,7 +12,7 @@ class LoginView: UIView {
     @IBOutlet weak var filetext1: UITextField!
     @IBOutlet weak var filetext2: UITextField!
     @IBAction func login() {
-//        NetWorkTool.shareInstance.zhuce(name: filetext1.text!, pass: filetext2.text!)
+        NetWorkTool.shareInstance.zhuce(name: filetext1.text!, pass: filetext2.text!)
     }
     //登录
     class func LoginView()->LoginView{

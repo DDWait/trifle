@@ -25,7 +25,17 @@ class NewCommentControllViewController: UIViewController {
         textView.becomeFirstResponder()
     }
     @IBAction func keyBtnclick(_ sender: UIButton) {
-        print("keyBtnclick")
+        let text = textView.getEmoticonString()
+        NetWorkTool.shareInstance.sendComment(commentText: text, id: (viewModel?.status?.mid)!) { (flag) in
+            if flag{
+                print("sendComment成功")
+            }else{
+                print("sendComment失败")
+            }
+            self.textView.resignFirstResponder()
+            self.BViewBottomCon.constant = -44
+            self.tableView.mj_header.beginRefreshing()
+        }
     }
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var BViewBottomCon: NSLayoutConstraint!
@@ -79,16 +89,23 @@ extension NewCommentControllViewController : UITableViewDelegate,UITableViewData
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         if section == 1 {
             if CommentViews.count == 0{
-                let headerLabel = UILabel(frame: CGRect(x: 15, y: 0, width: UIScreen.main.bounds.width, height: 50))
-                headerLabel.backgroundColor = UIColor.red
+                let headerView : UIView = UIView(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 60))
+                let headerLabel = UILabel(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 20))
                 headerLabel.text = "暂无评论"
                 headerLabel.textColor = UIColor.black
                 headerLabel.font = UIFont.systemFont(ofSize: 17)
                 headerLabel.textAlignment = .center
-                return headerLabel
+                let headerBtn : UIButton = UIButton(type: .custom)
+                headerBtn.setTitleColor(UIColor.black, for: .normal)
+                headerBtn.frame = CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width, height: 30)
+                headerBtn.titleLabel?.font = UIFont.systemFont(ofSize: 15)
+                headerBtn.setTitle("点击添加评论", for: .normal)
+                headerBtn.addTarget(self, action: #selector(headerBtnClick), for: .touchUpInside)
+                headerView.addSubview(headerBtn)
+                headerView.addSubview(headerLabel)
+                return headerView
             }else{
                 let headerLabel = UILabel(frame: CGRect(x: 15, y: 0, width: UIScreen.main.bounds.width, height: 30))
-                headerLabel.backgroundColor = UIColor.red
                 headerLabel.text = "全部评论"
                 headerLabel.textColor = UIColor.lightGray
                 headerLabel.font = UIFont.systemFont(ofSize: 17)
@@ -97,6 +114,15 @@ extension NewCommentControllViewController : UITableViewDelegate,UITableViewData
             }
         }
         return nil
+    }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        if section == 1 {
+            return 60
+        }
+        return 30
+    }
+    @objc private func headerBtnClick(){
+        textView.becomeFirstResponder()
     }
     private func setUpHeaderView(){
         let header = MJRefreshNormalHeader(refreshingTarget: self, refreshingAction: #selector(loadNewDate))
@@ -111,11 +137,9 @@ extension NewCommentControllViewController : UITableViewDelegate,UITableViewData
     }
     @objc private func loadNewDate(){
         loadStatus(isNewDate: true)
-        print("loadNewDate")
     }
     @objc private func loadMoreStatuses(){
         loadStatus(isNewDate: false)
-        print("loadMoreStatuses")
     }
     private func loadStatus(isNewDate : Bool){
         //获取since_id
